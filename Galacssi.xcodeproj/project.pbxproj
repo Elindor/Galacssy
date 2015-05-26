@@ -64,6 +64,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0677F3971B14FB8D00A9C10A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0677F3951B14FB6600A9C10A /* banheiro.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		44F68D971B138AD70032B700 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				44F68DAA1B13CA6B0032B700 /* barraDeVidaMapa.png */,
+				44F68DAB1B13CA6B0032B700 /* mapa.png */,
+				44F68DA81B139FC70032B700 /* fumaca.png */,
+				44F68DA61B139EBB0032B700 /* btnPredio.png */,
+				44F68DA41B139C8E0032B700 /* btnFloresta.png */,
+				44F68DA21B13975F0032B700 /* btnSitio.png */,
+				0677F39E1B14FEFC00A9C10A /* casa_placeholder.png */,
+				0677F3A01B14FF0300A9C10A /* banheiro.jpg */,
+				44F68DA01B1395020032B700 /* btnIndustria.png */,
+				44F68D9C1B1390970032B700 /* btnArvore.png */,
+				44F68D9A1B138D900032B700 /* btnCasa.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		C08773A91B0E522800B4F5BF = {
 			isa = PBXGroup;
 			children = (
@@ -85,15 +111,25 @@
 		C08773B41B0E522800B4F5BF /* Galacssi */ = {
 			isa = PBXGroup;
 			children = (
+				44F68D971B138AD70032B700 /* Images */,
 				C08773B71B0E522800B4F5BF /* AppDelegate.swift */,
 				C08773B91B0E522800B4F5BF /* GameScene.sks */,
 				C08773BB1B0E522800B4F5BF /* GameScene.swift */,
+				0677F3811B14F03600A9C10A /* CasaScene.swift */,
+				0677F3931B14FAE500A9C10A /* BanheiroItem.swift */,
+				0677F3831B14F08F00A9C10A /* FazendinhaScene.swift */,
+				0677F3851B14F0BA00A9C10A /* ArvoreScene.swift */,
+				0677F3871B14F13800A9C10A /* CidadeScene.swift */,
+				0677F3891B14F15D00A9C10A /* IndustriaScene.swift */,
+				0677F38B1B14F18600A9C10A /* FlorestaScene.swift */,
 				C08773BD1B0E522800B4F5BF /* GameViewController.swift */,
 				C08773BF1B0E522800B4F5BF /* Main.storyboard */,
 				C08773DB1B0E5AAD00B4F5BF /* Save.swift */,
 				C01F79B21B13ABCB00F6FB78 /* SaveHandler.swift */,
 				C08773C21B0E522800B4F5BF /* Images.xcassets */,
 				C08773C41B0E522800B4F5BF /* LaunchScreen.xib */,
+				0677F39C1B14FDCC00A9C10A /* GameStateDelegate.swift */,
+				0677F3971B14FB8D00A9C10A /* Resources */,
 				C08773B51B0E522800B4F5BF /* Supporting Files */,
 			);
 			path = Galacssi;
@@ -205,9 +241,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				C08773C61B0E522800B4F5BF /* LaunchScreen.xib in Resources */,
+				0677F39F1B14FEFC00A9C10A /* casa_placeholder.png in Resources */,
+				44F68DA51B139C8E0032B700 /* btnFloresta.png in Resources */,
+				0677F3A11B14FF0300A9C10A /* banheiro.jpg in Resources */,
+				44F68DAC1B13CA6B0032B700 /* barraDeVidaMapa.png in Resources */,
 				C08773C31B0E522800B4F5BF /* Images.xcassets in Resources */,
+				44F68DA11B1395020032B700 /* btnIndustria.png in Resources */,
+				44F68DAD1B13CA6B0032B700 /* mapa.png in Resources */,
 				C08773BA1B0E522800B4F5BF /* GameScene.sks in Resources */,
+				44F68D9D1B1390970032B700 /* btnArvore.png in Resources */,
+				44F68D9B1B138D900032B700 /* btnCasa.png in Resources */,
 				C08773C11B0E522800B4F5BF /* Main.storyboard in Resources */,
+				0677F3961B14FB6600A9C10A /* banheiro.plist in Resources */,
+				44F68DA31B13975F0032B700 /* btnSitio.png in Resources */,
+				44F68DA91B139FC70032B700 /* fumaca.png in Resources */,
+				44F68DA71B139EBB0032B700 /* btnPredio.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +275,8 @@
 			files = (
 				C08773DC1B0E5AAD00B4F5BF /* Save.swift in Sources */,
 				C08773BC1B0E522800B4F5BF /* GameScene.swift in Sources */,
+				0677F38C1B14F18600A9C10A /* FlorestaScene.swift in Sources */,
+				0677F3941B14FAE500A9C10A /* BanheiroItem.swift in Sources */,
 				C08773BE1B0E522800B4F5BF /* GameViewController.swift in Sources */,
 				C01F79B31B13ABCB00F6FB78 /* SaveHandler.swift in Sources */,
 				C08773B81B0E522800B4F5BF /* AppDelegate.swift in Sources */,
@@ -358,6 +408,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Galacssi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -368,6 +419,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Galacssi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
