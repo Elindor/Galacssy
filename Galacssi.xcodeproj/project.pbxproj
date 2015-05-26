@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C01F79B31B13ABCB00F6FB78 /* SaveHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01F79B21B13ABCB00F6FB78 /* SaveHandler.swift */; };
 		C08773B81B0E522800B4F5BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08773B71B0E522800B4F5BF /* AppDelegate.swift */; };
 		C08773BA1B0E522800B4F5BF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C08773B91B0E522800B4F5BF /* GameScene.sks */; };
 		C08773BC1B0E522800B4F5BF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08773BB1B0E522800B4F5BF /* GameScene.swift */; };
@@ -15,6 +16,7 @@
 		C08773C31B0E522800B4F5BF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C08773C21B0E522800B4F5BF /* Images.xcassets */; };
 		C08773C61B0E522800B4F5BF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C08773C41B0E522800B4F5BF /* LaunchScreen.xib */; };
 		C08773D21B0E522800B4F5BF /* GalacssiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08773D11B0E522800B4F5BF /* GalacssiTests.swift */; };
+		C08773DC1B0E5AAD00B4F5BF /* Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08773DB1B0E5AAD00B4F5BF /* Save.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C01F79B21B13ABCB00F6FB78 /* SaveHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveHandler.swift; sourceTree = "<group>"; };
 		C08773B21B0E522800B4F5BF /* Galacssi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Galacssi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08773B61B0E522800B4F5BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C08773B71B0E522800B4F5BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 		C08773CB1B0E522800B4F5BF /* GalacssiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GalacssiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08773D01B0E522800B4F5BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C08773D11B0E522800B4F5BF /* GalacssiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalacssiTests.swift; sourceTree = "<group>"; };
+		C08773DB1B0E5AAD00B4F5BF /* Save.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Save.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				C08773BB1B0E522800B4F5BF /* GameScene.swift */,
 				C08773BD1B0E522800B4F5BF /* GameViewController.swift */,
 				C08773BF1B0E522800B4F5BF /* Main.storyboard */,
+				C08773DB1B0E5AAD00B4F5BF /* Save.swift */,
+				C01F79B21B13ABCB00F6FB78 /* SaveHandler.swift */,
 				C08773C21B0E522800B4F5BF /* Images.xcassets */,
 				C08773C41B0E522800B4F5BF /* LaunchScreen.xib */,
 				C08773B51B0E522800B4F5BF /* Supporting Files */,
@@ -219,8 +225,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C08773DC1B0E5AAD00B4F5BF /* Save.swift in Sources */,
 				C08773BC1B0E522800B4F5BF /* GameScene.swift in Sources */,
 				C08773BE1B0E522800B4F5BF /* GameViewController.swift in Sources */,
+				C01F79B31B13ABCB00F6FB78 /* SaveHandler.swift in Sources */,
 				C08773B81B0E522800B4F5BF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +427,7 @@
 				C08773D71B0E522800B4F5BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C08773D81B0E522800B4F5BF /* Build configuration list for PBXNativeTarget "GalacssiTests" */ = {
 			isa = XCConfigurationList;
@@ -427,6 +436,7 @@
 				C08773DA1B0E522800B4F5BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
