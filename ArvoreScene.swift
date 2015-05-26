@@ -14,6 +14,14 @@ class ArvoreScene : SKScene {
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        
+        self.backgroundColor = SKColor.whiteColor()
+        let textoCasaDaArvore = SKLabelNode(fontNamed:"Arial")
+        textoCasaDaArvore.text = "A casa da árvore está em construção!"
+        textoCasaDaArvore.fontColor = SKColor.blackColor()
+        textoCasaDaArvore.fontSize = 55
+        textoCasaDaArvore.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        self.addChild(textoCasaDaArvore)
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent){

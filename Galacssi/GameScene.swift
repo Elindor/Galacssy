@@ -168,10 +168,11 @@ class GameScene: SKScene {
     //CHAMA CENARIO
     func callScene(touchLocation: CGPoint){
         
+        let transition = SKTransition()
+        
         if (btnHouse.containsPoint(touchLocation)){
             println("Chama Cena Casa")
             let cenarioCasa = CasaScene(size: self.size)
-            let transition = SKTransition()
             cenarioCasa.scaleMode = SKSceneScaleMode.AspectFill
             self.scene!.view?.presentScene(cenarioCasa, transition: transition)
         }
@@ -179,25 +180,36 @@ class GameScene: SKScene {
         if (btnFarm.containsPoint(touchLocation)){
             println("Chama Cena Fazenda")
             let cenarioFazenda = FazendinhaScene(size: self.size)
-            let transition = SKTransition()
             cenarioFazenda.scaleMode = SKSceneScaleMode.AspectFill
             self.scene!.view?.presentScene(cenarioFazenda, transition: transition)
         }
         
         if (btnFactory.containsPoint(touchLocation)){
             println("Chama Cena Fabrica")
+            let cenarioFabrica = IndustriaScene(size: self.size)
+            cenarioFabrica.scaleMode = SKSceneScaleMode.AspectFill
+            self.scene!.view?.presentScene(cenarioFabrica, transition: transition)
         }
         
         if (btnBuilding.containsPoint(touchLocation)){
             println("Chama Cena Predio")
+            let cenarioPredio = CidadeScene(size: self.size)
+            cenarioPredio.scaleMode = SKSceneScaleMode.AspectFill
+            self.scene!.view?.presentScene(cenarioPredio, transition: transition)
         }
         
         if (btnSafeHouse.containsPoint(touchLocation)){
             println("Chama Cena Casa da Arvore")
+            let cenarioCasaDaArvore = ArvoreScene(size: self.size)
+            cenarioCasaDaArvore.scaleMode = SKSceneScaleMode.AspectFill
+            self.scene!.view?.presentScene(cenarioCasaDaArvore, transition: transition)
         }
         
         if (btnForest.containsPoint(touchLocation)){
             println("Chama Cena Floresta")
+            let cenarioFloresta = FlorestaScene(size: self.size)
+            cenarioFloresta.scaleMode = SKSceneScaleMode.AspectFill
+            self.scene!.view?.presentScene(cenarioFloresta, transition: transition)
         }
     }
 }
