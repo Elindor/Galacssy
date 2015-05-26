@@ -15,6 +15,7 @@ class ArvoreScene : SKScene {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
+        /* texto reponsável em exibir que o cenário da casa esta em construção. */
         self.backgroundColor = SKColor.whiteColor()
         let textoCasaDaArvore = SKLabelNode(fontNamed:"Arial")
         textoCasaDaArvore.text = "A casa da árvore está em construção!"

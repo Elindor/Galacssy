@@ -21,7 +21,15 @@ class FazendinhaScene : SKScene {
         textoFazendinha.fontColor = SKColor.blackColor()
         textoFazendinha.fontSize = 55
         textoFazendinha.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        
+        let imagemFazenda = SKSpriteNode(imageNamed: "teste.png")
+        imagemFazenda.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        imagemFazenda.zPosition = 5
+        imagemFazenda.setScale(0.5)
+        self.addChild(imagemFazenda)
         self.addChild(textoFazendinha)
+        
+        
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent){
