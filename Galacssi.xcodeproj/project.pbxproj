@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		067482D51B13992800300EE6 /* CasaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067482D41B13992800300EE6 /* CasaScene.swift */; };
+		067482D71B13999600300EE6 /* ArvoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067482D61B13999600300EE6 /* ArvoreScene.swift */; };
+		067482D91B139A5A00300EE6 /* CidadeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067482D81B139A5A00300EE6 /* CidadeScene.swift */; };
+		067482DB1B139AB100300EE6 /* FazendinhaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067482DA1B139AB100300EE6 /* FazendinhaScene.swift */; };
+		067482DD1B139B1600300EE6 /* IndustriaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067482DC1B139B1600300EE6 /* IndustriaScene.swift */; };
+		067482DF1B139DD300300EE6 /* FlorestaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067482DE1B139DD300300EE6 /* FlorestaScene.swift */; };
+		067482E11B14EA5600300EE6 /* construcao.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 067482E01B14EA5600300EE6 /* construcao.jpg */; };
 		C08773B81B0E522800B4F5BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08773B71B0E522800B4F5BF /* AppDelegate.swift */; };
 		C08773BA1B0E522800B4F5BF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C08773B91B0E522800B4F5BF /* GameScene.sks */; };
 		C08773BC1B0E522800B4F5BF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08773BB1B0E522800B4F5BF /* GameScene.swift */; };
@@ -28,6 +35,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		067482D41B13992800300EE6 /* CasaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CasaScene.swift; path = ../CasaScene.swift; sourceTree = "<group>"; };
+		067482D61B13999600300EE6 /* ArvoreScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArvoreScene.swift; sourceTree = "<group>"; };
+		067482D81B139A5A00300EE6 /* CidadeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidadeScene.swift; sourceTree = "<group>"; };
+		067482DA1B139AB100300EE6 /* FazendinhaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FazendinhaScene.swift; sourceTree = "<group>"; };
+		067482DC1B139B1600300EE6 /* IndustriaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndustriaScene.swift; sourceTree = "<group>"; };
+		067482DE1B139DD300300EE6 /* FlorestaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlorestaScene.swift; sourceTree = "<group>"; };
+		067482E01B14EA5600300EE6 /* construcao.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = construcao.jpg; path = "../../../Downloads/Construction-machinery-2/construcao.jpg"; sourceTree = "<group>"; };
 		C08773B21B0E522800B4F5BF /* Galacssi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Galacssi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08773B61B0E522800B4F5BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C08773B71B0E522800B4F5BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,8 +98,15 @@
 				C08773B71B0E522800B4F5BF /* AppDelegate.swift */,
 				C08773B91B0E522800B4F5BF /* GameScene.sks */,
 				C08773BB1B0E522800B4F5BF /* GameScene.swift */,
+				067482D61B13999600300EE6 /* ArvoreScene.swift */,
+				067482D41B13992800300EE6 /* CasaScene.swift */,
+				067482D81B139A5A00300EE6 /* CidadeScene.swift */,
+				067482DA1B139AB100300EE6 /* FazendinhaScene.swift */,
+				067482DC1B139B1600300EE6 /* IndustriaScene.swift */,
+				067482DE1B139DD300300EE6 /* FlorestaScene.swift */,
 				C08773BD1B0E522800B4F5BF /* GameViewController.swift */,
 				C08773BF1B0E522800B4F5BF /* Main.storyboard */,
+				067482E01B14EA5600300EE6 /* construcao.jpg */,
 				C08773C21B0E522800B4F5BF /* Images.xcassets */,
 				C08773C41B0E522800B4F5BF /* LaunchScreen.xib */,
 				C08773B51B0E522800B4F5BF /* Supporting Files */,
@@ -201,6 +222,7 @@
 				C08773C61B0E522800B4F5BF /* LaunchScreen.xib in Resources */,
 				C08773C31B0E522800B4F5BF /* Images.xcassets in Resources */,
 				C08773BA1B0E522800B4F5BF /* GameScene.sks in Resources */,
+				067482E11B14EA5600300EE6 /* construcao.jpg in Resources */,
 				C08773C11B0E522800B4F5BF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,8 +241,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				067482DD1B139B1600300EE6 /* IndustriaScene.swift in Sources */,
+				067482D71B13999600300EE6 /* ArvoreScene.swift in Sources */,
+				067482D51B13992800300EE6 /* CasaScene.swift in Sources */,
+				067482DF1B139DD300300EE6 /* FlorestaScene.swift in Sources */,
+				067482D91B139A5A00300EE6 /* CidadeScene.swift in Sources */,
 				C08773BC1B0E522800B4F5BF /* GameScene.swift in Sources */,
 				C08773BE1B0E522800B4F5BF /* GameViewController.swift in Sources */,
+				067482DB1B139AB100300EE6 /* FazendinhaScene.swift in Sources */,
 				C08773B81B0E522800B4F5BF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,6 +378,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Galacssi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -360,6 +389,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Galacssi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -419,6 +449,7 @@
 				C08773D71B0E522800B4F5BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C08773D81B0E522800B4F5BF /* Build configuration list for PBXNativeTarget "GalacssiTests" */ = {
 			isa = XCConfigurationList;
@@ -427,6 +458,7 @@
 				C08773DA1B0E522800B4F5BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
