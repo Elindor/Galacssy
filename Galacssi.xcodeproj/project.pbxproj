@@ -7,13 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		067482D51B13992800300EE6 /* CasaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067482D41B13992800300EE6 /* CasaScene.swift */; };
-		067482D71B13999600300EE6 /* ArvoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067482D61B13999600300EE6 /* ArvoreScene.swift */; };
-		067482D91B139A5A00300EE6 /* CidadeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067482D81B139A5A00300EE6 /* CidadeScene.swift */; };
-		067482DB1B139AB100300EE6 /* FazendinhaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067482DA1B139AB100300EE6 /* FazendinhaScene.swift */; };
-		067482DD1B139B1600300EE6 /* IndustriaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067482DC1B139B1600300EE6 /* IndustriaScene.swift */; };
-		067482DF1B139DD300300EE6 /* FlorestaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067482DE1B139DD300300EE6 /* FlorestaScene.swift */; };
-		067482E11B14EA5600300EE6 /* construcao.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 067482E01B14EA5600300EE6 /* construcao.jpg */; };
+		0677F3821B14F03600A9C10A /* CasaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677F3811B14F03600A9C10A /* CasaScene.swift */; };
+		0677F3841B14F08F00A9C10A /* FazendinhaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677F3831B14F08F00A9C10A /* FazendinhaScene.swift */; };
+		0677F3861B14F0BA00A9C10A /* ArvoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677F3851B14F0BA00A9C10A /* ArvoreScene.swift */; };
+		0677F3881B14F13800A9C10A /* CidadeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677F3871B14F13800A9C10A /* CidadeScene.swift */; };
+		0677F38A1B14F15D00A9C10A /* IndustriaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677F3891B14F15D00A9C10A /* IndustriaScene.swift */; };
+		0677F38C1B14F18600A9C10A /* FlorestaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677F38B1B14F18600A9C10A /* FlorestaScene.swift */; };
+		44F68D9B1B138D900032B700 /* btnCasa.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68D9A1B138D900032B700 /* btnCasa.png */; };
+		44F68D9D1B1390970032B700 /* btnArvore.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68D9C1B1390970032B700 /* btnArvore.png */; };
+		44F68DA11B1395020032B700 /* btnIndustria.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DA01B1395020032B700 /* btnIndustria.png */; };
+		44F68DA31B13975F0032B700 /* btnSitio.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DA21B13975F0032B700 /* btnSitio.png */; };
+		44F68DA51B139C8E0032B700 /* btnFloresta.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DA41B139C8E0032B700 /* btnFloresta.png */; };
+		44F68DA71B139EBB0032B700 /* btnPredio.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DA61B139EBB0032B700 /* btnPredio.png */; };
+		44F68DA91B139FC70032B700 /* fumaca.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DA81B139FC70032B700 /* fumaca.png */; };
+		44F68DAC1B13CA6B0032B700 /* barraDeVidaMapa.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DAA1B13CA6B0032B700 /* barraDeVidaMapa.png */; };
+		44F68DAD1B13CA6B0032B700 /* mapa.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DAB1B13CA6B0032B700 /* mapa.png */; };
 		C08773B81B0E522800B4F5BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08773B71B0E522800B4F5BF /* AppDelegate.swift */; };
 		C08773BA1B0E522800B4F5BF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C08773B91B0E522800B4F5BF /* GameScene.sks */; };
 		C08773BC1B0E522800B4F5BF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08773BB1B0E522800B4F5BF /* GameScene.swift */; };
@@ -35,13 +43,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		067482D41B13992800300EE6 /* CasaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CasaScene.swift; path = ../CasaScene.swift; sourceTree = "<group>"; };
-		067482D61B13999600300EE6 /* ArvoreScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArvoreScene.swift; sourceTree = "<group>"; };
-		067482D81B139A5A00300EE6 /* CidadeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidadeScene.swift; sourceTree = "<group>"; };
-		067482DA1B139AB100300EE6 /* FazendinhaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FazendinhaScene.swift; sourceTree = "<group>"; };
-		067482DC1B139B1600300EE6 /* IndustriaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndustriaScene.swift; sourceTree = "<group>"; };
-		067482DE1B139DD300300EE6 /* FlorestaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlorestaScene.swift; sourceTree = "<group>"; };
-		067482E01B14EA5600300EE6 /* construcao.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = construcao.jpg; path = "../../../Downloads/Construction-machinery-2/construcao.jpg"; sourceTree = "<group>"; };
+		0677F3811B14F03600A9C10A /* CasaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CasaScene.swift; path = ../CasaScene.swift; sourceTree = "<group>"; };
+		0677F3831B14F08F00A9C10A /* FazendinhaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FazendinhaScene.swift; path = ../FazendinhaScene.swift; sourceTree = "<group>"; };
+		0677F3851B14F0BA00A9C10A /* ArvoreScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArvoreScene.swift; path = ../ArvoreScene.swift; sourceTree = "<group>"; };
+		0677F3871B14F13800A9C10A /* CidadeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CidadeScene.swift; path = ../CidadeScene.swift; sourceTree = "<group>"; };
+		0677F3891B14F15D00A9C10A /* IndustriaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IndustriaScene.swift; path = ../IndustriaScene.swift; sourceTree = "<group>"; };
+		0677F38B1B14F18600A9C10A /* FlorestaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlorestaScene.swift; path = ../FlorestaScene.swift; sourceTree = "<group>"; };
+		44F68D9A1B138D900032B700 /* btnCasa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnCasa.png; sourceTree = "<group>"; };
+		44F68D9C1B1390970032B700 /* btnArvore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnArvore.png; sourceTree = "<group>"; };
+		44F68DA01B1395020032B700 /* btnIndustria.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnIndustria.png; sourceTree = "<group>"; };
+		44F68DA21B13975F0032B700 /* btnSitio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnSitio.png; sourceTree = "<group>"; };
+		44F68DA41B139C8E0032B700 /* btnFloresta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnFloresta.png; sourceTree = "<group>"; };
+		44F68DA61B139EBB0032B700 /* btnPredio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnPredio.png; sourceTree = "<group>"; };
+		44F68DA81B139FC70032B700 /* fumaca.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fumaca.png; sourceTree = "<group>"; };
+		44F68DAA1B13CA6B0032B700 /* barraDeVidaMapa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barraDeVidaMapa.png; sourceTree = "<group>"; };
+		44F68DAB1B13CA6B0032B700 /* mapa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapa.png; sourceTree = "<group>"; };
 		C08773B21B0E522800B4F5BF /* Galacssi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Galacssi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08773B61B0E522800B4F5BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C08773B71B0E522800B4F5BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,15 +131,14 @@
 				C08773B71B0E522800B4F5BF /* AppDelegate.swift */,
 				C08773B91B0E522800B4F5BF /* GameScene.sks */,
 				C08773BB1B0E522800B4F5BF /* GameScene.swift */,
-				067482D61B13999600300EE6 /* ArvoreScene.swift */,
-				067482D41B13992800300EE6 /* CasaScene.swift */,
-				067482D81B139A5A00300EE6 /* CidadeScene.swift */,
-				067482DA1B139AB100300EE6 /* FazendinhaScene.swift */,
-				067482DC1B139B1600300EE6 /* IndustriaScene.swift */,
-				067482DE1B139DD300300EE6 /* FlorestaScene.swift */,
+				0677F3811B14F03600A9C10A /* CasaScene.swift */,
+				0677F3831B14F08F00A9C10A /* FazendinhaScene.swift */,
+				0677F3851B14F0BA00A9C10A /* ArvoreScene.swift */,
+				0677F3871B14F13800A9C10A /* CidadeScene.swift */,
+				0677F3891B14F15D00A9C10A /* IndustriaScene.swift */,
+				0677F38B1B14F18600A9C10A /* FlorestaScene.swift */,
 				C08773BD1B0E522800B4F5BF /* GameViewController.swift */,
 				C08773BF1B0E522800B4F5BF /* Main.storyboard */,
-				067482E01B14EA5600300EE6 /* construcao.jpg */,
 				C08773C21B0E522800B4F5BF /* Images.xcassets */,
 				C08773C41B0E522800B4F5BF /* LaunchScreen.xib */,
 				C08773B51B0E522800B4F5BF /* Supporting Files */,
@@ -243,7 +258,8 @@
 				44F68DA11B1395020032B700 /* btnIndustria.png in Resources */,
 				44F68DAD1B13CA6B0032B700 /* mapa.png in Resources */,
 				C08773BA1B0E522800B4F5BF /* GameScene.sks in Resources */,
-				067482E11B14EA5600300EE6 /* construcao.jpg in Resources */,
+				44F68D9D1B1390970032B700 /* btnArvore.png in Resources */,
+				44F68D9B1B138D900032B700 /* btnCasa.png in Resources */,
 				C08773C11B0E522800B4F5BF /* Main.storyboard in Resources */,
 				44F68DA31B13975F0032B700 /* btnSitio.png in Resources */,
 				44F68DA91B139FC70032B700 /* fumaca.png in Resources */,
@@ -265,14 +281,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				067482DD1B139B1600300EE6 /* IndustriaScene.swift in Sources */,
-				067482D71B13999600300EE6 /* ArvoreScene.swift in Sources */,
-				067482D51B13992800300EE6 /* CasaScene.swift in Sources */,
-				067482DF1B139DD300300EE6 /* FlorestaScene.swift in Sources */,
-				067482D91B139A5A00300EE6 /* CidadeScene.swift in Sources */,
+				0677F38A1B14F15D00A9C10A /* IndustriaScene.swift in Sources */,
+				0677F3821B14F03600A9C10A /* CasaScene.swift in Sources */,
 				C08773BC1B0E522800B4F5BF /* GameScene.swift in Sources */,
+				0677F38C1B14F18600A9C10A /* FlorestaScene.swift in Sources */,
 				C08773BE1B0E522800B4F5BF /* GameViewController.swift in Sources */,
-				067482DB1B139AB100300EE6 /* FazendinhaScene.swift in Sources */,
+				0677F3881B14F13800A9C10A /* CidadeScene.swift in Sources */,
+				0677F3861B14F0BA00A9C10A /* ArvoreScene.swift in Sources */,
+				0677F3841B14F08F00A9C10A /* FazendinhaScene.swift in Sources */,
 				C08773B81B0E522800B4F5BF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

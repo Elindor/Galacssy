@@ -2,7 +2,7 @@
 //  IndustriaScene.swift
 //  Galacssi
 //
-//  Created by Gabriela  Gomes Pires on 25/05/15.
+//  Created by Gabriela  Gomes Pires on 26/05/15.
 //  Copyright (c) 2015 Gabriel Nopper. All rights reserved.
 //
 
@@ -32,4 +32,3 @@ class IndustriaScene : SKScene {
         /* Called before each frame is rendered */
     }
 }
-

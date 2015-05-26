@@ -8,6 +8,7 @@
 
 import SpriteKit
 
+
 class GameScene: SKScene {
     
     //MAPA PRINCIPAL
@@ -31,11 +32,6 @@ class GameScene: SKScene {
     
     
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKSpriteNode(imageNamed: "teste.ai")
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
-        myLabel.setScale(0.6)
-       
         
         //MAPA
         background.position = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/2)
@@ -49,26 +45,31 @@ class GameScene: SKScene {
         btnHouse.xScale = 0.5
         btnHouse.yScale = 0.5
         btnHouse.zPosition = layerObject1
+        btnHouse.name = "botaoCasa"
         
         btnFactory.position = CGPoint(x: 780, y: 180)
         btnFactory.xScale = 0.5
         btnFactory.yScale = 0.5
         btnFactory.zPosition = layerObject1
+        btnFactory.name = "botaoIndustria"
         
         btnFarm.position = CGPoint(x: 863, y: 664)
         btnFarm.xScale = 0.5
         btnFarm.yScale = 0.5
         btnFarm.zPosition = layerObject1
+        btnFarm.name = "botaoFazenda"
         
         btnForest.position = CGPoint(x: 120, y: 690)
         btnForest.xScale = 0.5
         btnForest.yScale = 0.5
         btnForest.zPosition = layerObject1
+        btnForest.name = "botaoFloresta"
         
         btnBuilding.position = CGPoint(x: self.frame.size.width/2+15, y: 470)
         btnBuilding.xScale = 0.5
         btnBuilding.yScale = 0.5
         btnBuilding.zPosition = layerObject1
+        btnBuilding.name = "botaoPredio"
         
         //OBJETOS ANIMADOS
         smoke1.position = CGPoint(x: 767, y: 230)
@@ -111,6 +112,12 @@ class GameScene: SKScene {
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
+        
+        let touch = touches.first as! UITouch
+        let touchLocation = touch.locationInNode(self)
+        
+        callScene(touchLocation)
+
     }
    
     override func update(currentTime: CFTimeInterval) {
@@ -163,10 +170,18 @@ class GameScene: SKScene {
         
         if (btnHouse.containsPoint(touchLocation)){
             println("Chama Cena Casa")
+            let cenarioCasa = CasaScene(size: self.size)
+            let transition = SKTransition()
+            cenarioCasa.scaleMode = SKSceneScaleMode.AspectFill
+            self.scene!.view?.presentScene(cenarioCasa, transition: transition)
         }
         
         if (btnFarm.containsPoint(touchLocation)){
             println("Chama Cena Fazenda")
+            let cenarioFazenda = FazendinhaScene(size: self.size)
+            let transition = SKTransition()
+            cenarioFazenda.scaleMode = SKSceneScaleMode.AspectFill
+            self.scene!.view?.presentScene(cenarioFazenda, transition: transition)
         }
         
         if (btnFactory.containsPoint(touchLocation)){
