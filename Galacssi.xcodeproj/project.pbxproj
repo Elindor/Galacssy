@@ -67,7 +67,7 @@
 		0677F3971B14FB8D00A9C10A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0677F3951B14FB6600A9C10A /* banheiro.plist */,
+				0677F3A61B150D8000A9C10A /* banheiro.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -75,14 +75,14 @@
 		44F68D971B138AD70032B700 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0677F3A41B150D2800A9C10A /* casa_placeholder.png */,
+				0677F3A21B150CD800A9C10A /* banheiro.jpg */,
 				44F68DAA1B13CA6B0032B700 /* barraDeVidaMapa.png */,
 				44F68DAB1B13CA6B0032B700 /* mapa.png */,
 				44F68DA81B139FC70032B700 /* fumaca.png */,
 				44F68DA61B139EBB0032B700 /* btnPredio.png */,
 				44F68DA41B139C8E0032B700 /* btnFloresta.png */,
 				44F68DA21B13975F0032B700 /* btnSitio.png */,
-				0677F39E1B14FEFC00A9C10A /* casa_placeholder.png */,
-				0677F3A01B14FF0300A9C10A /* banheiro.jpg */,
 				44F68DA01B1395020032B700 /* btnIndustria.png */,
 				44F68D9C1B1390970032B700 /* btnArvore.png */,
 				44F68D9A1B138D900032B700 /* btnCasa.png */,
@@ -240,10 +240,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0677F3A71B150D8000A9C10A /* banheiro.plist in Resources */,
 				C08773C61B0E522800B4F5BF /* LaunchScreen.xib in Resources */,
-				0677F39F1B14FEFC00A9C10A /* casa_placeholder.png in Resources */,
+				0677F3A51B150D2800A9C10A /* casa_placeholder.png in Resources */,
 				44F68DA51B139C8E0032B700 /* btnFloresta.png in Resources */,
-				0677F3A11B14FF0300A9C10A /* banheiro.jpg in Resources */,
+				0677F3A31B150CD800A9C10A /* banheiro.jpg in Resources */,
 				44F68DAC1B13CA6B0032B700 /* barraDeVidaMapa.png in Resources */,
 				C08773C31B0E522800B4F5BF /* Images.xcassets in Resources */,
 				44F68DA11B1395020032B700 /* btnIndustria.png in Resources */,
@@ -252,7 +253,6 @@
 				44F68D9D1B1390970032B700 /* btnArvore.png in Resources */,
 				44F68D9B1B138D900032B700 /* btnCasa.png in Resources */,
 				C08773C11B0E522800B4F5BF /* Main.storyboard in Resources */,
-				0677F3961B14FB6600A9C10A /* banheiro.plist in Resources */,
 				44F68DA31B13975F0032B700 /* btnSitio.png in Resources */,
 				44F68DA91B139FC70032B700 /* fumaca.png in Resources */,
 				44F68DA71B139EBB0032B700 /* btnPredio.png in Resources */,
