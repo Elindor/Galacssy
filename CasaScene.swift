@@ -94,18 +94,18 @@ class CasaScene: SKScene, GameStateDelegate {
             banheiro.zPosition = CGFloat(1);
             background.zPosition = CGFloat(0);
             erroLabel.zPosition = CGFloat(1);
-            self.onRoom = true
+            if(acertos == erros){
+                self.onRoom = true
+            }
         }
         
-        else if(popup.containsPoint(touchLocation) && self.onRoom){
-            println("Chama Cena da Casa")
-            
-                banheiro.zPosition = CGFloat(0);
-                background.zPosition = CGFloat(1);
-                erroLabel.zPosition = CGFloat(0);
-                popup.zPosition = CGFloat(0);
-                textoFinal.zPosition = CGFloat(0);
-                self.onRoom = false
+        else if(banheiro.containsPoint(touchLocation) || popup.containsPoint(touchLocation) && self.onRoom){
+            banheiro.zPosition = CGFloat(0);
+            background.zPosition = CGFloat(1);
+            erroLabel.zPosition = CGFloat(0);
+            popup.zPosition = CGFloat(0);
+            textoFinal.zPosition = CGFloat(0);
+            self.onRoom = false
         }
     }
     
@@ -147,7 +147,7 @@ class CasaScene: SKScene, GameStateDelegate {
     ////////////////////////////// trocar
     
     func gameStateDelegateIncrement() {
-        acertos++
+            acertos++
         erroLabel.text = String(format: "%i/%i", acertos, erros)
         if(acertos == erros){
             popup.zPosition = CGFloat(2)

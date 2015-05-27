@@ -80,14 +80,12 @@ class BanheiroItem : SKNode {
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         
-        if isError {
+        if (isError) {
             gameStateDelegate.gameStateDelegateIncrement()
             tile.color = SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3)
             NSLog("%@", type)
             isError = false
         }
-        
     }
-    
 }
 
