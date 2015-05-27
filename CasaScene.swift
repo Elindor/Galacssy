@@ -21,7 +21,7 @@ class CasaScene: SKScene, GameStateDelegate {
     var popup = SKSpriteNode()
     
     var banheiroItems = [BanheiroItem]()
-    var banheiroItemConfigurations = [String: [String: NSNumber]]()
+    var banheiroItemConfigurations = [String: [String: String]]()
     
     var erroLabel = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
     let textoFinal = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
@@ -119,13 +119,13 @@ class CasaScene: SKScene, GameStateDelegate {
             gameData = NSDictionary(contentsOfFile: path)
         }
         
-        banheiroItemConfigurations = gameData!["banheiroItemConfigurations"] as! [String: [String: NSNumber]]
+        banheiroItemConfigurations = gameData!["banheiroItemConfigurations"] as! [String: [String: String]]
         //erros = gameData!["erros"] as! Int
         erroLabel.text = String(format: "%i/%i", acertos, erros)
         var banheiroItemDataSet = gameData!["banheiroItemData"] as! [[String: AnyObject]]
         for banheiroItemData in banheiroItemDataSet {
             var itemType = banheiroItemData["type"] as AnyObject? as! String
-            var banheiroItemConfiguration = banheiroItemConfigurations[itemType] as [String: NSNumber]!
+            var banheiroItemConfiguration = banheiroItemConfigurations[itemType] as [String: String]!
             var banheiroItem = BanheiroItem(banheiroItemData: banheiroItemData, banheiroItemConfiguration: banheiroItemConfiguration, gameStateDelegate: self)
             var relativeX = banheiroItemData["x"] as AnyObject? as! Float
             var relativeY = banheiroItemData["y"] as AnyObject? as! Float

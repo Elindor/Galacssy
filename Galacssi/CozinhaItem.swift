@@ -16,7 +16,7 @@ class CozinhaItem : SKNode {
     
     private var gameStateDelegate : GameStateDelegate
     
-    init(cozinhaItemData: [String: AnyObject], cozinhaItemConfiguration: [String: NSNumber], gameStateDelegate: GameStateDelegate, error: Bool) {
+    init(cozinhaItemData: [String: AnyObject], cozinhaItemConfiguration: [String: String], gameStateDelegate: GameStateDelegate, error: Bool) {
         
         isError = error
         
@@ -25,12 +25,20 @@ class CozinhaItem : SKNode {
         
         //if type == "luz" {
         if (isError) {
-            tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(140, 140))
+            tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(75, 75))
         } else {
-            tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(140, 140))
+            tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(75, 75))
         }
         
         if type == "geladeira" {
+            
+            if isError {
+                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(200, 500))
+            } else {
+                tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(200, 500))
+            }
+            
+        } else if type == "torneira" {
             
             if isError {
                 tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(75, 100))
@@ -38,20 +46,12 @@ class CozinhaItem : SKNode {
                 tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(75, 100))
             }
             
-        } else if type == "torneira" {
-            
-            if isError {
-                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(75, 75))
-            } else {
-                tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(75, 75))
-            }
-            
         }  else if type == "microondas" {
             
             if isError {
-                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(75, 75))
+                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(100, 100))
             } else {
-                tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(75, 75))
+                tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(100, 100))
             }
             
         }
