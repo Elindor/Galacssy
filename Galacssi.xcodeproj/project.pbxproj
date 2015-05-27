@@ -28,12 +28,6 @@
 		44F68DA91B139FC70032B700 /* fumaca.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DA81B139FC70032B700 /* fumaca.png */; };
 		44F68DAC1B13CA6B0032B700 /* barraDeVidaMapa.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DAA1B13CA6B0032B700 /* barraDeVidaMapa.png */; };
 		44F68DAD1B13CA6B0032B700 /* mapa.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DAB1B13CA6B0032B700 /* mapa.png */; };
-		74A89D431B150F0D00581271 /* ArvoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677F3851B14F0BA00A9C10A /* ArvoreScene.swift */; };
-		74A89D441B150F1300581271 /* GameStateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677F39C1B14FDCC00A9C10A /* GameStateDelegate.swift */; };
-		74A89D451B150F1B00581271 /* IndustriaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677F3891B14F15D00A9C10A /* IndustriaScene.swift */; };
-		74A89D461B150F1D00581271 /* CidadeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677F3871B14F13800A9C10A /* CidadeScene.swift */; };
-		74A89D471B150F2100581271 /* FazendinhaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677F3831B14F08F00A9C10A /* FazendinhaScene.swift */; };
-		74A89D481B150F2E00581271 /* CasaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677F3811B14F03600A9C10A /* CasaScene.swift */; };
 		74A89D501B151C6B00581271 /* sala.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74A89D4D1B151C6B00581271 /* sala.plist */; };
 		74A89D511B151C6B00581271 /* quarto.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74A89D4E1B151C6B00581271 /* quarto.plist */; };
 		74A89D521B151C6B00581271 /* cozinha.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74A89D4F1B151C6B00581271 /* cozinha.plist */; };
@@ -359,10 +353,7 @@
 				C08773BE1B0E522800B4F5BF /* GameViewController.swift in Sources */,
 				C01F79B31B13ABCB00F6FB78 /* SaveHandler.swift in Sources */,
 				C08773B81B0E522800B4F5BF /* AppDelegate.swift in Sources */,
-				74A89D481B150F2E00581271 /* CasaScene.swift in Sources */,
-				74A89D471B150F2100581271 /* FazendinhaScene.swift in Sources */,
 				74A89D561B151CA600581271 /* QuartoItem.swift in Sources */,
-				74A89D441B150F1300581271 /* GameStateDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
