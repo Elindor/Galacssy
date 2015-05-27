@@ -8,12 +8,22 @@
 	<dict>
 		<key>chuveiro</key>
 		<dict/>
+		<key>Sabia que um banho gasta 135 litros de agua? Isso é quase o que um peixe de aquario precisa pra viver!</key>
+		<string></string>
 		<key>pia</key>
-		<dict/>
+		<dict>
+			<key>Você sabia que em um dia, uma goteira perde 46 litros de água? Isso é o que você bebe em 23 dias!!</key>
+			<string></string>
+		</dict>
 		<key>vaso</key>
 		<dict/>
 		<key>luz</key>
-		<dict/>
+		<dict>
+			<key>Uma lampada comum acesa por um mes, consome o mesmo que uma geladeira.</key>
+			<string></string>
+			<key>Você precisa queimar uma arvore inteira para manter uma lampada acesa por 3 meses.</key>
+			<string></string>
+		</dict>
 	</dict>
 	<key>banheiroItemData</key>
 	<array>
