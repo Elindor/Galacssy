@@ -16,7 +16,7 @@ class BanheiroItem : SKNode {
     
     private var gameStateDelegate : GameStateDelegate
     
-    init(banheiroItemData: [String: AnyObject], banheiroItemConfiguration: [String: NSNumber], gameStateDelegate: GameStateDelegate) {
+    init(banheiroItemData: [String: AnyObject], banheiroItemConfiguration: [String: String], gameStateDelegate: GameStateDelegate) {
         
         let diceRoll = Int(arc4random_uniform(2))
         
