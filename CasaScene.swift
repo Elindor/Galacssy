@@ -61,7 +61,7 @@ class CasaScene: SKScene, GameStateDelegate {
         quartoButton = SKSpriteNode(imageNamed: "banheiro.jpg")
         quartoButton.size.height = 260
         quartoButton.size.width = 380
-        quartoButton.alpha = 0.7
+        quartoButton.alpha = 0
         quartoButton.position = CGPoint(x: 360, y: 415)
         quartoButton.zPosition = camadaButtons
         addChild(quartoButton)
@@ -69,7 +69,7 @@ class CasaScene: SKScene, GameStateDelegate {
         banheiroButton = SKSpriteNode(imageNamed: "banheiro.jpg")
         banheiroButton.size.height = 260
         banheiroButton.size.width = 290
-        banheiroButton.alpha = 0.5
+        banheiroButton.alpha = 0
         //        banheiroButton.position = CGPoint(x: 512, y: 368)
         banheiroButton.position = CGPoint(x: 700, y: 415)
         banheiroButton.zPosition = camadaButtons
@@ -79,7 +79,7 @@ class CasaScene: SKScene, GameStateDelegate {
         salaButton = SKSpriteNode(imageNamed: "banheiro.jpg")
         salaButton.size.height = 250
         salaButton.size.width = 310
-        salaButton.alpha = 0.8
+        salaButton.alpha = 0
         salaButton.position = CGPoint(x: 325, y: 135)
         salaButton.zPosition = camadaButtons
         addChild(salaButton)
@@ -87,7 +87,7 @@ class CasaScene: SKScene, GameStateDelegate {
         cozinhaButton = SKSpriteNode(imageNamed: "banheiro.jpg")
         cozinhaButton.size.height = 255
         cozinhaButton.size.width = 355
-        cozinhaButton.alpha = 0.8
+        cozinhaButton.alpha = 0
         cozinhaButton.position = CGPoint(x: 665, y: 135)
         cozinhaButton.zPosition = camadaButtons
         addChild(cozinhaButton)
@@ -158,6 +158,9 @@ class CasaScene: SKScene, GameStateDelegate {
             banheiro.zPosition = camadaAmbiente
             erroLabel.zPosition = camadaPontos
             
+            if(acertos == erros){
+                self.onRoom = true
+            }
         }
         
 //        if (background.containsPoint(touchLocation) && !self.onRoom){
@@ -166,23 +169,30 @@ class CasaScene: SKScene, GameStateDelegate {
 //            background.zPosition = CGFloat(0);
 //            erroLabel.zPosition = CGFloat(1);
 //            self.onRoom = true
+//        if (background.containsPoint(touchLocation) && !self.onRoom){
+//            println("Chama Cena Banheiro")
+//            banheiro.zPosition = CGFloat(1);
+//            background.zPosition = CGFloat(0);
+//            erroLabel.zPosition = CGFloat(1);
+//            self.onRoom = true
 //        }
 //        
-        else if(popup.containsPoint(touchLocation) && self.onRoom && isFinish){
+        else if(banheiro.containsPoint(touchLocation) || popup.containsPoint(touchLocation) && self.onRoom && isFinish){
             println("Chama Cena da Casa")
                 hideAll()
                 background.zPosition = camadaMenu
-            
         }
+        
+        
     }
     
     func hideAll(){
-        banheiro.zPosition = camadaHide;
         
-//        background.zPosition = CGFloat(1);
+        banheiro.zPosition = camadaHide
         erroLabel.zPosition = camadaHide
         popup.zPosition = camadaHide;
         textoFinal.zPosition = camadaHide
+        estaNoComodo = comodo.nenhum
         
         for itens in banheiroItems{
             var temp: SKNode = itens
@@ -239,21 +249,22 @@ class CasaScene: SKScene, GameStateDelegate {
         }
         
         switch estaNoComodo{
-            case comodo.banheiro:
-                ativaBanheiro(gameData)
-                break
-            case comodo.cozinha:
-//                ativaBanheiro(gameData)
-                break
-            case comodo.cozinha:
-//                ativaBanheiro(gameData)
-                break
-            case comodo.cozinha:
-//                ativaBanheiro(gameData)
-                break
-            default:
-                break
+        case comodo.banheiro:
+            ativaBanheiro(gameData)
+            break
+        case comodo.cozinha:
+            //                ativaBanheiro(gameData)
+            break
+        case comodo.cozinha:
+            //                ativaBanheiro(gameData)
+            break
+        case comodo.cozinha:
+            //                ativaBanheiro(gameData)
+            break
+        default:
+            break
         }
+        
 
     }
     
@@ -291,13 +302,13 @@ class CasaScene: SKScene, GameStateDelegate {
         }
         
         else{
-            banheiroItemConfigurations = gameData!["banheiroItemConfigurations"] as! [String: [String: NSNumber]]
+            banheiroItemConfigurations = gameData!["banheiroItemConfigurations"] as! [String: [String: String]]
             //erros = gameData!["erros"] as! Int
             erroLabel.text = String(format: "%i/%i", acertos, erros)
             var banheiroItemDataSet = gameData!["banheiroItemData"] as! [[String: AnyObject]]
             for banheiroItemData in banheiroItemDataSet {
                 var itemType = banheiroItemData["type"] as AnyObject? as! String
-                var banheiroItemConfiguration = banheiroItemConfigurations[itemType] as [String: NSNumber]!
+                var banheiroItemConfiguration = banheiroItemConfigurations[itemType] as [String: String]!
                 var banheiroItem = BanheiroItem(banheiroItemData: banheiroItemData, banheiroItemConfiguration: banheiroItemConfiguration, gameStateDelegate: self)
                 var relativeX = banheiroItemData["x"] as AnyObject? as! Float
                 var relativeY = banheiroItemData["y"] as AnyObject? as! Float
