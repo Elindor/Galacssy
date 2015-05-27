@@ -12,6 +12,8 @@ import SpriteKit
 
 class ArvoreScene : SKScene {
     
+    let transition = SKTransition()
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
@@ -27,6 +29,13 @@ class ArvoreScene : SKScene {
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent){
         /* Called when a touch begins */
+        let touch = touches.first as! UITouch
+        let touchLocation = touch.locationInNode(self)
+        let cenarioMapa = GameScene(size: self.size)
+        cenarioMapa.scaleMode = SKSceneScaleMode.AspectFill
+        self.scene!.view?.presentScene(cenarioMapa, transition: transition)
+        
+
     }
     
     override func update(currentTime: CFTimeInterval) {

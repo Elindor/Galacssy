@@ -14,14 +14,18 @@ class CasaScene: SKScene, GameStateDelegate {
     
     var erros = 0
     var acertos = 0
+    var onRoom: Bool = false
     
     var banheiro = SKSpriteNode()
     var background = SKSpriteNode()
+    var popup = SKSpriteNode()
     
     var banheiroItems = [BanheiroItem]()
     var banheiroItemConfigurations = [String: [String: NSNumber]]()
     
     var erroLabel = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
+    let textoFinal = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
+    
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -33,6 +37,12 @@ class CasaScene: SKScene, GameStateDelegate {
         //banheiro.position = CGPoint(x: size.width/2, y: size.height/2)
         banheiro.anchorPoint = CGPointZero
         addChild(banheiro)
+        
+        popup = SKSpriteNode(imageNamed: "popup.png")
+        popup.setScale(0.5)
+        popup.zPosition = CGFloat(0)
+        popup.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        addChild(popup)
         
         // Draw background
         background = SKSpriteNode(imageNamed: "casa_placeholder")
@@ -50,6 +60,16 @@ class CasaScene: SKScene, GameStateDelegate {
         erroLabel.fontSize = 50
         banheiro.addChild(erroLabel)
         
+        textoFinal.text = "PARABÉNS"
+        textoFinal.fontColor = SKColor.blackColor()
+        textoFinal.fontSize = 20
+        popup.zPosition = CGFloat(0)
+        textoFinal.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        self.addChild(textoFinal)
+
+        
+        
+        
         loadGameData()
         
     }
@@ -59,7 +79,7 @@ class CasaScene: SKScene, GameStateDelegate {
         let touch = touches.first as! UITouch
         let touchLocation = touch.locationInNode(self)
         
-            callScene(touchLocation)
+        callScene(touchLocation)
         
     }
     
@@ -69,11 +89,23 @@ class CasaScene: SKScene, GameStateDelegate {
     
     func callScene(touchLocation: CGPoint){
         
-        if (banheiro.containsPoint(touchLocation)){
+        if (background.containsPoint(touchLocation) && !self.onRoom){
             println("Chama Cena Banheiro")
             banheiro.zPosition = CGFloat(1);
             background.zPosition = CGFloat(0);
             erroLabel.zPosition = CGFloat(1);
+            self.onRoom = true
+        }
+        
+        else if(popup.containsPoint(touchLocation) && self.onRoom){
+            println("Chama Cena da Casa")
+            
+                banheiro.zPosition = CGFloat(0);
+                background.zPosition = CGFloat(1);
+                erroLabel.zPosition = CGFloat(0);
+                popup.zPosition = CGFloat(0);
+                textoFinal.zPosition = CGFloat(0);
+                self.onRoom = false
         }
     }
     
@@ -117,6 +149,10 @@ class CasaScene: SKScene, GameStateDelegate {
     func gameStateDelegateIncrement() {
         acertos++
         erroLabel.text = String(format: "%i/%i", acertos, erros)
+        if(acertos == erros){
+            popup.zPosition = CGFloat(2)
+            textoFinal.zPosition = CGFloat(3)
+        }
     }
     
     func gameStateDelegateSetError() {
