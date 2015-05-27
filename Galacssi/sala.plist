@@ -5,13 +5,24 @@
 	<key>salaItemConfigurations</key>
 	<dict>
 		<key>televisão</key>
-		<dict/>
+		<dict>
+			<key>Para manter uma televisão ligada por 1 hora por dia, precisamos queimar 8 quilos de carvão por mes.</key>
+			<string></string>
+		</dict>
 		<key>luz</key>
-		<dict/>
+		<dict>
+			<key>Uma lâmpada comum acesa por um mes, consome o mesmo que uma geladeira.</key>
+			<string></string>
+		</dict>
 		<key>video_game</key>
-		<dict/>
+		<dict>
+			<key>1 ano de video game gasta a energia de metade de uma arvore queimada.</key>
+			<string></string>
+		</dict>
 		<key>abajur</key>
 		<dict/>
+		<key>3 horas de lâmpada acesa custam cerca de 1 real</key>
+		<string></string>
 	</dict>
 	<key>salaItemData</key>
 	<array>

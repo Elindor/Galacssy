@@ -19,8 +19,6 @@
 		<dict/>
 		<key>luz</key>
 		<dict>
-			<key>Uma lampada comum acesa por um mes, consome o mesmo que uma geladeira.</key>
-			<string></string>
 			<key>Você precisa queimar uma arvore inteira para manter uma lampada acesa por 3 meses.</key>
 			<string></string>
 		</dict>
