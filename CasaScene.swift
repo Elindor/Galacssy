@@ -48,7 +48,7 @@ class CasaScene: SKScene, GameStateDelegate {
     var popup = SKSpriteNode()
     
     var banheiroItems = [BanheiroItem]()
-    var banheiroItemConfigurations = [String: [String: NSNumber]]()
+    var banheiroItemConfigurations = [String: [String: String]]()
     
     var erroLabel = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
     let textoFinal = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
@@ -267,7 +267,7 @@ class CasaScene: SKScene, GameStateDelegate {
     ////////////////////////////// trocar
     
     func gameStateDelegateIncrement() {
-        acertos++
+            acertos++
         erroLabel.text = String(format: "%i/%i", acertos, erros)
         if(acertos == erros){
             popup.zPosition = camadaFimFase

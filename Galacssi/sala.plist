@@ -5,45 +5,57 @@
 	<key>salaItemConfigurations</key>
 	<dict>
 		<key>televisão</key>
-		<dict/>
+		<dict>
+			<key>Para manter uma televisão ligada por 1 hora por dia, precisamos queimar 8 quilos de carvão por mes.</key>
+			<string></string>
+		</dict>
 		<key>luz</key>
-		<dict/>
+		<dict>
+			<key>Uma lâmpada comum acesa por um mes, consome o mesmo que uma geladeira.</key>
+			<string></string>
+		</dict>
 		<key>video_game</key>
-		<dict/>
+		<dict>
+			<key>1 ano de video game gasta a energia de metade de uma arvore queimada.</key>
+			<string></string>
+		</dict>
 		<key>abajur</key>
-		<dict/>
+		<dict>
+			<key>3 horas de lâmpada acesa custam cerca de 1 real</key>
+			<string></string>
+		</dict>
 	</dict>
 	<key>salaItemData</key>
 	<array>
 		<dict>
 			<key>x</key>
-			<integer>0</integer>
+			<real>0.8</real>
 			<key>y</key>
-			<integer>0</integer>
+			<real>0.5</real>
 			<key>type</key>
 			<string>televisão</string>
 		</dict>
 		<dict>
 			<key>x</key>
-			<integer>0</integer>
+			<real>0.5</real>
 			<key>y</key>
-			<integer>0</integer>
+			<real>0.95</real>
 			<key>type</key>
 			<string>luz</string>
 		</dict>
 		<dict>
 			<key>x</key>
-			<integer>0</integer>
+			<real>0.8</real>
 			<key>y</key>
-			<integer>0</integer>
+			<real>0.2</real>
 			<key>type</key>
 			<string>video_game</string>
 		</dict>
 		<dict>
 			<key>x</key>
-			<integer>0</integer>
+			<real>0.2</real>
 			<key>y</key>
-			<integer>0</integer>
+			<real>0.5</real>
 			<key>type</key>
 			<string>abajur</string>
 		</dict>
