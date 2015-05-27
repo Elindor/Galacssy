@@ -20,9 +20,10 @@
 			<string></string>
 		</dict>
 		<key>abajur</key>
-		<dict/>
-		<key>3 horas de lâmpada acesa custam cerca de 1 real</key>
-		<string></string>
+		<dict>
+			<key>3 horas de lâmpada acesa custam cerca de 1 real</key>
+			<string></string>
+		</dict>
 	</dict>
 	<key>salaItemData</key>
 	<array>
