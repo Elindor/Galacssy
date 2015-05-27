@@ -16,7 +16,7 @@ class CozinhaItem : SKNode {
     
     private var gameStateDelegate : GameStateDelegate
     
-    init(cozinhaItemData: [String: AnyObject], cozinhaItemConfiguration: [String: NSNumber], gameStateDelegate: GameStateDelegate, error: Bool) {
+    init(cozinhaItemData: [String: AnyObject], cozinhaItemConfiguration: [String: String], gameStateDelegate: GameStateDelegate, error: Bool) {
         
         isError = error
         

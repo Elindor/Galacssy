@@ -16,7 +16,7 @@ class SalaItem : SKNode {
     
     private var gameStateDelegate : GameStateDelegate
     
-    init(salaItemData: [String: AnyObject], salaItemConfiguration: [String: NSNumber], gameStateDelegate: GameStateDelegate, error: Bool) {
+    init(salaItemData: [String: AnyObject], salaItemConfiguration: [String: String], gameStateDelegate: GameStateDelegate, error: Bool) {
         
         isError = error
         

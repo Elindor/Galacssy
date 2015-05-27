@@ -16,7 +16,7 @@ class QuartoItem : SKNode {
     
     private var gameStateDelegate : GameStateDelegate
     
-    init(quartoItemData: [String: AnyObject], quartoItemConfiguration: [String: NSNumber], gameStateDelegate: GameStateDelegate, error: Bool) {
+    init(quartoItemData: [String: AnyObject], quartoItemConfiguration: [String: String], gameStateDelegate: GameStateDelegate, error: Bool) {
         
         /*let diceRoll = Int(arc4random_uniform(2))
         
