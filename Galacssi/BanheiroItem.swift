@@ -30,6 +30,8 @@ class BanheiroItem : SKNode {
         self.gameStateDelegate = gameStateDelegate
         type = banheiroItemData["type"] as AnyObject? as! String
         
+        
+        //type vaso
         if (isError) {
             tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(140, 140))
         } else {

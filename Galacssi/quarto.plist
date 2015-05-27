@@ -17,33 +17,33 @@
 	<array>
 		<dict>
 			<key>x</key>
-			<integer>0</integer>
+			<real>0.8</real>
 			<key>y</key>
-			<integer>0</integer>
+			<real>0.5</real>
 			<key>type</key>
 			<string>computador</string>
 		</dict>
 		<dict>
 			<key>x</key>
-			<integer>0</integer>
+			<real>0.5</real>
 			<key>y</key>
-			<integer>0</integer>
+			<real>0.95</real>
 			<key>type</key>
 			<string>luz</string>
 		</dict>
 		<dict>
 			<key>x</key>
-			<integer>0</integer>
+			<real>0.7</real>
 			<key>y</key>
-			<integer>0</integer>
+			<real>0.7</real>
 			<key>type</key>
 			<string>rádio</string>
 		</dict>
 		<dict>
 			<key>x</key>
-			<integer>0</integer>
+			<real>0.3</real>
 			<key>y</key>
-			<integer>0</integer>
+			<real>0.5</real>
 			<key>type</key>
 			<string>abajur</string>
 		</dict>
