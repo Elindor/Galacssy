@@ -28,6 +28,18 @@
 		44F68DA91B139FC70032B700 /* fumaca.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DA81B139FC70032B700 /* fumaca.png */; };
 		44F68DAC1B13CA6B0032B700 /* barraDeVidaMapa.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DAA1B13CA6B0032B700 /* barraDeVidaMapa.png */; };
 		44F68DAD1B13CA6B0032B700 /* mapa.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DAB1B13CA6B0032B700 /* mapa.png */; };
+		74A89D431B150F0D00581271 /* ArvoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677F3851B14F0BA00A9C10A /* ArvoreScene.swift */; };
+		74A89D441B150F1300581271 /* GameStateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677F39C1B14FDCC00A9C10A /* GameStateDelegate.swift */; };
+		74A89D451B150F1B00581271 /* IndustriaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677F3891B14F15D00A9C10A /* IndustriaScene.swift */; };
+		74A89D461B150F1D00581271 /* CidadeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677F3871B14F13800A9C10A /* CidadeScene.swift */; };
+		74A89D471B150F2100581271 /* FazendinhaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677F3831B14F08F00A9C10A /* FazendinhaScene.swift */; };
+		74A89D481B150F2E00581271 /* CasaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677F3811B14F03600A9C10A /* CasaScene.swift */; };
+		74A89D501B151C6B00581271 /* sala.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74A89D4D1B151C6B00581271 /* sala.plist */; };
+		74A89D511B151C6B00581271 /* quarto.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74A89D4E1B151C6B00581271 /* quarto.plist */; };
+		74A89D521B151C6B00581271 /* cozinha.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74A89D4F1B151C6B00581271 /* cozinha.plist */; };
+		74A89D561B151CA600581271 /* QuartoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A89D531B151CA600581271 /* QuartoItem.swift */; };
+		74A89D571B151CA600581271 /* SalaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A89D541B151CA600581271 /* SalaItem.swift */; };
+		74A89D581B151CA600581271 /* CozinhaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A89D551B151CA600581271 /* CozinhaItem.swift */; };
 		C01F79B31B13ABCB00F6FB78 /* SaveHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01F79B21B13ABCB00F6FB78 /* SaveHandler.swift */; };
 		C08773B81B0E522800B4F5BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08773B71B0E522800B4F5BF /* AppDelegate.swift */; };
 		C08773BA1B0E522800B4F5BF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C08773B91B0E522800B4F5BF /* GameScene.sks */; };
@@ -72,6 +84,12 @@
 		44F68DA81B139FC70032B700 /* fumaca.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fumaca.png; sourceTree = "<group>"; };
 		44F68DAA1B13CA6B0032B700 /* barraDeVidaMapa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barraDeVidaMapa.png; sourceTree = "<group>"; };
 		44F68DAB1B13CA6B0032B700 /* mapa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapa.png; sourceTree = "<group>"; };
+		74A89D4D1B151C6B00581271 /* sala.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sala.plist; sourceTree = "<group>"; };
+		74A89D4E1B151C6B00581271 /* quarto.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quarto.plist; sourceTree = "<group>"; };
+		74A89D4F1B151C6B00581271 /* cozinha.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cozinha.plist; sourceTree = "<group>"; };
+		74A89D531B151CA600581271 /* QuartoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartoItem.swift; sourceTree = "<group>"; };
+		74A89D541B151CA600581271 /* SalaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalaItem.swift; sourceTree = "<group>"; };
+		74A89D551B151CA600581271 /* CozinhaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CozinhaItem.swift; sourceTree = "<group>"; };
 		C01F79B21B13ABCB00F6FB78 /* SaveHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveHandler.swift; sourceTree = "<group>"; };
 		C08773B21B0E522800B4F5BF /* Galacssi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Galacssi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08773B61B0E522800B4F5BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -109,6 +127,9 @@
 		0677F3971B14FB8D00A9C10A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				74A89D4D1B151C6B00581271 /* sala.plist */,
+				74A89D4E1B151C6B00581271 /* quarto.plist */,
+				74A89D4F1B151C6B00581271 /* cozinha.plist */,
 				0677F3A61B150D8000A9C10A /* banheiro.plist */,
 			);
 			name = Resources;
@@ -160,6 +181,9 @@
 				C08773BB1B0E522800B4F5BF /* GameScene.swift */,
 				0677F3811B14F03600A9C10A /* CasaScene.swift */,
 				0677F3931B14FAE500A9C10A /* BanheiroItem.swift */,
+				74A89D531B151CA600581271 /* QuartoItem.swift */,
+				74A89D541B151CA600581271 /* SalaItem.swift */,
+				74A89D551B151CA600581271 /* CozinhaItem.swift */,
 				0677F3831B14F08F00A9C10A /* FazendinhaScene.swift */,
 				0677F3851B14F0BA00A9C10A /* ArvoreScene.swift */,
 				0677F3871B14F13800A9C10A /* CidadeScene.swift */,
@@ -285,6 +309,7 @@
 			files = (
 				06C1BD021B1511780012E0A9 /* popup.png in Resources */,
 				0677F3A71B150D8000A9C10A /* banheiro.plist in Resources */,
+				74A89D501B151C6B00581271 /* sala.plist in Resources */,
 				C08773C61B0E522800B4F5BF /* LaunchScreen.xib in Resources */,
 				0677F3A51B150D2800A9C10A /* casa_placeholder.png in Resources */,
 				44F68DA51B139C8E0032B700 /* btnFloresta.png in Resources */,
@@ -295,10 +320,12 @@
 				44F68DAD1B13CA6B0032B700 /* mapa.png in Resources */,
 				C08773BA1B0E522800B4F5BF /* GameScene.sks in Resources */,
 				44F68D9D1B1390970032B700 /* btnArvore.png in Resources */,
+				74A89D511B151C6B00581271 /* quarto.plist in Resources */,
 				44F68D9B1B138D900032B700 /* btnCasa.png in Resources */,
 				C08773C11B0E522800B4F5BF /* Main.storyboard in Resources */,
 				44F68DA31B13975F0032B700 /* btnSitio.png in Resources */,
 				44F68DA91B139FC70032B700 /* fumaca.png in Resources */,
+				74A89D521B151C6B00581271 /* cozinha.plist in Resources */,
 				44F68DA71B139EBB0032B700 /* btnPredio.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,9 +354,15 @@
 				0677F38C1B14F18600A9C10A /* FlorestaScene.swift in Sources */,
 				06C1BCFD1B150F1D0012E0A9 /* ArvoreScene.swift in Sources */,
 				0677F3941B14FAE500A9C10A /* BanheiroItem.swift in Sources */,
+				74A89D581B151CA600581271 /* CozinhaItem.swift in Sources */,
+				74A89D571B151CA600581271 /* SalaItem.swift in Sources */,
 				C08773BE1B0E522800B4F5BF /* GameViewController.swift in Sources */,
 				C01F79B31B13ABCB00F6FB78 /* SaveHandler.swift in Sources */,
 				C08773B81B0E522800B4F5BF /* AppDelegate.swift in Sources */,
+				74A89D481B150F2E00581271 /* CasaScene.swift in Sources */,
+				74A89D471B150F2100581271 /* FazendinhaScene.swift in Sources */,
+				74A89D561B151CA600581271 /* QuartoItem.swift in Sources */,
+				74A89D441B150F1300581271 /* GameStateDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

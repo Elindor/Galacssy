@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>salaItemConfigurations</key>
+	<dict>
+		<key>televisão</key>
+		<dict/>
+		<key>luz</key>
+		<dict/>
+		<key>video_game</key>
+		<dict/>
+		<key>abajur</key>
+		<dict/>
+	</dict>
+	<key>salaItemData</key>
+	<array>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>televisão</string>
+		</dict>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>luz</string>
+		</dict>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>video_game</string>
+		</dict>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>abajur</string>
+		</dict>
+	</array>
+</dict>
+</plist>
