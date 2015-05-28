@@ -8,27 +8,30 @@
 
 import SpriteKit
 
-class BanheiroItem : SKNode {
+class BanheiroItem : SKNode, UIAlertViewDelegate {
     
     let type : String
     var tile : SKSpriteNode
     var isError : Bool
+    var msg : String
     
     private var gameStateDelegate : GameStateDelegate
     
-    init(banheiroItemData: [String: AnyObject], banheiroItemConfiguration: [String: String], gameStateDelegate: GameStateDelegate) {
+    init(banheiroItemData: [String: AnyObject], banheiroItemConfiguration: [String: String], gameStateDelegate: GameStateDelegate, error: Bool) {
         
-        let diceRoll = Int(arc4random_uniform(2))
+        /*let diceRoll = Int(arc4random_uniform(2))
         
         if diceRoll == 0 {
             isError = true
         } else {
             isError = false
-        }
+        }*/
         
+        isError = error
         
         self.gameStateDelegate = gameStateDelegate
         type = banheiroItemData["type"] as AnyObject? as! String
+        msg = banheiroItemConfiguration["msg"] as AnyObject? as! String
         
         
         //type vaso
@@ -86,8 +89,15 @@ class BanheiroItem : SKNode {
             gameStateDelegate.gameStateDelegateIncrement()
             tile.color = SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3)
             NSLog("%@", type)
+            
             isError = false
+            displayAlert(msg)
         }
+    }
+    
+    func displayAlert (msg:String) {
+        let alert = UIAlertView(title: "Você sabia?", message: msg, delegate: self, cancelButtonTitle: "OK")
+        alert.show()
     }
 }
 
