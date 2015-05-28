@@ -353,8 +353,8 @@ class CasaScene: SKScene, GameStateDelegate {
     }
     
     func gameStateDelegateSetError() {
-        //erros++
-        //erroLabel.text = String(format: "%i/%i", acertos, erros)
+        erros++
+//        erroLabel.text = String(format: "%i/%i", acertos, erros)
     }
 
     //ANIMACAO CASA
