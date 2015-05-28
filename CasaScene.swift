@@ -44,6 +44,10 @@ class CasaScene: SKScene, GameStateDelegate {
     
     var estaNoComodo = comodo.nenhum
     
+    //OBJETOS ANIMADOS
+    let nuvem1 = SKSpriteNode(imageNamed: "nuvem1.png")
+    let nuvem2 = SKSpriteNode(imageNamed: "nuvem2.png")
+    let nuvemG1 = SKSpriteNode(imageNamed: "nuvem1.png")
     
     var popup = SKSpriteNode()
     
@@ -70,10 +74,8 @@ class CasaScene: SKScene, GameStateDelegate {
         banheiroButton.size.height = 260
         banheiroButton.size.width = 290
         banheiroButton.alpha = 0
-        //        banheiroButton.position = CGPoint(x: 512, y: 368)
         banheiroButton.position = CGPoint(x: 700, y: 415)
         banheiroButton.zPosition = camadaButtons
-        //        banheiro.anchorPoint = CGPointZero
         addChild(banheiroButton)
         
         salaButton = SKSpriteNode(imageNamed: "banheiro.jpg")
@@ -92,7 +94,22 @@ class CasaScene: SKScene, GameStateDelegate {
         cozinhaButton.zPosition = camadaButtons
         addChild(cozinhaButton)
         
+        //OBJETOS ANIMADOS
+        nuvemG1.position = CGPoint(x: -nuvemG1.size.width, y: 600)
+        nuvemG1.zPosition = camadaMenu
+        addChild(nuvemG1)
         
+        nuvem1.position = CGPoint(x: -nuvem1.size.width, y: 530)
+        nuvem1.xScale = 0.5
+        nuvem1.yScale = 0.5
+        nuvem1.zPosition = camadaMenu
+        addChild(nuvem1)
+        
+        nuvem2.position = CGPoint(x: -nuvem2.size.width, y: 700)
+        nuvem2.xScale = 0.5
+        nuvem2.yScale = 0.5
+        nuvem2.zPosition = camadaMenu
+        addChild(nuvem2)
         
         // Create banheiro
         banheiro = SKSpriteNode(imageNamed: "banheiro.jpg")
@@ -131,7 +148,13 @@ class CasaScene: SKScene, GameStateDelegate {
         textoFinal.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
         self.addChild(textoFinal)
 
-//        loadGameData()
+        // Draw Sky
+        let sky = SKSpriteNode(color: UIColor(red: 0.2, green: 0.5, blue: 0.8, alpha: 1), size: CGSize(width: self.frame.width,height: self.frame.height))
+        sky.anchorPoint = CGPointZero
+        sky.zPosition = camadaMenu
+        addChild(sky)
+        
+        basicAnimations()
         
     }
     
@@ -292,6 +315,46 @@ class CasaScene: SKScene, GameStateDelegate {
         erroLabel.text = String(format: "%i/%i", acertos, erros)
     }
 
+    //ANIMACAO CASA
+    func basicAnimations(){
+        
+        //NUVENS
+        let origin1 = CGPointMake(nuvem1.position.x, nuvem1.position.y)
+        let move1 = CGPointMake(self.frame.size.width+nuvem1.size.width/2, nuvem1.position.y)
+        
+        let origin2 = CGPointMake(nuvem2.position.x, nuvem2.position.y)
+        let move2 = CGPointMake(self.frame.size.width+nuvem2.size.width/2, nuvem2.position.y)
+        
+        let originG1 = CGPointMake(nuvemG1.position.x, nuvemG1.position.y)
+        let moveG1 = CGPointMake(self.frame.size.width+nuvemG1.size.width/2, nuvemG1.position.y)
+        
+        var moveNuvem1 = Array<SKAction>() //Left to Right - Close
+        moveNuvem1.append(SKAction.moveTo(move1, duration: 10))
+        moveNuvem1.append(SKAction.fadeAlphaTo(0, duration: 0.1))
+        moveNuvem1.append(SKAction.moveTo(origin1, duration: 0.1))
+        moveNuvem1.append(SKAction.fadeAlphaTo(1, duration: 0.1))
+        
+        var moveNuvem2 = Array<SKAction>() //Left to Right - Close
+        moveNuvem2.append(SKAction.moveTo(move2, duration: 5))
+        moveNuvem2.append(SKAction.fadeAlphaTo(0, duration: 0.1))
+        moveNuvem2.append(SKAction.moveTo(origin2, duration: 0.1))
+        moveNuvem2.append(SKAction.fadeAlphaTo(1, duration: 0.1))
+        
+        var moveNuvemGrande1 = Array<SKAction>() //Left to Right - Close
+        moveNuvemGrande1.append(SKAction.moveTo(moveG1, duration: 20))
+        moveNuvemGrande1.append(SKAction.fadeAlphaTo(0, duration: 0.1))
+        moveNuvemGrande1.append(SKAction.moveTo(originG1, duration: 0.1))
+        moveNuvemGrande1.append(SKAction.fadeAlphaTo(1, duration: 0.1))
+        
+        nuvem1.runAction(SKAction.repeatActionForever(SKAction.sequence(moveNuvem1)))
+        nuvem2.runAction(SKAction.repeatActionForever(SKAction.sequence(moveNuvem2)))
+        nuvemG1.runAction(SKAction.repeatActionForever(SKAction.sequence(moveNuvemGrande1)))
+        
+    }
+
+    
+    
+    //ATIVA OS CENARIOS
     func ativaBanheiro(gameData: NSDictionary?){
         
         if banheiroItems.count > 0{
