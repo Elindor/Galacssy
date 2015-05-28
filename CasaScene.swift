@@ -193,7 +193,7 @@ class CasaScene: SKScene, GameStateDelegate {
         self.addChild(textoFinal)
 
         // Draw Sky
-        var temp = SKSpriteNode(color: UIColor(red: 0.2, green: 0.5, blue: 0.8, alpha: 1), size: CGSize(width: self.frame.width,height: self.frame.height))
+        var temp = SKSpriteNode(color: UIColor(red: 62.0/255, green: 205.0/255, blue: 1, alpha: 1), size: CGSize(width: self.frame.width,height: self.frame.height))
         sky = temp
         sky.anchorPoint = CGPointZero
         sky.zPosition = camadaMenu
@@ -239,7 +239,7 @@ class CasaScene: SKScene, GameStateDelegate {
             hideAll()
             background.zPosition = camadaMenu
         }
-        else if (voltarButton.containsPoint(touchLocation) && !self.onRoom){
+        else if (voltarButton.containsPoint(touchLocation) || sky.containsPoint(touchLocation) && !self.onRoom){
             println("Chama Mapa")
             let transition = SKTransition()
             let cenarioMapa = GameScene(size: self.size)
@@ -269,6 +269,7 @@ class CasaScene: SKScene, GameStateDelegate {
                 hideAll()
                 background.zPosition = camadaMenu
         }
+
     }
     
     func hideAll(){
