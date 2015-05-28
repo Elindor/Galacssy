@@ -42,6 +42,8 @@ class CasaScene: SKScene, GameStateDelegate {
     var cozinhaButton = SKSpriteNode()
     var background = SKSpriteNode()
     
+    var sky = SKSpriteNode()
+    
     var estaNoComodo = comodo.nenhum
     
     //OBJETOS ANIMADOS
@@ -149,7 +151,8 @@ class CasaScene: SKScene, GameStateDelegate {
         self.addChild(textoFinal)
 
         // Draw Sky
-        let sky = SKSpriteNode(color: UIColor(red: 0.2, green: 0.5, blue: 0.8, alpha: 1), size: CGSize(width: self.frame.width,height: self.frame.height))
+        var temp = SKSpriteNode(color: UIColor(red: 0.2, green: 0.5, blue: 0.8, alpha: 1), size: CGSize(width: self.frame.width,height: self.frame.height))
+        sky = temp
         sky.anchorPoint = CGPointZero
         sky.zPosition = camadaMenu
         addChild(sky)
@@ -172,6 +175,8 @@ class CasaScene: SKScene, GameStateDelegate {
     }
     
     func callScene(touchLocation: CGPoint){
+        
+        println("Camada banheiro: \(banheiro.zPosition)) Camada ceu: \(sky.zPosition)")
         
         if(banheiroButton.containsPoint(touchLocation) && !self.onRoom){
             self.onRoom = true
@@ -200,10 +205,20 @@ class CasaScene: SKScene, GameStateDelegate {
 //            self.onRoom = true
 //        }
 //        
-        else if(banheiro.containsPoint(touchLocation) || popup.containsPoint(touchLocation) && self.onRoom && isFinish){
+//        else if(banheiro.containsPoint(touchLocation) && popup.containsPoint(touchLocation) && self.onRoom && isFinish){
+            
+        else if(banheiro.containsPoint(touchLocation) && self.onRoom){
             println("Chama Cena da Casa")
                 hideAll()
                 background.zPosition = camadaMenu
+        }
+        
+        else if(sky.containsPoint(touchLocation)){
+            println("jjjj")
+            let transition = SKTransition()
+            let cidade = GameScene(size: self.size)
+            cidade.scaleMode = SKSceneScaleMode.AspectFill
+            self.scene!.view?.presentScene(cidade, transition: transition)
         }
         
         
