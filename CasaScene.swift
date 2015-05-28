@@ -36,11 +36,15 @@ class CasaScene: SKScene, GameStateDelegate {
     
     //AMBIENTES
     var banheiro = SKSpriteNode()
+    var sala = SKSpriteNode()
+    var quarto = SKSpriteNode()
+    var cozinha = SKSpriteNode()
     var quartoButton = SKSpriteNode()
     var banheiroButton = SKSpriteNode()
     var salaButton = SKSpriteNode()
     var cozinhaButton = SKSpriteNode()
     var background = SKSpriteNode()
+    var voltarButton = SKSpriteNode()
     
     var estaNoComodo = comodo.nenhum
     
@@ -94,6 +98,14 @@ class CasaScene: SKScene, GameStateDelegate {
         cozinhaButton.zPosition = camadaButtons
         addChild(cozinhaButton)
         
+        voltarButton = SKSpriteNode(imageNamed: "botVoltar.png")
+        voltarButton.setScale(0.5)
+        voltarButton.position = CGPointMake(40,730);
+        voltarButton.zPosition = CGFloat(10)
+        addChild(voltarButton)
+        
+    
+        
         //OBJETOS ANIMADOS
         nuvemG1.position = CGPoint(x: -nuvemG1.size.width, y: 600)
         nuvemG1.zPosition = camadaMenu
@@ -119,6 +131,21 @@ class CasaScene: SKScene, GameStateDelegate {
         banheiro.anchorPoint = CGPointZero
         addChild(banheiro)
         
+        // Create sala
+        sala = SKSpriteNode(imageNamed: "banheiro.jpg")
+        sala.size.height = size.height
+        sala.size.width = size.width
+        sala.anchorPoint = CGPointZero
+        addChild(sala)
+        
+        // Create quarto
+        quarto = SKSpriteNode(imageNamed: "banheiro.jpg")
+        quarto.size.height = size.height
+        quarto.size.width = size.width
+        quarto.anchorPoint = CGPointZero
+        addChild(quarto)
+        
+        // Create popup
         popup = SKSpriteNode(imageNamed: "popup.png")
         popup.setScale(0.5)
         popup.zPosition = camadaHide
@@ -185,6 +212,19 @@ class CasaScene: SKScene, GameStateDelegate {
                 self.onRoom = true
             }
         }
+        else if (voltarButton.containsPoint(touchLocation) && self.onRoom){
+            println("Chama Cena da Casa")
+            hideAll()
+            background.zPosition = camadaMenu
+        }
+        else if (voltarButton.containsPoint(touchLocation) && !self.onRoom){
+            println("Chama Mapa")
+            let transition = SKTransition()
+            let cenarioMapa = GameScene(size: self.size)
+            cenarioMapa.scaleMode = SKSceneScaleMode.AspectFill
+            self.scene!.view?.presentScene(cenarioMapa, transition: transition)
+            
+        }
         
 //        if (background.containsPoint(touchLocation) && !self.onRoom){
 //            println("Chama Cena Banheiro")
@@ -205,8 +245,6 @@ class CasaScene: SKScene, GameStateDelegate {
                 hideAll()
                 background.zPosition = camadaMenu
         }
-        
-        
     }
     
     func hideAll(){
@@ -304,8 +342,9 @@ class CasaScene: SKScene, GameStateDelegate {
             acertos++
         erroLabel.text = String(format: "%i/%i", acertos, erros)
         if(acertos == erros){
+           
             popup.zPosition = camadaFimFase
-            textoFinal.zPosition = camadaFimFase
+            textoFinal.zPosition = camadaFimFase + 1
             self.isFinish = true
         }
     }
