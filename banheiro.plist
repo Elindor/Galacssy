@@ -8,20 +8,23 @@
 	<dict>
 		<key>chuveiro</key>
 		<dict>
-			<key>Sabia que um banho gasta 135 litros de agua? Isso é quase o que um peixe de aquario precisa pra viver!</key>
-			<string></string>
+			<key>msg</key>
+			<string>Sabia que um banho gasta 135 litros de agua? Isso é quase o que um peixe de aquario precisa pra viver!</string>
 		</dict>
 		<key>pia</key>
 		<dict>
-			<key>Você sabia que em um dia, uma goteira perde 46 litros de água? Isso é o que você bebe em 23 dias!!</key>
-			<string></string>
+			<key>msg</key>
+			<string>Você sabia que em um dia, uma goteira perde 46 litros de água? Isso é o que você bebe em 23 dias!!</string>
 		</dict>
 		<key>vaso</key>
-		<dict/>
+		<dict>
+			<key>msg</key>
+			<string>Teste</string>
+		</dict>
 		<key>luz</key>
 		<dict>
-			<key>Você precisa queimar uma arvore inteira para manter uma lampada acesa por 3 meses.</key>
-			<string></string>
+			<key>msg</key>
+			<string>Você precisa queimar uma arvore inteira para manter uma lampada acesa por 3 meses.</string>
 		</dict>
 	</dict>
 	<key>banheiroItemData</key>

@@ -6,23 +6,23 @@
 	<dict>
 		<key>computador</key>
 		<dict>
-			<key>Um computador ligado por 40 dias gasta uma arvore inteira queimada.</key>
-			<string></string>
+			<key>msg</key>
+			<string>Um computador ligado por 40 dias gasta uma arvore inteira queimada.</string>
 		</dict>
 		<key>luz</key>
 		<dict>
-			<key>Lampadas fluorescentes gastam apenas metade das comuns.</key>
-			<string></string>
+			<key>msg</key>
+			<string>Lampadas fluorescentes gastam apenas metade das comuns.</string>
 		</dict>
 		<key>rádio</key>
 		<dict>
-			<key>1 hora de radio gasta o mesmo que 7 horas de uma lampada acesa.</key>
-			<string></string>
+			<key>msg</key>
+			<string>1 hora de radio gasta o mesmo que 7 horas de uma lampada acesa.</string>
 		</dict>
 		<key>abajur</key>
 		<dict>
-			<key>3 horas de lâmpada acesa custam cerca de 1 real</key>
-			<string></string>
+			<key>msg</key>
+			<string>3 horas de lâmpada acesa custam cerca de 1 real</string>
 		</dict>
 	</dict>
 	<key>quartoItemData</key>
