@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		066A2CD01B17918000A40DEC /* salaTeste.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 066A2CCF1B17918000A40DEC /* salaTeste.jpg */; };
+		066A2CD21B179D3200A40DEC /* quartoTeste.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 066A2CD11B179D3200A40DEC /* quartoTeste.jpg */; };
+		066A2CD41B179EB700A40DEC /* cozinhaTeste.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 066A2CD31B179EB700A40DEC /* cozinhaTeste.jpg */; };
 		0677F38C1B14F18600A9C10A /* FlorestaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677F38B1B14F18600A9C10A /* FlorestaScene.swift */; };
 		0677F3941B14FAE500A9C10A /* BanheiroItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677F3931B14FAE500A9C10A /* BanheiroItem.swift */; };
 		0677F3A31B150CD800A9C10A /* banheiro.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0677F3A21B150CD800A9C10A /* banheiro.jpg */; };
@@ -63,6 +65,8 @@
 
 /* Begin PBXFileReference section */
 		066A2CCF1B17918000A40DEC /* salaTeste.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = salaTeste.jpg; sourceTree = "<group>"; };
+		066A2CD11B179D3200A40DEC /* quartoTeste.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = quartoTeste.jpg; sourceTree = "<group>"; };
+		066A2CD31B179EB700A40DEC /* cozinhaTeste.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cozinhaTeste.jpg; sourceTree = "<group>"; };
 		0677F3811B14F03600A9C10A /* CasaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CasaScene.swift; path = ../CasaScene.swift; sourceTree = "<group>"; };
 		0677F3831B14F08F00A9C10A /* FazendinhaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FazendinhaScene.swift; path = ../FazendinhaScene.swift; sourceTree = "<group>"; };
 		0677F3851B14F0BA00A9C10A /* ArvoreScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArvoreScene.swift; path = ../ArvoreScene.swift; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 				06AE40481B1784980072EF47 /* botVoltar.png */,
 				066A2CCF1B17918000A40DEC /* salaTeste.jpg */,
 				44F68DAB1B13CA6B0032B700 /* mapa.png */,
+				066A2CD31B179EB700A40DEC /* cozinhaTeste.jpg */,
+				066A2CD11B179D3200A40DEC /* quartoTeste.jpg */,
 				4460D63E1B166B5F00641E46 /* menuCasa.png */,
 				44F68DA81B139FC70032B700 /* fumaca.png */,
 				444BE5A51B1726C800683BEA /* nuvem1.png */,
@@ -323,6 +329,7 @@
 				C08773C61B0E522800B4F5BF /* LaunchScreen.xib in Resources */,
 				0677F3A51B150D2800A9C10A /* casa_placeholder.png in Resources */,
 				44F68DA51B139C8E0032B700 /* btnFloresta.png in Resources */,
+				066A2CD41B179EB700A40DEC /* cozinhaTeste.jpg in Resources */,
 				0677F3A31B150CD800A9C10A /* banheiro.jpg in Resources */,
 				44F68DAC1B13CA6B0032B700 /* barraDeVidaMapa.png in Resources */,
 				C08773C31B0E522800B4F5BF /* Images.xcassets in Resources */,
@@ -331,6 +338,7 @@
 				44F68DA11B1395020032B700 /* btnIndustria.png in Resources */,
 				44F68DAD1B13CA6B0032B700 /* mapa.png in Resources */,
 				06AE40491B1784980072EF47 /* botVoltar.png in Resources */,
+				066A2CD21B179D3200A40DEC /* quartoTeste.jpg in Resources */,
 				C08773BA1B0E522800B4F5BF /* GameScene.sks in Resources */,
 				44F68D9D1B1390970032B700 /* btnArvore.png in Resources */,
 				74A89D511B151C6B00581271 /* quarto.plist in Resources */,

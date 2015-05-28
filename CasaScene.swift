@@ -138,18 +138,25 @@ class CasaScene: SKScene, GameStateDelegate {
         addChild(banheiro)
         
         // Create sala
-        sala = SKSpriteNode(imageNamed: "banheiro.jpg")
+        sala = SKSpriteNode(imageNamed: "salaTeste.jpg")
         sala.size.height = size.height
         sala.size.width = size.width
         sala.anchorPoint = CGPointZero
         addChild(sala)
         
         // Create quarto
-        quarto = SKSpriteNode(imageNamed: "banheiro.jpg")
+        quarto = SKSpriteNode(imageNamed: "quartoTeste.jpg")
         quarto.size.height = size.height
         quarto.size.width = size.width
         quarto.anchorPoint = CGPointZero
         addChild(quarto)
+        
+        // Create cozinha
+        cozinha = SKSpriteNode(imageNamed: "cozinhaTeste.jpg")
+        cozinha.size.height = size.height
+        cozinha.size.width = size.width
+        cozinha.anchorPoint = CGPointZero
+        addChild(cozinha)
         
         // Create popup
         popup = SKSpriteNode(imageNamed: "popup.png")
@@ -234,9 +241,46 @@ class CasaScene: SKScene, GameStateDelegate {
                 self.onRoom = true
             }
         }
+        else if(salaButton.containsPoint(touchLocation) && !self.onRoom){
+            self.onRoom = true
+            println("Chama Cena Banheiro")
+            loadGameData("sala")
+            sala.zPosition = camadaAmbiente
+            //barra.zPosition = camadaPontos
+            //mask.zPosition = camadaPontosMask
+            
+            if(acertos == erros){
+                self.onRoom = true
+            }
+        }
+        else if(quartoButton.containsPoint(touchLocation) && !self.onRoom){
+            self.onRoom = true
+            println("Chama Cena Banheiro")
+            loadGameData("quarto")
+            quarto.zPosition = camadaAmbiente
+            //barra.zPosition = camadaPontos
+            //mask.zPosition = camadaPontosMask
+            
+            if(acertos == erros){
+                self.onRoom = true
+            }
+        }
+        else if(cozinhaButton.containsPoint(touchLocation) && !self.onRoom){
+            self.onRoom = true
+            println("Chama Cena Banheiro")
+            loadGameData("cozinha")
+            cozinha.zPosition = camadaAmbiente
+            //barra.zPosition = camadaPontos
+            //mask.zPosition = camadaPontosMask
+            
+            if(acertos == erros){
+                self.onRoom = true
+            }
+        }
         else if (voltarButton.containsPoint(touchLocation) && self.onRoom){
             println("Chama Cena da Casa")
             hideAll()
+            self.onRoom = false
             background.zPosition = camadaMenu
         }
         else if (voltarButton.containsPoint(touchLocation) || sky.containsPoint(touchLocation) && !self.onRoom){
@@ -275,6 +319,9 @@ class CasaScene: SKScene, GameStateDelegate {
     func hideAll(){
         
         banheiro.zPosition = camadaHide
+        sala.zPosition = camadaHide
+        quarto.zPosition = camadaHide
+        cozinha.zPosition = camadaHide
         //erroLabel.zPosition = camadaHide
         barra.zPosition = camadaHide
         mask.zPosition = camadaHide
