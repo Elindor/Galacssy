@@ -32,7 +32,8 @@ class CasaScene: SKScene, GameStateDelegate {
     var camadaAmbiente:CGFloat = 3
     var camadaObjects:CGFloat = 4
     var camadaPontos:CGFloat = 5
-    var camadaFimFase:CGFloat = 6
+    var camadaPontosMask:CGFloat = 6
+    var camadaFimFase:CGFloat = 7
     
     //AMBIENTES
     var banheiro = SKSpriteNode()
@@ -46,6 +47,8 @@ class CasaScene: SKScene, GameStateDelegate {
     var background = SKSpriteNode()
     var voltarButton = SKSpriteNode()
     
+    var sky = SKSpriteNode()
+    
     var estaNoComodo = comodo.nenhum
     
     //OBJETOS ANIMADOS
@@ -58,8 +61,11 @@ class CasaScene: SKScene, GameStateDelegate {
     var banheiroItems = [BanheiroItem]()
     var banheiroItemConfigurations = [String: [String: String]]()
     
-    var erroLabel = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
+    //var erroLabel = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
     let textoFinal = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
+    
+    var barra = SKSpriteNode()
+    var mask = SKSpriteNode()
     
     
     override func didMoveToView(view: SKView) {
@@ -160,14 +166,25 @@ class CasaScene: SKScene, GameStateDelegate {
         background.zPosition = camadaMenu
         addChild(background)
         
-        erroLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
+        /*erroLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
         erroLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Top
         erroLabel.position = CGPoint(x: 300, y: size.height - 30)
         erroLabel.color = SKColor(red: 30/255.0, green: 30/255.0, blue: 175/255.0, alpha: 1.0)
         erroLabel.colorBlendFactor = 1.0
         erroLabel.fontSize = 50
-//        banheiro.addChild(erroLabel)
-//        
+//        banheiro.addChild(erroLabel)*/
+        
+        //BARRA DE PROGRESSÃO DO BANHERO
+        barra = SKSpriteNode(imageNamed: "barraDeVidaMapa")
+        barra.size.height = 42
+        barra.size.width = 200
+        barra.position = CGPoint(x: 300, y: size.height - 49)
+        mask = SKSpriteNode(color: UIColor.blueColor(), size: CGSizeMake(5, 17))
+        mask.position = CGPoint(x: 234, y: size.height - 51)
+        //mask.zPosition = cama
+        banheiro.addChild(barra)
+        banheiro.addChild(mask)
+        
         textoFinal.text = "PARABÉNS"
         textoFinal.fontColor = SKColor.blackColor()
         textoFinal.fontSize = 20
@@ -176,7 +193,8 @@ class CasaScene: SKScene, GameStateDelegate {
         self.addChild(textoFinal)
 
         // Draw Sky
-        let sky = SKSpriteNode(color: UIColor(red: 0.2, green: 0.5, blue: 0.8, alpha: 1), size: CGSize(width: self.frame.width,height: self.frame.height))
+        var temp = SKSpriteNode(color: UIColor(red: 0.2, green: 0.5, blue: 0.8, alpha: 1), size: CGSize(width: self.frame.width,height: self.frame.height))
+        sky = temp
         sky.anchorPoint = CGPointZero
         sky.zPosition = camadaMenu
         addChild(sky)
@@ -200,13 +218,17 @@ class CasaScene: SKScene, GameStateDelegate {
     
     func callScene(touchLocation: CGPoint){
         
+        println("Camada banheiro: \(banheiro.zPosition)) Camada ceu: \(sky.zPosition)")
+        
         if(banheiroButton.containsPoint(touchLocation) && !self.onRoom){
             self.onRoom = true
 //            estaNoComodo = true
             println("Chama Cena Banheiro")
             loadGameData("banheiro")
             banheiro.zPosition = camadaAmbiente
-            erroLabel.zPosition = camadaPontos
+            //erroLabel.zPosition = camadaPontos
+            barra.zPosition = camadaPontos
+            mask.zPosition = camadaPontosMask
             
             if(acertos == erros){
                 self.onRoom = true
@@ -240,7 +262,9 @@ class CasaScene: SKScene, GameStateDelegate {
 //            self.onRoom = true
 //        }
 //        
-        else if(banheiro.containsPoint(touchLocation) || popup.containsPoint(touchLocation) && self.onRoom && isFinish){
+//        else if(banheiro.containsPoint(touchLocation) && popup.containsPoint(touchLocation) && self.onRoom && isFinish){
+            
+        else if(banheiro.containsPoint(touchLocation) && self.onRoom){
             println("Chama Cena da Casa")
                 hideAll()
                 background.zPosition = camadaMenu
@@ -250,7 +274,9 @@ class CasaScene: SKScene, GameStateDelegate {
     func hideAll(){
         
         banheiro.zPosition = camadaHide
-        erroLabel.zPosition = camadaHide
+        //erroLabel.zPosition = camadaHide
+        barra.zPosition = camadaHide
+        mask.zPosition = camadaHide
         popup.zPosition = camadaHide;
         textoFinal.zPosition = camadaHide
         estaNoComodo = comodo.nenhum
@@ -276,8 +302,12 @@ class CasaScene: SKScene, GameStateDelegate {
 //        }
         
         if(ambiente == "banheiro"){
-            if erroLabel.parent == nil{
+            /*if erroLabel.parent == nil{
                 banheiro.addChild(erroLabel)
+            }*/
+            if barra.parent == nil{
+                banheiro.addChild(barra)
+                banheiro.addChild(mask)
             }
             plist = "banheiro.plist"
             estaNoComodo = comodo.banheiro
@@ -309,9 +339,11 @@ class CasaScene: SKScene, GameStateDelegate {
             gameData = NSDictionary(contentsOfFile: path)
         }
         
+        let diceRoll = Int(arc4random_uniform(4))+1
+        
         switch estaNoComodo{
         case comodo.banheiro:
-            ativaBanheiro(gameData)
+            ativaBanheiro(gameData, diceRoll: diceRoll)
             break
         case comodo.cozinha:
             //                ativaBanheiro(gameData)
@@ -340,7 +372,9 @@ class CasaScene: SKScene, GameStateDelegate {
     
     func gameStateDelegateIncrement() {
             acertos++
-        erroLabel.text = String(format: "%i/%i", acertos, erros)
+        //erroLabel.text = String(format: "%i/%i", acertos, erros)
+        mask.size.width = mask.size.width + 54
+        mask.position = CGPoint(x: mask.position.x + 27, y: mask.position.y)
         if(acertos == erros){
            
             popup.zPosition = camadaFimFase
@@ -351,7 +385,7 @@ class CasaScene: SKScene, GameStateDelegate {
     
     func gameStateDelegateSetError() {
         erros++
-        erroLabel.text = String(format: "%i/%i", acertos, erros)
+//        erroLabel.text = String(format: "%i/%i", acertos, erros)
     }
 
     //ANIMACAO CASA
@@ -394,7 +428,7 @@ class CasaScene: SKScene, GameStateDelegate {
     
     
     //ATIVA OS CENARIOS
-    func ativaBanheiro(gameData: NSDictionary?){
+    func ativaBanheiro(gameData: NSDictionary?, diceRoll: Int){
         
         if banheiroItems.count > 0{
             for itens in banheiroItems{
@@ -406,12 +440,20 @@ class CasaScene: SKScene, GameStateDelegate {
         else{
             banheiroItemConfigurations = gameData!["banheiroItemConfigurations"] as! [String: [String: String]]
             //erros = gameData!["erros"] as! Int
-            erroLabel.text = String(format: "%i/%i", acertos, erros)
+            //erroLabel.text = String(format: "%i/%i", acertos, erros)
             var banheiroItemDataSet = gameData!["banheiroItemData"] as! [[String: AnyObject]]
+            var auxErrosBanheiro = 0
             for banheiroItemData in banheiroItemDataSet {
+                var isError : Bool
+                auxErrosBanheiro++
+                if auxErrosBanheiro == diceRoll {
+                    isError = false
+                } else {
+                    isError = true
+                }
                 var itemType = banheiroItemData["type"] as AnyObject? as! String
                 var banheiroItemConfiguration = banheiroItemConfigurations[itemType] as [String: String]!
-                var banheiroItem = BanheiroItem(banheiroItemData: banheiroItemData, banheiroItemConfiguration: banheiroItemConfiguration, gameStateDelegate: self)
+                var banheiroItem = BanheiroItem(banheiroItemData: banheiroItemData, banheiroItemConfiguration: banheiroItemConfiguration, gameStateDelegate: self, error: isError)
                 var relativeX = banheiroItemData["x"] as AnyObject? as! Float
                 var relativeY = banheiroItemData["y"] as AnyObject? as! Float
                 //            banheiroItem.position = CGPoint(x: Int(relativeX * Float(size.width) - Float(size.width)/2), y: Int(relativeY * Float(size.height) - Float(size.height)/2))
