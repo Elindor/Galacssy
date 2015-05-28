@@ -152,7 +152,7 @@ class CasaScene: SKScene, GameStateDelegate {
         barra.position = CGPoint(x: 300, y: size.height - 49)
         mask = SKSpriteNode(color: UIColor.blueColor(), size: CGSizeMake(5, 17))
         mask.position = CGPoint(x: 234, y: size.height - 51)
-        mask.zPosition = 2
+        //mask.zPosition = cama
         banheiro.addChild(barra)
         banheiro.addChild(mask)
         
