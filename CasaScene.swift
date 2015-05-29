@@ -293,7 +293,7 @@ class CasaScene: SKScene, GameStateDelegate {
             cozinha.zPosition = camadaAmbiente
         }
         
-        //VERIFICA SAIDA DO AMBIENTE SEM CLICAR NO BOTAO VOLTAR
+        //VERIFICA SAIDA DO AMBIENTE SEM CLICAR NO BOTAO VOLTAR aaa
         else if(banheiro.containsPoint(touchLocation) && self.onRoom){
             println("Chama Cena da Casa")
             callChecks()
