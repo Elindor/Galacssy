@@ -76,7 +76,9 @@ class CasaScene: SKScene, GameStateDelegate {
     
     var banheiroItems = [BanheiroItem]()
     var banheiroItemConfigurations = [String: [String: String]]()
-    
+    var salaItems = [SalaItem]()
+    var salaItemConfigurations = [String: [String: String]]()
+
     //var erroLabel = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
     let textoFinal = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
     
@@ -120,7 +122,7 @@ class CasaScene: SKScene, GameStateDelegate {
         cozinhaButton.zPosition = camadaButtons
         addChild(cozinhaButton)
         
-        voltarButton = SKSpriteNode(imageNamed: "botVoltar.png")
+        voltarButton = SKSpriteNode(imageNamed: "btnVoltar.png")
         voltarButton.setScale(0.5)
         voltarButton.position = CGPointMake(40,730);
         voltarButton.zPosition = CGFloat(10)
@@ -170,7 +172,7 @@ class CasaScene: SKScene, GameStateDelegate {
         addChild(nuvem2)
         
         // Create banheiro
-        banheiro = SKSpriteNode(imageNamed: "banheiro.jpg")
+        banheiro = SKSpriteNode(imageNamed: "Banheiro.png")
         banheiro.size.height = size.height
         banheiro.size.width = size.width
         //banheiro.position = CGPoint(x: size.width/2, y: size.height/2)
@@ -178,7 +180,7 @@ class CasaScene: SKScene, GameStateDelegate {
         addChild(banheiro)
         
         // Create sala
-        sala = SKSpriteNode(imageNamed: "salaTeste.jpg")
+        sala = SKSpriteNode(imageNamed: "Sala.png")
         sala.size.height = size.height
         sala.size.width = size.width
         sala.anchorPoint = CGPointZero
@@ -279,6 +281,8 @@ class CasaScene: SKScene, GameStateDelegate {
             println("Chama Cena Sala")
             loadGameData("sala")
             sala.zPosition = camadaAmbiente
+            barra.zPosition = camadaPontos
+            mask.zPosition = camadaPontosMask
         }
         else if(quartoButton.containsPoint(touchLocation) && !self.onRoom){
             self.onRoom = true
@@ -293,7 +297,7 @@ class CasaScene: SKScene, GameStateDelegate {
             cozinha.zPosition = camadaAmbiente
         }
         
-        //VERIFICA SAIDA DO AMBIENTE SEM CLICAR NO BOTAO VOLTAR aaa
+        //VERIFICA SAIDA DO AMBIENTE SEM CLICAR NO BOTAO VOLTAR
         else if(banheiro.containsPoint(touchLocation) && self.onRoom){
             println("Chama Cena da Casa")
             callChecks()
@@ -341,6 +345,10 @@ class CasaScene: SKScene, GameStateDelegate {
             var temp: SKNode = itens
             temp.removeFromParent()
         }
+        for itens in salaItems{
+            var temp: SKNode = itens
+            temp.removeFromParent()
+        }
         self.onRoom = false
 
     }
@@ -371,12 +379,18 @@ class CasaScene: SKScene, GameStateDelegate {
             
         }
         
-//        if(ambiente == "sala"){
-//            if erroLabel.parent == nil{
-//                banheiro.addChild(erroLabel)
-//            }
-//            plist = "sala.plist"
-//        }
+        
+        if(ambiente == "sala"){
+            //            if erroLabel.parent == nil{
+            //                banheiro.addChild(erroLabel)
+            //            }
+            if barra.parent == nil {
+                sala.addChild(barra)
+                sala.addChild(mask)
+            }
+            plist = "sala.plist"
+            estaNoComodo = comodo.sala
+        }
         
 //        if(ambiente == "cozinha"){
 //            if banheiro.parent == nil{
@@ -402,8 +416,8 @@ class CasaScene: SKScene, GameStateDelegate {
         case comodo.banheiro:
             ativaBanheiro(gameData, diceRoll: diceRoll)
             break
-        case comodo.cozinha:
-            //                ativaBanheiro(gameData)
+        case comodo.sala:
+            ativaSala(gameData, diceRoll: diceRoll)
             break
         case comodo.cozinha:
             //                ativaBanheiro(gameData)
@@ -559,6 +573,45 @@ class CasaScene: SKScene, GameStateDelegate {
         
     }
 
+    func ativaSala(gameData: NSDictionary?, diceRoll: Int){
+        
+        if salaItems.count > 0{
+            for itens in salaItems{
+                var temp: SKNode = itens
+                sala.addChild(temp)
+            }
+        }
+            
+        else{
+            salaItemConfigurations = gameData!["salaItemConfigurations"] as! [String: [String: String]]
+            //erros = gameData!["erros"] as! Int
+            //erroLabel.text = String(format: "%i/%i", acertos, erros)
+            var salaItemDataSet = gameData!["salaItemData"] as! [[String: AnyObject]]
+            var auxErrosSala = 0
+            for salaItemData in salaItemDataSet {
+                var isError : Bool
+                auxErrosSala++
+                if auxErrosSala == diceRoll {
+                    isError = false
+                } else {
+                    isError = true
+                }
+                var itemType = salaItemData["type"] as AnyObject? as! String
+                var salaItemConfiguration = salaItemConfigurations[itemType] as [String: String]!
+                var salaItem = SalaItem(salaItemData: salaItemData, salaItemConfiguration: salaItemConfiguration, gameStateDelegate: self, error: isError)
+                var relativeX = salaItemData["x"] as AnyObject? as! Float
+                var relativeY = salaItemData["y"] as AnyObject? as! Float
+                //            banheiroItem.position = CGPoint(x: Int(relativeX * Float(size.width) - Float(size.width)/2), y: Int(relativeY * Float(size.height) - Float(size.height)/2))
+                salaItem.position = CGPoint(x: Int(relativeX * Float(size.width)), y: Int(relativeY * Float(size.height)))
+                salaItem.zPosition = camadaObjects
+                //                erroLabel.zPosition = camadaPontos
+                sala.addChild(salaItem)
+                salaItems.append(salaItem)
+            }
+        }
+    }
+        
+    
     //VERIFICA SE TERMINOU O AMBIENTE E ATIVA POPUP DE PARABENS
     func callWinner(){
         switch estaNoComodo{

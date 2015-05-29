@@ -31,33 +31,33 @@
 	<array>
 		<dict>
 			<key>x</key>
-			<real>0.875</real>
+			<real>0.86</real>
 			<key>y</key>
-			<real>0.65</real>
+			<real>0.78</real>
 			<key>type</key>
 			<string>chuveiro</string>
 		</dict>
 		<dict>
 			<key>x</key>
-			<real>0.12</real>
+			<real>0.532</real>
 			<key>y</key>
-			<real>0.43</real>
+			<real>0.608</real>
 			<key>type</key>
 			<string>pia</string>
 		</dict>
 		<dict>
 			<key>x</key>
-			<real>0.4</real>
+			<real>0.65</real>
 			<key>y</key>
-			<real>0.21</real>
+			<real>0.8149999999999999</real>
 			<key>type</key>
 			<string>vaso</string>
 		</dict>
 		<dict>
 			<key>x</key>
-			<real>0.5</real>
+			<real>0.415</real>
 			<key>y</key>
-			<real>0.95</real>
+			<real>0.8149999999999999</real>
 			<key>type</key>
 			<string>luz</string>
 		</dict>
