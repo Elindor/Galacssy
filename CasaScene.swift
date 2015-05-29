@@ -59,7 +59,7 @@ class CasaScene: SKScene, GameStateDelegate {
     var voltarButton = SKSpriteNode()
     var sky = SKSpriteNode()
     
-    //CHECKING
+    //CHECKING ddd
     var checkQuarto = SKSpriteNode(imageNamed: "botVoltar.png")
     var checkBanheiro = SKSpriteNode(imageNamed: "botVoltar.png")
     var checkSala = SKSpriteNode(imageNamed: "botVoltar.png")
