@@ -521,6 +521,7 @@ class CasaScene: SKScene, GameStateDelegate {
         
         if banheiroItems.count > 0{
             for itens in banheiroItems{
+                
                 var temp: SKNode = itens
                 banheiro.addChild(temp)
             }
