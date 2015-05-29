@@ -13,6 +13,7 @@ class CozinhaItem : SKNode {
     let type : String
     var tile : SKSpriteNode
     var isError : Bool
+    var msg : String
     
     private var gameStateDelegate : GameStateDelegate
     
@@ -22,6 +23,7 @@ class CozinhaItem : SKNode {
         
         self.gameStateDelegate = gameStateDelegate
         type = cozinhaItemData["type"] as AnyObject? as! String
+        msg = cozinhaItemConfiguration["msg"] as AnyObject? as! String
         
         //if type == "luz" {
         if (isError) {
@@ -79,8 +81,14 @@ class CozinhaItem : SKNode {
             tile.color = SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3)
             NSLog("%@", type)
             isError = false
+            displayAlert(msg)
         }
         
+    }
+    
+    func displayAlert (msg:String) {
+        let alert = UIAlertView(title: "Você sabia?", message: msg, delegate: self, cancelButtonTitle: "OK")
+        alert.show()
     }
     
 }

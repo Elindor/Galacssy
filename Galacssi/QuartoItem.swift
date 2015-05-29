@@ -13,6 +13,7 @@ class QuartoItem : SKNode {
     let type : String
     var tile : SKSpriteNode
     var isError : Bool
+    var msg : String
     
     private var gameStateDelegate : GameStateDelegate
     
@@ -30,6 +31,7 @@ class QuartoItem : SKNode {
         
         self.gameStateDelegate = gameStateDelegate
         type = quartoItemData["type"] as AnyObject? as! String
+        msg = quartoItemConfiguration["msg"] as AnyObject? as! String
         
         //if type == "luz" {
         if (isError) {
@@ -87,8 +89,14 @@ class QuartoItem : SKNode {
             tile.color = SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3)
             NSLog("%@", type)
             isError = false
+            displayAlert(msg)
         }
         
+    }
+    
+    func displayAlert (msg:String) {
+        let alert = UIAlertView(title: "Você sabia?", message: msg, delegate: self, cancelButtonTitle: "OK")
+        alert.show()
     }
 
 }
