@@ -381,9 +381,6 @@ class CasaScene: SKScene, GameStateDelegate {
         
         
         if(ambiente == "sala"){
-            //            if erroLabel.parent == nil{
-            //                banheiro.addChild(erroLabel)
-            //            }
             if barra.parent == nil {
                 sala.addChild(barra)
                 sala.addChild(mask)
@@ -621,7 +618,7 @@ class CasaScene: SKScene, GameStateDelegate {
                 textoFinal.zPosition = camadaFimTexto
             }
             break
-        case comodo.cozinha:
+        case comodo.sala:
             //                ativaBanheiro(gameData)
             break
         case comodo.cozinha:
@@ -641,7 +638,7 @@ class CasaScene: SKScene, GameStateDelegate {
         if(acertosBanheiro == errosBanheiro && acertosBanheiro != 0){
             checkBanheiro.zPosition = camadaButtons
         }
- 
+        
     }
 
 }
