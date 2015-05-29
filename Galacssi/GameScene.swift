@@ -12,8 +12,9 @@ import SpriteKit
 class GameScene: SKScene {
     
     //MAPA PRINCIPAL
-    let background = SKSpriteNode(imageNamed: "mapa.png")
+    let background = SKSpriteNode(imageNamed: "Mapa1.png")
     let lifeCity = SKSpriteNode(imageNamed: "barraDeVidaMapa.png")
+    let predios = SKSpriteNode(imageNamed: "predios.png")
     let smoke1 = SKSpriteNode(imageNamed: "fumaca")
     let smoke2 = SKSpriteNode(imageNamed: "fumaca")
     let btnHouse = SKSpriteNode(imageNamed: "btnCasa.png")
@@ -22,7 +23,7 @@ class GameScene: SKScene {
     let btnFarm = SKSpriteNode(imageNamed: "btnSitio.png")
     let btnForest = SKSpriteNode(imageNamed: "btnFloresta.png")
     let btnBuilding = SKSpriteNode(imageNamed: "btnPredio.png")
-    
+
     //CAMADAS
     let layerBackground:CGFloat = 0
     let layerHud:CGFloat = 99
@@ -39,6 +40,12 @@ class GameScene: SKScene {
         background.yScale = 0.5
         background.zPosition = layerBackground
 //        println("\(self.frame.size.width/2, self.frame.size.height/2)")
+        
+        //Predios
+        predios.position = CGPoint(x: self.frame.size.width/2+20, y: self.frame.size.height/2)
+        predios.setScale(0.5)
+        predios.zPosition = CGFloat(3)
+        predios.name = "predios"
         
         //LOCAIS
         btnHouse.position = CGPoint(x: self.frame.size.width/2+15, y: self.frame.size.height/3.2)
@@ -95,6 +102,7 @@ class GameScene: SKScene {
     
         
         self.addChild(background)
+        self.addChild(predios)
         self.addChild(lifeCity)
         self.addChild(btnHouse)
         self.addChild(btnSafeHouse)

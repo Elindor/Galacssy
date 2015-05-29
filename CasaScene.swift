@@ -407,9 +407,6 @@ class CasaScene: SKScene, GameStateDelegate {
         
         
         if(ambiente == "sala"){
-            //            if erroLabel.parent == nil{
-            //                banheiro.addChild(erroLabel)
-            //            }
             if barra.parent == nil {
                 sala.addChild(barra)
                 sala.addChild(mask)
