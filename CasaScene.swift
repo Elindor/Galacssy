@@ -34,6 +34,7 @@ class CasaScene: SKScene, GameStateDelegate {
     var camadaPontos:CGFloat = 5
     var camadaPontosMask:CGFloat = 6
     var camadaFimFase:CGFloat = 7
+    var camadaFimTexto:CGFloat = 8
     
     //AMBIENTES
     var banheiro = SKSpriteNode()
@@ -46,8 +47,13 @@ class CasaScene: SKScene, GameStateDelegate {
     var cozinhaButton = SKSpriteNode()
     var background = SKSpriteNode()
     var voltarButton = SKSpriteNode()
-    
     var sky = SKSpriteNode()
+    
+    //CHECKING
+    var checkQuarto = SKSpriteNode(imageNamed: "botVoltar.png")
+    var checkBanheiro = SKSpriteNode(imageNamed: "botVoltar.png")
+    var checkSala = SKSpriteNode(imageNamed: "botVoltar.png")
+    var checkCozinha = SKSpriteNode(imageNamed: "botVoltar.png")
     
     var estaNoComodo = comodo.nenhum
     
@@ -110,7 +116,32 @@ class CasaScene: SKScene, GameStateDelegate {
         voltarButton.zPosition = CGFloat(10)
         addChild(voltarButton)
         
-    
+        //Create Checks
+        checkQuarto.position = CGPoint(x: 190, y: 520)
+        checkQuarto.xScale = 0.25
+        checkQuarto.yScale = 0.25
+        checkQuarto.zPosition = camadaHide
+        addChild(checkQuarto)
+        
+        checkBanheiro.position = CGPoint(x: 580, y: 520)
+        checkBanheiro.xScale = 0.25
+        checkBanheiro.yScale = 0.25
+        checkBanheiro.zPosition = camadaHide
+        addChild(checkBanheiro)
+        
+        checkSala.position = CGPoint(x: 190, y: 240)
+        checkSala.xScale = 0.25
+        checkSala.yScale = 0.25
+        checkSala.zPosition = camadaHide
+        addChild(checkSala)
+        
+        checkCozinha.position = CGPoint(x: 505, y: 240)
+        checkCozinha.xScale = 0.25
+        checkCozinha.yScale = 0.25
+        checkCozinha.zPosition = camadaHide
+        addChild(checkCozinha)
+        
+        
         
         //OBJETOS ANIMADOS
         nuvemG1.position = CGPoint(x: -nuvemG1.size.width, y: 600)
@@ -225,25 +256,26 @@ class CasaScene: SKScene, GameStateDelegate {
     
     func callScene(touchLocation: CGPoint){
         
-        println("Camada banheiro: \(banheiro.zPosition)) Camada ceu: \(sky.zPosition)")
+//        println("Camada banheiro: \(banheiro.zPosition)) Camada ceu: \(sky.zPosition)")
         
         if(banheiroButton.containsPoint(touchLocation) && !self.onRoom){
             self.onRoom = true
-//            estaNoComodo = true
             println("Chama Cena Banheiro")
             loadGameData("banheiro")
             banheiro.zPosition = camadaAmbiente
             //erroLabel.zPosition = camadaPontos
             barra.zPosition = camadaPontos
             mask.zPosition = camadaPontosMask
+            checkBanheiro.zPosition = camadaHide
             
             if(acertos == erros){
+                checkBanheiro.zPosition = camadaButtons
                 self.onRoom = true
             }
         }
         else if(salaButton.containsPoint(touchLocation) && !self.onRoom){
             self.onRoom = true
-            println("Chama Cena Banheiro")
+            println("Chama Cena Sala")
             loadGameData("sala")
             sala.zPosition = camadaAmbiente
             //barra.zPosition = camadaPontos
@@ -255,7 +287,7 @@ class CasaScene: SKScene, GameStateDelegate {
         }
         else if(quartoButton.containsPoint(touchLocation) && !self.onRoom){
             self.onRoom = true
-            println("Chama Cena Banheiro")
+            println("Chama Cena Quarto")
             loadGameData("quarto")
             quarto.zPosition = camadaAmbiente
             //barra.zPosition = camadaPontos
@@ -267,21 +299,31 @@ class CasaScene: SKScene, GameStateDelegate {
         }
         else if(cozinhaButton.containsPoint(touchLocation) && !self.onRoom){
             self.onRoom = true
-            println("Chama Cena Banheiro")
+            println("Chama Cena Cozinha")
             loadGameData("cozinha")
             cozinha.zPosition = camadaAmbiente
+            checkBanheiro.zPosition = camadaHide
             //barra.zPosition = camadaPontos
             //mask.zPosition = camadaPontosMask
             
             if(acertos == erros){
+                
                 self.onRoom = true
             }
         }
         else if (voltarButton.containsPoint(touchLocation) && self.onRoom){
             println("Chama Cena da Casa")
+            if(acertos == erros){
+                checkBanheiro.zPosition = camadaButtons
+                self.onRoom = true
+            }
+            
             hideAll()
             self.onRoom = false
             background.zPosition = camadaMenu
+            
+            
+            
         }
         else if (voltarButton.containsPoint(touchLocation) || sky.containsPoint(touchLocation) && !self.onRoom){
             println("Chama Mapa")
@@ -310,6 +352,11 @@ class CasaScene: SKScene, GameStateDelegate {
             
         else if(banheiro.containsPoint(touchLocation) && self.onRoom){
             println("Chama Cena da Casa")
+            println("acertos: \(acertos), erros: \(erros)")
+            if(acertos == erros){
+                checkBanheiro.zPosition = camadaButtons
+                self.onRoom = true
+            }
                 hideAll()
                 background.zPosition = camadaMenu
         }
@@ -424,9 +471,9 @@ class CasaScene: SKScene, GameStateDelegate {
         mask.size.width = mask.size.width + 54
         mask.position = CGPoint(x: mask.position.x + 27, y: mask.position.y)
         if(acertos == erros){
-           
+           println("jj")
             popup.zPosition = camadaFimFase
-            textoFinal.zPosition = camadaFimFase + 1
+            textoFinal.zPosition = camadaFimTexto
             self.isFinish = true
         }
     }
