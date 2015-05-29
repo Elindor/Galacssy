@@ -648,6 +648,7 @@ class CasaScene: SKScene, GameStateDelegate {
             for itens in cozinhaItems{
                 var temp: SKNode = itens
                 cozinha.addChild(temp)
+                
             }
         }
             
