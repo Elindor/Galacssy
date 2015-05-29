@@ -59,7 +59,7 @@ class CasaScene: SKScene, GameStateDelegate {
     var voltarButton = SKSpriteNode()
     var sky = SKSpriteNode()
     
-    //CHECKING ddd
+    //CHECKING
     var checkQuarto = SKSpriteNode(imageNamed: "botVoltar.png")
     var checkBanheiro = SKSpriteNode(imageNamed: "botVoltar.png")
     var checkSala = SKSpriteNode(imageNamed: "botVoltar.png")
@@ -312,17 +312,6 @@ class CasaScene: SKScene, GameStateDelegate {
             mask.size.width = CGFloat(54 * acertosCozinha + 5)
             mask.position = CGPoint(x: CGFloat(234 + 27 * acertosCozinha), y: mask.position.y)
         }
-        
-        //VERIFICA SAIDA DO AMBIENTE SEM CLICAR NO BOTAO VOLTAR
-        else if(banheiro.containsPoint(touchLocation) && self.onRoom){
-            println("Chama Cena da Casa")
-            callChecks()
-            hideAll()
-            background.zPosition = camadaMenu
-        }
-            
-        //ADICIONAR A VOLTA DOS OUTROS AMBIENTES (AQUI)
-            
             
         //ATIVA A VOLTA PARA A CASA ATRAVES DO BOTAO DE VOLTAR
         else if (voltarButton.containsPoint(touchLocation) && self.onRoom){
@@ -339,9 +328,6 @@ class CasaScene: SKScene, GameStateDelegate {
             cenarioMapa.scaleMode = SKSceneScaleMode.AspectFill
             self.scene!.view?.presentScene(cenarioMapa, transition: transition)
         }
-            
-        
-
     }
     
     func hideAll(){
@@ -356,7 +342,7 @@ class CasaScene: SKScene, GameStateDelegate {
         textoFinal.zPosition = camadaHide
         estaNoComodo = comodo.nenhum
         
-        //REMOVE NODES DO BANHEIRO
+        //REMOVE OBJETOS DOS AMBIENTES
         for itens in banheiroItems{
             var temp: SKNode = itens
             temp.removeFromParent()
@@ -388,21 +374,15 @@ class CasaScene: SKScene, GameStateDelegate {
             }
             plist = "quarto.plist"
             estaNoComodo = comodo.quarto
-        
         }
         
         if(ambiente == "banheiro"){
-            /*if erroLabel.parent == nil{
-                banheiro.addChild(erroLabel)
-            }*/
             if barra.parent == nil{
                 banheiro.addChild(barra)
                 banheiro.addChild(mask)
             }
             plist = "banheiro.plist"
             estaNoComodo = comodo.banheiro
-
-            
         }
         
         
