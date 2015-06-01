@@ -12,7 +12,7 @@ import SpriteKit
 class GameScene: SKScene {
     
     //MAPA PRINCIPAL
-    let background = SKSpriteNode(imageNamed: "Mapa1.png")
+    let background = SKSpriteNode(imageNamed: "mapa.png")
     let lifeCity = SKSpriteNode(imageNamed: "barraDeVidaMapa.png")
     let predios = SKSpriteNode(imageNamed: "predios.png")
     let smoke1 = SKSpriteNode(imageNamed: "fumaca")
