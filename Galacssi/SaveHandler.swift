@@ -8,7 +8,7 @@
 
 import Foundation
 
-class HighScoreManager {
+class SaveHandler {
     var tempArray:Array<Save> = [];
     //var savedFile: Save
     
@@ -37,6 +37,15 @@ class HighScoreManager {
                 //self.savedFile = self.tempArray[0]
             }
             
+            if tempArray.isEmpty{
+                let newHighScore = Save(playerNum: 0, name: "Nome")
+                self.tempArray.append(newHighScore)
+
+            }
+            
+            var new: Save = self.tempArray.first!
+            new.updateTimeFactor()
+            
         }
     
     func save() {
@@ -56,4 +65,35 @@ class HighScoreManager {
         //self.tempArray.append(newHighScore)
         self.save()
     }
+    
+    
+    func getSave() -> Save{
+        var new: Save = self.tempArray.first!
+        return new
+    }
+    
+    func increaseCleanLevelByCompletedScene(){
+        var saveFile = getSave()
+        saveFile.increaseCleanLevelBy(ammount: 20)
+        save()
+    }
+    
+    func callMute(){
+        var saveFile = getSave()
+        saveFile.changeSoundOption()
+        save()
+    }
+    
+    func changeCharacter(newCharacter character: Int){
+        var saveFile = getSave()
+        saveFile.changeSoundOption()
+        save()
+    }
+    
+    func getCurrentCharacter() -> Int{
+        var saveFile = getSave()
+        return saveFile.selectedCharacter
+    }
+
+    
 };
