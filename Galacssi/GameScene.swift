@@ -14,6 +14,7 @@ class GameScene: SKScene {
     //MAPA PRINCIPAL
     let background = SKSpriteNode(imageNamed: "mapa.png")
     let lifeCity = SKSpriteNode(imageNamed: "barraDeVidaMapa.png")
+    let predios = SKSpriteNode(imageNamed: "predios.png")
     var lifeCityStatus = SKSpriteNode(color: UIColor.greenColor(), size: CGSizeMake(0, 0))
     let smoke1 = SKSpriteNode(imageNamed: "fumaca")
     let smoke2 = SKSpriteNode(imageNamed: "fumaca")
@@ -26,6 +27,7 @@ class GameScene: SKScene {
     var saveFileArray: SaveHandler = SaveHandler()
     
     
+
     //CAMADAS
     let layerBackground:CGFloat = 0
     let layerHud:CGFloat = 99
