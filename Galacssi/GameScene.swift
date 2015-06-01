@@ -45,6 +45,12 @@ class GameScene: SKScene {
         background.zPosition = layerBackground
 //        println("\(self.frame.size.width/2, self.frame.size.height/2)")
         
+        //Predios
+        predios.position = CGPoint(x: self.frame.size.width/2+20, y: self.frame.size.height/2)
+        predios.setScale(0.5)
+        predios.zPosition = CGFloat(3)
+        predios.name = "predios"
+        
         //LOCAIS
         btnHouse.position = CGPoint(x: self.frame.size.width/2+15, y: self.frame.size.height/3.2)
         btnHouse.xScale = 0.5
@@ -103,6 +109,7 @@ class GameScene: SKScene {
     
         
         self.addChild(background)
+        self.addChild(predios)
         self.addChild(lifeCity)
         lifeCity.addChild(lifeCityStatus)
         self.addChild(btnHouse)

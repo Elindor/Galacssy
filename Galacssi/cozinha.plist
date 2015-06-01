@@ -29,33 +29,33 @@
 	<array>
 		<dict>
 			<key>x</key>
-			<real>0.5</real>
+			<real>0.665</real>
 			<key>y</key>
-			<real>0.5</real>
+			<real>0.635</real>
 			<key>type</key>
 			<string>microondas</string>
 		</dict>
 		<dict>
 			<key>x</key>
-			<real>0.5</real>
+			<real>0.47</real>
 			<key>y</key>
-			<real>0.95</real>
+			<real>0.8305</real>
 			<key>type</key>
 			<string>luz</string>
 		</dict>
 		<dict>
 			<key>x</key>
-			<real>0.8</real>
+			<real>0.8825</real>
 			<key>y</key>
-			<real>0.4</real>
+			<real>0.525</real>
 			<key>type</key>
 			<string>geladeira</string>
 		</dict>
 		<dict>
 			<key>x</key>
-			<real>0.2</real>
+			<real>0.0625</real>
 			<key>y</key>
-			<real>0.5</real>
+			<real>0.615</real>
 			<key>type</key>
 			<string>torneira</string>
 		</dict>

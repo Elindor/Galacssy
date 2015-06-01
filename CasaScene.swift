@@ -20,8 +20,18 @@ class CasaScene: SKScene, GameStateDelegate {
         case cozinha = 4
     }
     
-    var erros = 0
-    var acertos = 0
+//    var erros = 0
+    var errosBanheiro = 0
+    var errosSala = 0
+    var errosQuarto = 0
+    var errosCozinha = 0
+    
+//    var acertos = 0
+    var acertosBanheiro = 0
+    var acertosSala = 0
+    var acertosQuarto = 0
+    var acertosCozinha = 0
+    
     var onRoom: Bool = false
     var isFinish = false
     
@@ -34,6 +44,7 @@ class CasaScene: SKScene, GameStateDelegate {
     var camadaPontos:CGFloat = 5
     var camadaPontosMask:CGFloat = 6
     var camadaFimFase:CGFloat = 7
+    var camadaFimTexto:CGFloat = 8
     
     //AMBIENTES
     var banheiro = SKSpriteNode()
@@ -46,8 +57,13 @@ class CasaScene: SKScene, GameStateDelegate {
     var cozinhaButton = SKSpriteNode()
     var background = SKSpriteNode()
     var voltarButton = SKSpriteNode()
-    
     var sky = SKSpriteNode()
+    
+    //CHECKING
+    var checkQuarto = SKSpriteNode(imageNamed: "btnCheck.png")
+    var checkBanheiro = SKSpriteNode(imageNamed: "btnCheck.png")
+    var checkSala = SKSpriteNode(imageNamed: "btnCheck.png")
+    var checkCozinha = SKSpriteNode(imageNamed: "btnCheck.png")
     
     var estaNoComodo = comodo.nenhum
     
@@ -60,7 +76,13 @@ class CasaScene: SKScene, GameStateDelegate {
     
     var banheiroItems = [BanheiroItem]()
     var banheiroItemConfigurations = [String: [String: String]]()
-    
+    var salaItems = [SalaItem]()
+    var salaItemConfigurations = [String: [String: String]]()
+    var quartoItems = [QuartoItem]()
+    var quartoItemConfigurations = [String: [String: String]]()
+    var cozinhaItems = [CozinhaItem]()
+    var cozinhaItemConfigurations = [String: [String: String]]()
+
     //var erroLabel = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
     let textoFinal = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
     
@@ -104,13 +126,37 @@ class CasaScene: SKScene, GameStateDelegate {
         cozinhaButton.zPosition = camadaButtons
         addChild(cozinhaButton)
         
-        voltarButton = SKSpriteNode(imageNamed: "botVoltar.png")
+        voltarButton = SKSpriteNode(imageNamed: "btnVoltar.png")
         voltarButton.setScale(0.5)
         voltarButton.position = CGPointMake(40,730);
         voltarButton.zPosition = CGFloat(10)
         addChild(voltarButton)
         
-    
+        //Create Checks
+        checkQuarto.position = CGPoint(x: 190, y: 520)
+        checkQuarto.xScale = 0.25
+        checkQuarto.yScale = 0.25
+        checkQuarto.zPosition = camadaHide
+        addChild(checkQuarto)
+        
+        checkBanheiro.position = CGPoint(x: 550, y: 520)
+        checkBanheiro.xScale = 0.25
+        checkBanheiro.yScale = 0.25
+        checkBanheiro.zPosition = camadaHide
+        addChild(checkBanheiro)
+        
+        checkSala.position = CGPoint(x: 190, y: 240)
+        checkSala.xScale = 0.25
+        checkSala.yScale = 0.25
+        checkSala.zPosition = camadaHide
+        addChild(checkSala)
+        
+        checkCozinha.position = CGPoint(x: 505, y: 240)
+        checkCozinha.xScale = 0.25
+        checkCozinha.yScale = 0.25
+        checkCozinha.zPosition = camadaHide
+        addChild(checkCozinha)
+        
         
         //OBJETOS ANIMADOS
         nuvemG1.position = CGPoint(x: -nuvemG1.size.width, y: 600)
@@ -130,7 +176,7 @@ class CasaScene: SKScene, GameStateDelegate {
         addChild(nuvem2)
         
         // Create banheiro
-        banheiro = SKSpriteNode(imageNamed: "banheiro.jpg")
+        banheiro = SKSpriteNode(imageNamed: "Banheiro.png")
         banheiro.size.height = size.height
         banheiro.size.width = size.width
         //banheiro.position = CGPoint(x: size.width/2, y: size.height/2)
@@ -138,21 +184,21 @@ class CasaScene: SKScene, GameStateDelegate {
         addChild(banheiro)
         
         // Create sala
-        sala = SKSpriteNode(imageNamed: "salaTeste.jpg")
+        sala = SKSpriteNode(imageNamed: "Sala.png")
         sala.size.height = size.height
         sala.size.width = size.width
         sala.anchorPoint = CGPointZero
         addChild(sala)
         
         // Create quarto
-        quarto = SKSpriteNode(imageNamed: "quartoTeste.jpg")
+        quarto = SKSpriteNode(imageNamed: "Quarto.png")
         quarto.size.height = size.height
         quarto.size.width = size.width
         quarto.anchorPoint = CGPointZero
         addChild(quarto)
         
         // Create cozinha
-        cozinha = SKSpriteNode(imageNamed: "cozinhaTeste.jpg")
+        cozinha = SKSpriteNode(imageNamed: "Cozinha.png")
         cozinha.size.height = size.height
         cozinha.size.width = size.width
         cozinha.anchorPoint = CGPointZero
@@ -225,95 +271,63 @@ class CasaScene: SKScene, GameStateDelegate {
     
     func callScene(touchLocation: CGPoint){
         
-        println("Camada banheiro: \(banheiro.zPosition)) Camada ceu: \(sky.zPosition)")
-        
+        //VERIFICA SE TOCOU NO AMBIENTE
         if(banheiroButton.containsPoint(touchLocation) && !self.onRoom){
             self.onRoom = true
-//            estaNoComodo = true
             println("Chama Cena Banheiro")
             loadGameData("banheiro")
             banheiro.zPosition = camadaAmbiente
-            //erroLabel.zPosition = camadaPontos
             barra.zPosition = camadaPontos
             mask.zPosition = camadaPontosMask
-            
-            if(acertos == erros){
-                self.onRoom = true
-            }
+            mask.size.width = CGFloat(54 * acertosBanheiro + 5)
+            mask.position = CGPoint(x: CGFloat(234 + 27 * acertosBanheiro), y: mask.position.y)
         }
         else if(salaButton.containsPoint(touchLocation) && !self.onRoom){
             self.onRoom = true
-            println("Chama Cena Banheiro")
+            println("Chama Cena Sala")
             loadGameData("sala")
             sala.zPosition = camadaAmbiente
-            //barra.zPosition = camadaPontos
-            //mask.zPosition = camadaPontosMask
-            
-            if(acertos == erros){
-                self.onRoom = true
-            }
+            barra.zPosition = camadaPontos
+            mask.zPosition = camadaPontosMask
+            mask.size.width = CGFloat(54 * acertosSala + 5)
+            mask.position = CGPoint(x: CGFloat(234 + 27 * acertosSala), y: mask.position.y)
         }
         else if(quartoButton.containsPoint(touchLocation) && !self.onRoom){
             self.onRoom = true
-            println("Chama Cena Banheiro")
+            println("Chama Cena Quarto")
             loadGameData("quarto")
             quarto.zPosition = camadaAmbiente
-            //barra.zPosition = camadaPontos
-            //mask.zPosition = camadaPontosMask
-            
-            if(acertos == erros){
-                self.onRoom = true
-            }
+            barra.zPosition = camadaPontos
+            mask.zPosition = camadaPontosMask
+            mask.size.width = CGFloat(54 * acertosQuarto + 5)
+            mask.position = CGPoint(x: CGFloat(234 + 27 * acertosQuarto), y: mask.position.y)
         }
         else if(cozinhaButton.containsPoint(touchLocation) && !self.onRoom){
             self.onRoom = true
-            println("Chama Cena Banheiro")
+            println("Chama Cena Cozinha")
             loadGameData("cozinha")
             cozinha.zPosition = camadaAmbiente
-            //barra.zPosition = camadaPontos
-            //mask.zPosition = camadaPontosMask
-            
-            if(acertos == erros){
-                self.onRoom = true
-            }
+            barra.zPosition = camadaPontos
+            mask.zPosition = camadaPontosMask
+            mask.size.width = CGFloat(54 * acertosCozinha + 5)
+            mask.position = CGPoint(x: CGFloat(234 + 27 * acertosCozinha), y: mask.position.y)
         }
+            
+        //ATIVA A VOLTA PARA A CASA ATRAVES DO BOTAO DE VOLTAR
         else if (voltarButton.containsPoint(touchLocation) && self.onRoom){
-            println("Chama Cena da Casa")
+            callChecks()
             hideAll()
-            self.onRoom = false
             background.zPosition = camadaMenu
         }
+            
+        //ATIVA A VOLTA PARA A CIDADE ATRAVES DO BOTAO DE VOLTAR
         else if (voltarButton.containsPoint(touchLocation) || sky.containsPoint(touchLocation) && !self.onRoom){
             println("Chama Mapa")
             let transition = SKTransition()
             let cenarioMapa = GameScene(size: self.size)
             cenarioMapa.scaleMode = SKSceneScaleMode.AspectFill
             self.scene!.view?.presentScene(cenarioMapa, transition: transition)
-            
         }
-        
-//        if (background.containsPoint(touchLocation) && !self.onRoom){
-//            println("Chama Cena Banheiro")
-//            banheiro.zPosition = CGFloat(1);
-//            background.zPosition = CGFloat(0);
-//            erroLabel.zPosition = CGFloat(1);
-//            self.onRoom = true
-//        if (background.containsPoint(touchLocation) && !self.onRoom){
-//            println("Chama Cena Banheiro")
-//            banheiro.zPosition = CGFloat(1);
-//            background.zPosition = CGFloat(0);
-//            erroLabel.zPosition = CGFloat(1);
-//            self.onRoom = true
-//        }
-//        
-//        else if(banheiro.containsPoint(touchLocation) && popup.containsPoint(touchLocation) && self.onRoom && isFinish){
-            
-        else if(banheiro.containsPoint(touchLocation) && self.onRoom){
-            println("Chama Cena da Casa")
-                hideAll()
-                background.zPosition = camadaMenu
-        }
-
     }
     
     func hideAll(){
@@ -322,60 +336,73 @@ class CasaScene: SKScene, GameStateDelegate {
         sala.zPosition = camadaHide
         quarto.zPosition = camadaHide
         cozinha.zPosition = camadaHide
-        //erroLabel.zPosition = camadaHide
         barra.zPosition = camadaHide
         mask.zPosition = camadaHide
         popup.zPosition = camadaHide;
         textoFinal.zPosition = camadaHide
         estaNoComodo = comodo.nenhum
         
+        //REMOVE OBJETOS DOS AMBIENTES
         for itens in banheiroItems{
             var temp: SKNode = itens
             temp.removeFromParent()
         }
+        for itens in salaItems{
+            var temp: SKNode = itens
+            temp.removeFromParent()
+        }
+        for itens in cozinhaItems{
+            var temp: SKNode = itens
+            temp.removeFromParent()
+        }
+        for itens in quartoItems{
+            var temp: SKNode = itens
+            temp.removeFromParent()
+        }
         self.onRoom = false
-        self.isFinish = false
+
     }
     
     func loadGameData(ambiente: String) {
         
         var plist = "null"
         
-//        if(ambiente == "quarto"){
-//            if banheiro.parent == nil{
-//                banheiro.addChild(erroLabel)
-//            }
-//            plist = "quarto.plist"
-//        
-//        }
+        if(ambiente == "quarto"){
+            if barra.parent == nil{
+                quarto.addChild(barra)
+                quarto.addChild(mask)
+            }
+            plist = "quarto.plist"
+            estaNoComodo = comodo.quarto
+        }
         
         if(ambiente == "banheiro"){
-            /*if erroLabel.parent == nil{
-                banheiro.addChild(erroLabel)
-            }*/
             if barra.parent == nil{
                 banheiro.addChild(barra)
                 banheiro.addChild(mask)
             }
             plist = "banheiro.plist"
             estaNoComodo = comodo.banheiro
-
-            
         }
         
-//        if(ambiente == "sala"){
-//            if erroLabel.parent == nil{
-//                banheiro.addChild(erroLabel)
-//            }
-//            plist = "sala.plist"
-//        }
         
-//        if(ambiente == "cozinha"){
-//            if banheiro.parent == nil{
-//                banheiro.addChild(erroLabel)
-//            }
-//            plist = "cozinha.plist"
-//        }
+        if(ambiente == "sala"){
+            if barra.parent == nil {
+                sala.addChild(barra)
+                sala.addChild(mask)
+            }
+            plist = "sala.plist"
+            estaNoComodo = comodo.sala
+        }
+        
+       if(ambiente == "cozinha"){
+           if barra.parent == nil{
+            cozinha.addChild(barra)
+            cozinha.addChild(mask)
+            }
+            plist = "cozinha.plist"
+            estaNoComodo = comodo.cozinha
+       }
         
         
         var path = documentFilePath(fileName: plist)
@@ -389,18 +416,19 @@ class CasaScene: SKScene, GameStateDelegate {
         
         let diceRoll = Int(arc4random_uniform(4))+1
         
+        //ATIVA OS OBJETOS DO AMBIENTE
         switch estaNoComodo{
         case comodo.banheiro:
             ativaBanheiro(gameData, diceRoll: diceRoll)
             break
-        case comodo.cozinha:
-            //                ativaBanheiro(gameData)
+        case comodo.sala:
+            ativaSala(gameData, diceRoll: diceRoll)
             break
         case comodo.cozinha:
-            //                ativaBanheiro(gameData)
+            ativaCozinha(gameData, diceRoll: diceRoll)
             break
-        case comodo.cozinha:
-            //                ativaBanheiro(gameData)
+        case comodo.quarto:
+            ativaQuarto(gameData, diceRoll: diceRoll)
             break
         default:
             break
@@ -418,21 +446,59 @@ class CasaScene: SKScene, GameStateDelegate {
     
     ////////////////////////////// trocar
     
+    //ADICIONA OS ACERTOS DO AMBIENTE
     func gameStateDelegateIncrement() {
-            acertos++
-        //erroLabel.text = String(format: "%i/%i", acertos, erros)
-        mask.size.width = mask.size.width + 54
-        mask.position = CGPoint(x: mask.position.x + 27, y: mask.position.y)
-        if(acertos == erros){
-           
-            popup.zPosition = camadaFimFase
-            textoFinal.zPosition = camadaFimFase + 1
-            self.isFinish = true
+        switch estaNoComodo{
+        case comodo.banheiro:
+            acertosBanheiro++
+            mask.size.width = CGFloat(54 * acertosBanheiro + 5)
+            mask.position = CGPoint(x: CGFloat(234 + 27 * acertosBanheiro), y: mask.position.y)
+            break
+        case comodo.cozinha:
+            acertosCozinha++
+            mask.size.width = CGFloat(54 * acertosCozinha + 5)
+            mask.position = CGPoint(x: CGFloat(234 + 27 * acertosCozinha), y: mask.position.y)
+            break
+        case comodo.sala:
+            acertosSala++
+            mask.size.width = CGFloat(54 * acertosSala + 5)
+            mask.position = CGPoint(x: CGFloat(234 + 27 * acertosSala), y: mask.position.y)
+            break
+        case comodo.quarto:
+            acertosQuarto++
+            mask.size.width = CGFloat(54 * acertosQuarto + 5)
+            mask.position = CGPoint(x: CGFloat(234 + 27 * acertosQuarto), y: mask.position.y)
+            break
+        default:
+            break
         }
+//            acertos++
+        
+        
+        callWinner()
     }
     
+    //DEFINE QUANTIDADE DE ERROS DO AMBIENTE
     func gameStateDelegateSetError() {
-        erros++
+        switch estaNoComodo{
+        case comodo.banheiro:
+            errosBanheiro++
+            break
+        case comodo.cozinha:
+            errosCozinha++
+            break
+        case comodo.sala:
+            errosSala++
+            break
+        case comodo.quarto:
+            errosQuarto++
+            break
+        default:
+            break
+        }
+
+//        erros++
+//        println("Erros: \(erros)")
 //        erroLabel.text = String(format: "%i/%i", acertos, erros)
     }
 
@@ -466,7 +532,7 @@ class CasaScene: SKScene, GameStateDelegate {
         moveNuvemGrande1.append(SKAction.fadeAlphaTo(0, duration: 0.1))
         moveNuvemGrande1.append(SKAction.moveTo(originG1, duration: 0.1))
         moveNuvemGrande1.append(SKAction.fadeAlphaTo(1, duration: 0.1))
-        
+      
         nuvem1.runAction(SKAction.repeatActionForever(SKAction.sequence(moveNuvem1)))
         nuvem2.runAction(SKAction.repeatActionForever(SKAction.sequence(moveNuvem2)))
         nuvemG1.runAction(SKAction.repeatActionForever(SKAction.sequence(moveNuvemGrande1)))
@@ -480,6 +546,7 @@ class CasaScene: SKScene, GameStateDelegate {
         
         if banheiroItems.count > 0{
             for itens in banheiroItems{
+                
                 var temp: SKNode = itens
                 banheiro.addChild(temp)
             }
@@ -517,5 +584,175 @@ class CasaScene: SKScene, GameStateDelegate {
         
     }
 
+    func ativaSala(gameData: NSDictionary?, diceRoll: Int){
+        
+        if salaItems.count > 0{
+            for itens in salaItems{
+                var temp: SKNode = itens
+                sala.addChild(temp)
+            }
+        }
+            
+        else{
+            salaItemConfigurations = gameData!["salaItemConfigurations"] as! [String: [String: String]]
+            //erros = gameData!["erros"] as! Int
+            //erroLabel.text = String(format: "%i/%i", acertos, erros)
+            var salaItemDataSet = gameData!["salaItemData"] as! [[String: AnyObject]]
+            var auxErrosSala = 0
+            for salaItemData in salaItemDataSet {
+                var isError : Bool
+                auxErrosSala++
+                if auxErrosSala == diceRoll {
+                    isError = false
+                } else {
+                    isError = true
+                }
+                var itemType = salaItemData["type"] as AnyObject? as! String
+                var salaItemConfiguration = salaItemConfigurations[itemType] as [String: String]!
+                var salaItem = SalaItem(salaItemData: salaItemData, salaItemConfiguration: salaItemConfiguration, gameStateDelegate: self, error: isError)
+                var relativeX = salaItemData["x"] as AnyObject? as! Float
+                var relativeY = salaItemData["y"] as AnyObject? as! Float
+                //            banheiroItem.position = CGPoint(x: Int(relativeX * Float(size.width) - Float(size.width)/2), y: Int(relativeY * Float(size.height) - Float(size.height)/2))
+                salaItem.position = CGPoint(x: Int(relativeX * Float(size.width)), y: Int(relativeY * Float(size.height)))
+                salaItem.zPosition = camadaObjects
+                //                erroLabel.zPosition = camadaPontos
+                sala.addChild(salaItem)
+                salaItems.append(salaItem)
+            }
+        }
+    }
+    
+    func ativaCozinha(gameData: NSDictionary?, diceRoll: Int){
+        
+        if cozinhaItems.count > 0{
+            for itens in cozinhaItems{
+                var temp: SKNode = itens
+                cozinha.addChild(temp)
+                
+            }
+        }
+            
+        else{
+            cozinhaItemConfigurations = gameData!["cozinhaItemConfigurations"] as! [String: [String: String]]
+            //erros = gameData!["erros"] as! Int
+            //erroLabel.text = String(format: "%i/%i", acertos, erros)
+            var cozinhaItemDataSet = gameData!["cozinhaItemData"] as! [[String: AnyObject]]
+            var auxErrosCozinha = 0
+            for cozinhaItemData in cozinhaItemDataSet {
+                var isError : Bool
+                auxErrosCozinha++
+                if auxErrosCozinha == diceRoll {
+                    isError = false
+                } else {
+                    isError = true
+                }
+                var itemType = cozinhaItemData["type"] as AnyObject? as! String
+                var cozinhaItemConfiguration = cozinhaItemConfigurations[itemType] as [String: String]!
+                var cozinhaItem = CozinhaItem(cozinhaItemData: cozinhaItemData, cozinhaItemConfiguration: cozinhaItemConfiguration, gameStateDelegate: self, error: isError)
+                var relativeX = cozinhaItemData["x"] as AnyObject? as! Float
+                var relativeY = cozinhaItemData["y"] as AnyObject? as! Float
+                //            banheiroItem.position = CGPoint(x: Int(relativeX * Float(size.width) - Float(size.width)/2), y: Int(relativeY * Float(size.height) - Float(size.height)/2))
+                cozinhaItem.position = CGPoint(x: Int(relativeX * Float(size.width)), y: Int(relativeY * Float(size.height)))
+                cozinhaItem.zPosition = camadaObjects
+                //                erroLabel.zPosition = camadaPontos
+                cozinha.addChild(cozinhaItem)
+                cozinhaItems.append(cozinhaItem)
+            }
+        }
+    }
+    
+    func ativaQuarto(gameData: NSDictionary?, diceRoll: Int){
+        
+        if quartoItems.count > 0{
+            for itens in quartoItems{
+                var temp: SKNode = itens
+                quarto.addChild(temp)
+            }
+        }
+            
+        else{
+            quartoItemConfigurations = gameData!["quartoItemConfigurations"] as! [String: [String: String]]
+            //erros = gameData!["erros"] as! Int
+            //erroLabel.text = String(format: "%i/%i", acertos, erros)
+            var quartoItemDataSet = gameData!["quartoItemData"] as! [[String: AnyObject]]
+            var auxErrosQuarto = 0
+            for quartoItemData in quartoItemDataSet {
+                var isError : Bool
+                auxErrosQuarto++
+                if auxErrosQuarto == diceRoll {
+                    isError = false
+                } else {
+                    isError = true
+                }
+                var itemType = quartoItemData["type"] as AnyObject? as! String
+                var quartoItemConfiguration = quartoItemConfigurations[itemType] as [String: String]!
+                var quartoItem = QuartoItem(quartoItemData: quartoItemData, quartoItemConfiguration: quartoItemConfiguration, gameStateDelegate: self, error: isError)
+                var relativeX = quartoItemData["x"] as AnyObject? as! Float
+                var relativeY = quartoItemData["y"] as AnyObject? as! Float
+                //            banheiroItem.position = CGPoint(x: Int(relativeX * Float(size.width) - Float(size.width)/2), y: Int(relativeY * Float(size.height) - Float(size.height)/2))
+                quartoItem.position = CGPoint(x: Int(relativeX * Float(size.width)), y: Int(relativeY * Float(size.height)))
+                quartoItem.zPosition = camadaObjects
+                //                erroLabel.zPosition = camadaPontos
+                quarto.addChild(quartoItem)
+                quartoItems.append(quartoItem)
+            }
+        }
+    }
+    
+    
+        
+    
+    //VERIFICA SE TERMINOU O AMBIENTE E ATIVA POPUP DE PARABENS
+    func callWinner(){
+        switch estaNoComodo{
+        case comodo.banheiro:
+            if(acertosBanheiro == errosBanheiro && checkBanheiro.zPosition == camadaHide){
+                popup.zPosition = camadaFimFase
+                textoFinal.zPosition = camadaFimTexto
+            }
+            break
+        case comodo.cozinha:
+            if(acertosCozinha == errosCozinha && checkCozinha.zPosition == camadaHide){
+                popup.zPosition = camadaFimFase
+                textoFinal.zPosition = camadaFimTexto
+            }
+            break
+        case comodo.sala:
+            if(acertosSala == errosSala && checkSala.zPosition == camadaHide){
+                popup.zPosition = camadaFimFase
+                textoFinal.zPosition = camadaFimTexto
+            }
+            break
+        case comodo.quarto:
+            if(acertosQuarto == errosQuarto && checkQuarto.zPosition == camadaHide){
+                popup.zPosition = camadaFimFase
+                textoFinal.zPosition = camadaFimTexto
+            }
+            break
+        default:
+            break
+        }
+    }
+    
+    //VERIFICA SE PODE ATIVAR O CHECK DOS AMBIENTES
+    func callChecks(){
+        
+        if(acertosBanheiro == errosBanheiro && acertosBanheiro != 0){
+            checkBanheiro.zPosition = camadaButtons
+        }
+        
+        if(acertosCozinha == errosCozinha && acertosCozinha != 0){
+            checkCozinha.zPosition = camadaButtons
+        }
+        
+        if(acertosSala == errosSala && acertosSala != 0){
+            checkSala.zPosition = camadaButtons
+        }
+        
+        if(acertosQuarto == errosQuarto && acertosQuarto != 0){
+            checkQuarto.zPosition = camadaButtons
+        }
+ 
+    }
 
 }
