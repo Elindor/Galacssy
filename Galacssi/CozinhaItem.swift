@@ -70,7 +70,7 @@ class CozinhaItem : SKNode {
             if isError {
                 objeto = SKSpriteNode(imageNamed: "portamicroondas.png")
                 objeto.setScale(0.5)
-                objeto.position = CGPoint(x: -26.5, y: 0.0)
+                objeto.position = CGPoint(x: -26.5, y: -1.0)
                 tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(167, 100))
             } else {
                 tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(167, 100))
@@ -137,5 +137,7 @@ class CozinhaItem : SKNode {
         let alert = UIAlertView(title: "Você sabia?", message: msg, delegate: self, cancelButtonTitle: "OK")
         alert.show()
     }
+    
+    
 }
 
