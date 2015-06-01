@@ -60,10 +60,10 @@ class CasaScene: SKScene, GameStateDelegate {
     var sky = SKSpriteNode()
     
     //CHECKING
-    var checkQuarto = SKSpriteNode(imageNamed: "botVoltar.png")
-    var checkBanheiro = SKSpriteNode(imageNamed: "botVoltar.png")
-    var checkSala = SKSpriteNode(imageNamed: "botVoltar.png")
-    var checkCozinha = SKSpriteNode(imageNamed: "botVoltar.png")
+    var checkQuarto = SKSpriteNode(imageNamed: "btnCheck.png")
+    var checkBanheiro = SKSpriteNode(imageNamed: "btnCheck.png")
+    var checkSala = SKSpriteNode(imageNamed: "btnCheck.png")
+    var checkCozinha = SKSpriteNode(imageNamed: "btnCheck.png")
     
     var estaNoComodo = comodo.nenhum
     
@@ -139,7 +139,7 @@ class CasaScene: SKScene, GameStateDelegate {
         checkQuarto.zPosition = camadaHide
         addChild(checkQuarto)
         
-        checkBanheiro.position = CGPoint(x: 580, y: 520)
+        checkBanheiro.position = CGPoint(x: 550, y: 520)
         checkBanheiro.xScale = 0.25
         checkBanheiro.yScale = 0.25
         checkBanheiro.zPosition = camadaHide
