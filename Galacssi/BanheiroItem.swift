@@ -12,6 +12,8 @@ class BanheiroItem : SKNode, UIAlertViewDelegate {
     
     let type : String
     var tile : SKSpriteNode
+    var objeto : SKSpriteNode
+    var objetoAuxiliar : SKSpriteNode
     var isError : Bool
     var msg : String
     
@@ -32,6 +34,8 @@ class BanheiroItem : SKNode, UIAlertViewDelegate {
         self.gameStateDelegate = gameStateDelegate
         type = banheiroItemData["type"] as AnyObject? as! String
         msg = banheiroItemConfiguration["msg"] as AnyObject? as! String
+        objeto = SKSpriteNode()
+        objetoAuxiliar = SKSpriteNode()
         
         
         //type luz1
@@ -72,6 +76,8 @@ class BanheiroItem : SKNode, UIAlertViewDelegate {
         userInteractionEnabled = true
         
         addChild(tile)
+        addChild(objeto)
+        addChild(objetoAuxiliar)
         
         if isError {
             gameStateDelegate.gameStateDelegateSetError()
