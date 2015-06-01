@@ -48,6 +48,14 @@
 		44F68DA91B139FC70032B700 /* fumaca.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DA81B139FC70032B700 /* fumaca.png */; };
 		44F68DAC1B13CA6B0032B700 /* barraDeVidaMapa.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DAA1B13CA6B0032B700 /* barraDeVidaMapa.png */; };
 		44F68DAD1B13CA6B0032B700 /* mapa.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DAB1B13CA6B0032B700 /* mapa.png */; };
+		74A119A91B1CD7C700DE6A8B /* telaDaTv.png in Resources */ = {isa = PBXBuildFile; fileRef = 74A119A61B1CD7C700DE6A8B /* telaDaTv.png */; };
+		74A119AA1B1CD7C700DE6A8B /* bolinhaPS4.png in Resources */ = {isa = PBXBuildFile; fileRef = 74A119A71B1CD7C700DE6A8B /* bolinhaPS4.png */; };
+		74A119AB1B1CD7C700DE6A8B /* luzAbajur.png in Resources */ = {isa = PBXBuildFile; fileRef = 74A119A81B1CD7C700DE6A8B /* luzAbajur.png */; };
+		74A119AD1B1CDDBC00DE6A8B /* abajurSala.png in Resources */ = {isa = PBXBuildFile; fileRef = 74A119AC1B1CDDBC00DE6A8B /* abajurSala.png */; };
+		74A119B21B1CE14000DE6A8B /* barraProgresso1.png in Resources */ = {isa = PBXBuildFile; fileRef = 74A119AE1B1CE14000DE6A8B /* barraProgresso1.png */; };
+		74A119B31B1CE14000DE6A8B /* barraProgresso2.png in Resources */ = {isa = PBXBuildFile; fileRef = 74A119AF1B1CE14000DE6A8B /* barraProgresso2.png */; };
+		74A119B41B1CE14000DE6A8B /* barraProgresso3.png in Resources */ = {isa = PBXBuildFile; fileRef = 74A119B01B1CE14000DE6A8B /* barraProgresso3.png */; };
+		74A119B51B1CE14000DE6A8B /* barraProgresso4.png in Resources */ = {isa = PBXBuildFile; fileRef = 74A119B11B1CE14000DE6A8B /* barraProgresso4.png */; };
 		74A89D501B151C6B00581271 /* sala.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74A89D4D1B151C6B00581271 /* sala.plist */; };
 		74A89D511B151C6B00581271 /* quarto.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74A89D4E1B151C6B00581271 /* quarto.plist */; };
 		74A89D521B151C6B00581271 /* cozinha.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74A89D4F1B151C6B00581271 /* cozinha.plist */; };
@@ -119,6 +127,14 @@
 		44F68DA81B139FC70032B700 /* fumaca.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fumaca.png; sourceTree = "<group>"; };
 		44F68DAA1B13CA6B0032B700 /* barraDeVidaMapa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barraDeVidaMapa.png; sourceTree = "<group>"; };
 		44F68DAB1B13CA6B0032B700 /* mapa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapa.png; sourceTree = "<group>"; };
+		74A119A61B1CD7C700DE6A8B /* telaDaTv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = telaDaTv.png; sourceTree = "<group>"; };
+		74A119A71B1CD7C700DE6A8B /* bolinhaPS4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bolinhaPS4.png; sourceTree = "<group>"; };
+		74A119A81B1CD7C700DE6A8B /* luzAbajur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = luzAbajur.png; sourceTree = "<group>"; };
+		74A119AC1B1CDDBC00DE6A8B /* abajurSala.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abajurSala.png; sourceTree = "<group>"; };
+		74A119AE1B1CE14000DE6A8B /* barraProgresso1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barraProgresso1.png; sourceTree = "<group>"; };
+		74A119AF1B1CE14000DE6A8B /* barraProgresso2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barraProgresso2.png; sourceTree = "<group>"; };
+		74A119B01B1CE14000DE6A8B /* barraProgresso3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barraProgresso3.png; sourceTree = "<group>"; };
+		74A119B11B1CE14000DE6A8B /* barraProgresso4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barraProgresso4.png; sourceTree = "<group>"; };
 		74A89D4D1B151C6B00581271 /* sala.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sala.plist; sourceTree = "<group>"; };
 		74A89D4E1B151C6B00581271 /* quarto.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quarto.plist; sourceTree = "<group>"; };
 		74A89D4F1B151C6B00581271 /* cozinha.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cozinha.plist; sourceTree = "<group>"; };
@@ -174,6 +190,14 @@
 		44F68D971B138AD70032B700 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				74A119AE1B1CE14000DE6A8B /* barraProgresso1.png */,
+				74A119AF1B1CE14000DE6A8B /* barraProgresso2.png */,
+				74A119B01B1CE14000DE6A8B /* barraProgresso3.png */,
+				74A119B11B1CE14000DE6A8B /* barraProgresso4.png */,
+				74A119AC1B1CDDBC00DE6A8B /* abajurSala.png */,
+				74A119A61B1CD7C700DE6A8B /* telaDaTv.png */,
+				74A119A71B1CD7C700DE6A8B /* bolinhaPS4.png */,
+				74A119A81B1CD7C700DE6A8B /* luzAbajur.png */,
 				0677F3A21B150CD800A9C10A /* banheiro.jpg */,
 				060C53381B18F7C700463020 /* Banheiro.png */,
 				441DC3E31B1CCD93005CA15F /* btnCheck.png */,
@@ -378,7 +402,10 @@
 				06624E421B1CC64B003C0C03 /* CasaPersonagem.png in Resources */,
 				C08773C31B0E522800B4F5BF /* Images.xcassets in Resources */,
 				060C533B1B18F7C700463020 /* Banheiro.png in Resources */,
+				74A119AB1B1CD7C700DE6A8B /* luzAbajur.png in Resources */,
 				060C533D1B18F7C700463020 /* Sala.png in Resources */,
+				74A119A91B1CD7C700DE6A8B /* telaDaTv.png in Resources */,
+				74A119B31B1CE14000DE6A8B /* barraProgresso2.png in Resources */,
 				444BE5A71B1726C800683BEA /* nuvem1.png in Resources */,
 				060C533C1B18F7C700463020 /* btnVoltar.png in Resources */,
 				44F68DA11B1395020032B700 /* btnIndustria.png in Resources */,
@@ -389,12 +416,16 @@
 				062743FF1B1CED2A0047D7BC /* Cozinha.png in Resources */,
 				06AE40491B1784980072EF47 /* botVoltar.png in Resources */,
 				066A2CD21B179D3200A40DEC /* quartoTeste.jpg in Resources */,
+				74A119B41B1CE14000DE6A8B /* barraProgresso3.png in Resources */,
 				060C53411B19054800463020 /* predios.png in Resources */,
 				4404C83A1B19164300B4872B /* menuCasa.png in Resources */,
 				C08773BA1B0E522800B4F5BF /* GameScene.sks in Resources */,
 				44F68D9D1B1390970032B700 /* btnArvore.png in Resources */,
 				74A89D511B151C6B00581271 /* quarto.plist in Resources */,
+				74A119AD1B1CDDBC00DE6A8B /* abajurSala.png in Resources */,
 				441DC3E81B1CCD93005CA15F /* btnSemSom.png in Resources */,
+				74A119B51B1CE14000DE6A8B /* barraProgresso4.png in Resources */,
+				74A119AA1B1CD7C700DE6A8B /* bolinhaPS4.png in Resources */,
 				44F68D9B1B138D900032B700 /* btnCasa.png in Resources */,
 				74F815601B18FEEE007E0125 /* Quarto.png in Resources */,
 				C08773C11B0E522800B4F5BF /* Main.storyboard in Resources */,
