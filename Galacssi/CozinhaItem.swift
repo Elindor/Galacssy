@@ -37,7 +37,7 @@ class CozinhaItem : SKNode {
             objeto.position = CGPoint (x: 14.5, y: -292.0)
             tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(110, 70))
         } else {
-            tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(110, 70))
+            tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(110, 70))
         }
         
         if type == "geladeira" {

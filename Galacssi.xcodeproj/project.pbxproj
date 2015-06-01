@@ -14,7 +14,7 @@
 		062743F91B1CD5BB0047D7BC /* LuzLustre.png in Resources */ = {isa = PBXBuildFile; fileRef = 062743F81B1CD5BB0047D7BC /* LuzLustre.png */; };
 		062743FB1B1CD91B0047D7BC /* gota.png in Resources */ = {isa = PBXBuildFile; fileRef = 062743FA1B1CD91B0047D7BC /* gota.png */; };
 		062743FD1B1CE39D0047D7BC /* portamicroondas.png in Resources */ = {isa = PBXBuildFile; fileRef = 062743FC1B1CE39D0047D7BC /* portamicroondas.png */; };
-		062743FF1B1CED2A0047D7BC /* Cozinha.png in Resources */ = {isa = PBXBuildFile; fileRef = 062743FE1B1CED2A0047D7BC /* Cozinha.png */; };
+		062744011B1CF50F0047D7BC /* Cozinha.png in Resources */ = {isa = PBXBuildFile; fileRef = 062744001B1CF50F0047D7BC /* Cozinha.png */; };
 		06624E421B1CC64B003C0C03 /* CasaPersonagem.png in Resources */ = {isa = PBXBuildFile; fileRef = 06624E411B1CC64B003C0C03 /* CasaPersonagem.png */; };
 		06624E441B1CD2FB003C0C03 /* geladeira.png in Resources */ = {isa = PBXBuildFile; fileRef = 06624E431B1CD2FB003C0C03 /* geladeira.png */; };
 		066A2CD01B17918000A40DEC /* salaTeste.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 066A2CCF1B17918000A40DEC /* salaTeste.jpg */; };
@@ -93,7 +93,7 @@
 		062743F81B1CD5BB0047D7BC /* LuzLustre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LuzLustre.png; sourceTree = "<group>"; };
 		062743FA1B1CD91B0047D7BC /* gota.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gota.png; sourceTree = "<group>"; };
 		062743FC1B1CE39D0047D7BC /* portamicroondas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = portamicroondas.png; sourceTree = "<group>"; };
-		062743FE1B1CED2A0047D7BC /* Cozinha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cozinha.png; sourceTree = "<group>"; };
+		062744001B1CF50F0047D7BC /* Cozinha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cozinha.png; sourceTree = "<group>"; };
 		06624E411B1CC64B003C0C03 /* CasaPersonagem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CasaPersonagem.png; sourceTree = "<group>"; };
 		06624E431B1CD2FB003C0C03 /* geladeira.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = geladeira.png; sourceTree = "<group>"; };
 		066A2CCF1B17918000A40DEC /* salaTeste.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = salaTeste.jpg; sourceTree = "<group>"; };
@@ -201,6 +201,7 @@
 				0677F3A21B150CD800A9C10A /* banheiro.jpg */,
 				060C53381B18F7C700463020 /* Banheiro.png */,
 				441DC3E31B1CCD93005CA15F /* btnCheck.png */,
+				062744001B1CF50F0047D7BC /* Cozinha.png */,
 				441DC3E41B1CCD93005CA15F /* btnComSom.png */,
 				441DC3E51B1CCD93005CA15F /* btnSemSom.png */,
 				44F68DAA1B13CA6B0032B700 /* barraDeVidaMapa.png */,
@@ -215,7 +216,6 @@
 				44F68DA21B13975F0032B700 /* btnSitio.png */,
 				062743F81B1CD5BB0047D7BC /* LuzLustre.png */,
 				060C53391B18F7C700463020 /* btnVoltar.png */,
-				062743FE1B1CED2A0047D7BC /* Cozinha.png */,
 				0677F3A41B150D2800A9C10A /* casa_placeholder.png */,
 				066A2CD31B179EB700A40DEC /* cozinhaTeste.jpg */,
 				062743FA1B1CD91B0047D7BC /* gota.png */,
@@ -413,11 +413,12 @@
 				441DC3E71B1CCD93005CA15F /* btnComSom.png in Resources */,
 				062743F91B1CD5BB0047D7BC /* LuzLustre.png in Resources */,
 				062743FD1B1CE39D0047D7BC /* portamicroondas.png in Resources */,
-				062743FF1B1CED2A0047D7BC /* Cozinha.png in Resources */,
+				74A119B21B1CE14000DE6A8B /* barraProgresso1.png in Resources */,
 				06AE40491B1784980072EF47 /* botVoltar.png in Resources */,
 				066A2CD21B179D3200A40DEC /* quartoTeste.jpg in Resources */,
 				74A119B41B1CE14000DE6A8B /* barraProgresso3.png in Resources */,
 				060C53411B19054800463020 /* predios.png in Resources */,
+				062744011B1CF50F0047D7BC /* Cozinha.png in Resources */,
 				4404C83A1B19164300B4872B /* menuCasa.png in Resources */,
 				C08773BA1B0E522800B4F5BF /* GameScene.sks in Resources */,
 				44F68D9D1B1390970032B700 /* btnArvore.png in Resources */,
