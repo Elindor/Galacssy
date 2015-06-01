@@ -10,10 +10,11 @@ import SpriteKit
 
 
 class GameScene: SKScene {
-    
+        
     //MAPA PRINCIPAL
     let background = SKSpriteNode(imageNamed: "mapa.png")
     let lifeCity = SKSpriteNode(imageNamed: "barraDeVidaMapa.png")
+    var lifeCityStatus = SKSpriteNode(color: UIColor.greenColor(), size: CGSizeMake(0, 0))
     let smoke1 = SKSpriteNode(imageNamed: "fumaca")
     let smoke2 = SKSpriteNode(imageNamed: "fumaca")
     let btnHouse = SKSpriteNode(imageNamed: "btnCasa.png")
@@ -22,6 +23,8 @@ class GameScene: SKScene {
     let btnFarm = SKSpriteNode(imageNamed: "btnSitio.png")
     let btnForest = SKSpriteNode(imageNamed: "btnFloresta.png")
     let btnBuilding = SKSpriteNode(imageNamed: "btnPredio.png")
+    var saveFileArray: SaveHandler = SaveHandler()
+    
     
     //CAMADAS
     let layerBackground:CGFloat = 0
@@ -32,6 +35,8 @@ class GameScene: SKScene {
     
     
     override func didMoveToView(view: SKView) {
+        
+        self.updateLifeBar()
         
         //MAPA
         background.position = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/2)
@@ -87,6 +92,9 @@ class GameScene: SKScene {
         lifeCity.xScale = 0.5
         lifeCity.yScale = 0.5
         lifeCity.zPosition = layerHud
+        lifeCityStatus.position = CGPoint(x:-323, y: -36.5)
+        lifeCityStatus.anchorPoint = CGPointZero
+        lifeCityStatus.zPosition = layerHud
         
         btnSafeHouse.position = CGPoint(x: 100, y: 120)
         btnSafeHouse.xScale = 0.5
@@ -96,6 +104,7 @@ class GameScene: SKScene {
         
         self.addChild(background)
         self.addChild(lifeCity)
+        lifeCity.addChild(lifeCityStatus)
         self.addChild(btnHouse)
         self.addChild(btnSafeHouse)
         self.addChild(btnFactory)
@@ -106,6 +115,7 @@ class GameScene: SKScene {
         self.addChild(smoke2)
         
         basicAnimations()
+        saveFileArray.save()
 
     
     }
@@ -212,4 +222,16 @@ class GameScene: SKScene {
             self.scene!.view?.presentScene(cenarioFloresta, transition: transition)
         }
     }
+    
+    func updateLifeBar(){
+        var saveFile = self.saveFileArray.getSave()
+        var factor : CGFloat = 788.0 / 100.0
+        self.lifeCityStatus.size = CGSizeMake(factor * CGFloat(saveFile.cleanLevel), CGFloat(61.0))
+    }
+    
+    func completeScene(){
+        self.saveFileArray.increaseCleanLevelByCompletedScene()
+        self.updateLifeBar()
+    }
+    
 }
