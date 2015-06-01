@@ -53,6 +53,11 @@
 		74F8155F1B18FEEE007E0125 /* Cozinha.png in Resources */ = {isa = PBXBuildFile; fileRef = 74F8155D1B18FEEE007E0125 /* Cozinha.png */; };
 		74F815601B18FEEE007E0125 /* Quarto.png in Resources */ = {isa = PBXBuildFile; fileRef = 74F8155E1B18FEEE007E0125 /* Quarto.png */; };
 		C01F79B31B13ABCB00F6FB78 /* SaveHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01F79B21B13ABCB00F6FB78 /* SaveHandler.swift */; };
+		C02E0FCD1B1CE2CE009F88FC /* nota1.png in Resources */ = {isa = PBXBuildFile; fileRef = C02E0FC81B1CE2CE009F88FC /* nota1.png */; };
+		C02E0FCE1B1CE2CE009F88FC /* nota2.png in Resources */ = {isa = PBXBuildFile; fileRef = C02E0FC91B1CE2CE009F88FC /* nota2.png */; };
+		C02E0FCF1B1CE2CE009F88FC /* nota3.png in Resources */ = {isa = PBXBuildFile; fileRef = C02E0FCA1B1CE2CE009F88FC /* nota3.png */; };
+		C02E0FD01B1CE2CE009F88FC /* nota4.png in Resources */ = {isa = PBXBuildFile; fileRef = C02E0FCB1B1CE2CE009F88FC /* nota4.png */; };
+		C02E0FD11B1CE2CE009F88FC /* partitura.png in Resources */ = {isa = PBXBuildFile; fileRef = C02E0FCC1B1CE2CE009F88FC /* partitura.png */; };
 		C08773B81B0E522800B4F5BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08773B71B0E522800B4F5BF /* AppDelegate.swift */; };
 		C08773BA1B0E522800B4F5BF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C08773B91B0E522800B4F5BF /* GameScene.sks */; };
 		C08773BC1B0E522800B4F5BF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08773BB1B0E522800B4F5BF /* GameScene.swift */; };
@@ -121,6 +126,11 @@
 		74F8155D1B18FEEE007E0125 /* Cozinha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cozinha.png; sourceTree = "<group>"; };
 		74F8155E1B18FEEE007E0125 /* Quarto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Quarto.png; sourceTree = "<group>"; };
 		C01F79B21B13ABCB00F6FB78 /* SaveHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveHandler.swift; sourceTree = "<group>"; };
+		C02E0FC81B1CE2CE009F88FC /* nota1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nota1.png; sourceTree = "<group>"; };
+		C02E0FC91B1CE2CE009F88FC /* nota2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nota2.png; sourceTree = "<group>"; };
+		C02E0FCA1B1CE2CE009F88FC /* nota3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nota3.png; sourceTree = "<group>"; };
+		C02E0FCB1B1CE2CE009F88FC /* nota4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nota4.png; sourceTree = "<group>"; };
+		C02E0FCC1B1CE2CE009F88FC /* partitura.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = partitura.png; sourceTree = "<group>"; };
 		C08773B21B0E522800B4F5BF /* Galacssi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Galacssi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08773B61B0E522800B4F5BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C08773B71B0E522800B4F5BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +178,7 @@
 		44F68D971B138AD70032B700 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C02E0FC71B1CE2BE009F88FC /* AnimaAudio */,
 				0677F3A21B150CD800A9C10A /* banheiro.jpg */,
 				060C53381B18F7C700463020 /* Banheiro.png */,
 				441DC3E31B1CCD93005CA15F /* btnCheck.png */,
@@ -200,6 +211,18 @@
 				066A2CCF1B17918000A40DEC /* salaTeste.jpg */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		C02E0FC71B1CE2BE009F88FC /* AnimaAudio */ = {
+			isa = PBXGroup;
+			children = (
+				C02E0FC81B1CE2CE009F88FC /* nota1.png */,
+				C02E0FC91B1CE2CE009F88FC /* nota2.png */,
+				C02E0FCA1B1CE2CE009F88FC /* nota3.png */,
+				C02E0FCB1B1CE2CE009F88FC /* nota4.png */,
+				C02E0FCC1B1CE2CE009F88FC /* partitura.png */,
+			);
+			name = AnimaAudio;
 			sourceTree = "<group>";
 		};
 		C08773A91B0E522800B4F5BF = {
@@ -355,6 +378,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C02E0FD01B1CE2CE009F88FC /* nota4.png in Resources */,
+				C02E0FCE1B1CE2CE009F88FC /* nota2.png in Resources */,
 				066A2CD01B17918000A40DEC /* salaTeste.jpg in Resources */,
 				06FEF6471B1636B300EA7842 /* popup.png in Resources */,
 				0677F3A71B150D8000A9C10A /* banheiro.plist in Resources */,
@@ -363,6 +388,7 @@
 				0677F3A51B150D2800A9C10A /* casa_placeholder.png in Resources */,
 				44F68DA51B139C8E0032B700 /* btnFloresta.png in Resources */,
 				066A2CD41B179EB700A40DEC /* cozinhaTeste.jpg in Resources */,
+				C02E0FCF1B1CE2CE009F88FC /* nota3.png in Resources */,
 				0677F3A31B150CD800A9C10A /* banheiro.jpg in Resources */,
 				44F68DAC1B13CA6B0032B700 /* barraDeVidaMapa.png in Resources */,
 				06624E421B1CC64B003C0C03 /* CasaPersonagem.png in Resources */,
@@ -388,11 +414,13 @@
 				C08773C11B0E522800B4F5BF /* Main.storyboard in Resources */,
 				44F68DA31B13975F0032B700 /* btnSitio.png in Resources */,
 				44F68DA91B139FC70032B700 /* fumaca.png in Resources */,
+				C02E0FCD1B1CE2CE009F88FC /* nota1.png in Resources */,
 				441DC3E61B1CCD93005CA15F /* btnCheck.png in Resources */,
 				74A89D521B151C6B00581271 /* cozinha.plist in Resources */,
 				444BE5A81B1726C800683BEA /* nuvem2.png in Resources */,
 				44F68DA71B139EBB0032B700 /* btnPredio.png in Resources */,
 				06624E441B1CD2FB003C0C03 /* geladeira.png in Resources */,
+				C02E0FD11B1CE2CE009F88FC /* partitura.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
