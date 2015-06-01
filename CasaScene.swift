@@ -235,10 +235,10 @@ class CasaScene: SKScene, GameStateDelegate {
         erroLabel.fontSize = 50
 //        banheiro.addChild(erroLabel)*/
         
-        //BARRA DE PROGRESSÃO DO BANHERO
+        //BARRA DE PROGRESSÃO DO BANHEROa
         barra = SKSpriteNode()
-        barra.size.height = 50
-        barra.size.width = 350
+        barra.size.height = 40
+        barra.size.width = 200
         barra.texture = SKTexture(imageNamed: barrasProgresso[0])
         barra.position = CGPoint(x: 250, y: size.height - 35)
         //mask = SKSpriteNode(color: UIColor.blueColor(), size: CGSizeMake(5, 17))

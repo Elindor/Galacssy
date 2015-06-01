@@ -31,9 +31,12 @@ class SalaItem : SKNode {
         
         //if type == "luz" {
         if (isError) {
-            tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(115, 75))
+            objeto = SKSpriteNode(imageNamed: "LuzLustre.png")
+            objeto.setScale(0.52)
+            objeto.position = CGPoint (x: 14.5, y: -301.0)
+            tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(115, 75))
         } else {
-            tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(115, 75))
+            tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(115, 75))
         }
         
         if type == "abajur" {

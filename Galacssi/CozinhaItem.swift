@@ -24,6 +24,9 @@ class CozinhaItem : SKNode {
         
         isError = error
         
+        var waterIsOn: Bool = false
+        
+        
         self.gameStateDelegate = gameStateDelegate
         type = cozinhaItemData["type"] as AnyObject? as! String
         msg = cozinhaItemConfiguration["msg"] as AnyObject? as! String
@@ -56,12 +59,8 @@ class CozinhaItem : SKNode {
             if isError {
                 objeto = SKSpriteNode(imageNamed: "gota.png")
                 objeto.setScale(0.3)
-                objeto.position = CGPoint(x: 16.0, y: -3.0)
-                movimento = SKAction.sequence([SKAction.waitForDuration(0.5), SKAction.moveToY(-33.0, duration: 0.5)])
-                objeto.runAction(movimento, completion:{
-                     
-                })
                 tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(50, 85))
+                waterIsOn = true
             } else {
                 tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(50, 85))
             }
@@ -81,7 +80,12 @@ class CozinhaItem : SKNode {
         
         super.init()
 
-
+        if waterIsOn{
+            
+            waterLoop(objeto: objeto)
+            
+        }
+        
         userInteractionEnabled = true
         
         addChild(tile)
@@ -90,6 +94,22 @@ class CozinhaItem : SKNode {
         if isError {
             gameStateDelegate.gameStateDelegateSetError()
         }
+        
+    }
+    
+    func waterLoop(#objeto: SKSpriteNode){
+        objeto.alpha = 1
+        objeto.position = CGPoint(x: 16.0, y: -3.0)
+        movimento = SKAction.moveToY(-33.0, duration: 0.5)
+        var fade = SKAction.fadeOutWithDuration(0.7)
+        fade.timingMode = SKActionTimingMode.EaseIn
+        objeto.runAction(fade)
+        objeto.runAction(movimento, completion:{
+            objeto.runAction(SKAction.waitForDuration(0.5), completion:{
+                self.waterLoop(objeto: objeto)
+            })
+            
+        })
         
     }
     
