@@ -57,8 +57,10 @@ class CozinhaItem : SKNode {
                 objeto = SKSpriteNode(imageNamed: "gota.png")
                 objeto.setScale(0.3)
                 objeto.position = CGPoint(x: 16.0, y: -3.0)
-                movimento = SKAction.sequence([SKAction.waitForDuration(0.5), SKAction.moveToY(-33.0, duration: 0.5), SKAction.moveToY(-3.0, duration: 0.1)])
-                objeto.runAction(SKAction.repeatActionForever(movimento))
+                movimento = SKAction.sequence([SKAction.waitForDuration(0.5), SKAction.moveToY(-33.0, duration: 0.5)])
+                objeto.runAction(movimento, completion:{
+                     
+                })
                 tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(50, 85))
             } else {
                 tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(50, 85))
