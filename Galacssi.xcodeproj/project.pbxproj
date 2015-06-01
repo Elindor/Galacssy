@@ -12,6 +12,7 @@
 		060C533D1B18F7C700463020 /* Sala.png in Resources */ = {isa = PBXBuildFile; fileRef = 060C533A1B18F7C700463020 /* Sala.png */; };
 		060C53411B19054800463020 /* predios.png in Resources */ = {isa = PBXBuildFile; fileRef = 060C53401B19054800463020 /* predios.png */; };
 		06624E421B1CC64B003C0C03 /* CasaPersonagem.png in Resources */ = {isa = PBXBuildFile; fileRef = 06624E411B1CC64B003C0C03 /* CasaPersonagem.png */; };
+		06624E441B1CD2FB003C0C03 /* geladeira.png in Resources */ = {isa = PBXBuildFile; fileRef = 06624E431B1CD2FB003C0C03 /* geladeira.png */; };
 		066A2CD01B17918000A40DEC /* salaTeste.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 066A2CCF1B17918000A40DEC /* salaTeste.jpg */; };
 		066A2CD21B179D3200A40DEC /* quartoTeste.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 066A2CD11B179D3200A40DEC /* quartoTeste.jpg */; };
 		066A2CD41B179EB700A40DEC /* cozinhaTeste.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 066A2CD31B179EB700A40DEC /* cozinhaTeste.jpg */; };
@@ -76,6 +77,7 @@
 		060C533A1B18F7C700463020 /* Sala.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sala.png; sourceTree = "<group>"; };
 		060C53401B19054800463020 /* predios.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = predios.png; sourceTree = "<group>"; };
 		06624E411B1CC64B003C0C03 /* CasaPersonagem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CasaPersonagem.png; sourceTree = "<group>"; };
+		06624E431B1CD2FB003C0C03 /* geladeira.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = geladeira.png; sourceTree = "<group>"; };
 		066A2CCF1B17918000A40DEC /* salaTeste.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = salaTeste.jpg; sourceTree = "<group>"; };
 		066A2CD11B179D3200A40DEC /* quartoTeste.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = quartoTeste.jpg; sourceTree = "<group>"; };
 		066A2CD31B179EB700A40DEC /* cozinhaTeste.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cozinhaTeste.jpg; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				74F8155D1B18FEEE007E0125 /* Cozinha.png */,
 				066A2CD31B179EB700A40DEC /* cozinhaTeste.jpg */,
 				44F68DA81B139FC70032B700 /* fumaca.png */,
+				06624E431B1CD2FB003C0C03 /* geladeira.png */,
 				44F68DAB1B13CA6B0032B700 /* mapa.png */,
 				444BE5A51B1726C800683BEA /* nuvem1.png */,
 				444BE5A61B1726C800683BEA /* nuvem2.png */,
@@ -377,6 +380,7 @@
 				74A89D521B151C6B00581271 /* cozinha.plist in Resources */,
 				444BE5A81B1726C800683BEA /* nuvem2.png in Resources */,
 				44F68DA71B139EBB0032B700 /* btnPredio.png in Resources */,
+				06624E441B1CD2FB003C0C03 /* geladeira.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
