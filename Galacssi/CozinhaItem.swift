@@ -13,6 +13,7 @@ class CozinhaItem : SKNode {
     var type : String
     var tile : SKSpriteNode
     var objeto : SKSpriteNode
+    var movimento : SKAction
     var isError : Bool
     var msg : String
     
@@ -27,13 +28,14 @@ class CozinhaItem : SKNode {
         type = cozinhaItemData["type"] as AnyObject? as! String
         msg = cozinhaItemConfiguration["msg"] as AnyObject? as! String
         objeto = SKSpriteNode()
-        
+        movimento = SKAction()
         
         //if type == "luz" {
         if (isError) {
-            objeto = SKSpriteNode(imageNamed: "btnvoltar.png")
+            objeto = SKSpriteNode(imageNamed: "LuzLustre.png")
             objeto.setScale(0.52)
-            tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(110, 70))
+            objeto.position = CGPoint (x: 14.5, y: -292.0)
+            tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(110, 70))
         } else {
             tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(110, 70))
         }
@@ -52,17 +54,25 @@ class CozinhaItem : SKNode {
         } else if type == "torneira" {
             
             if isError {
-                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(50, 85))
+                objeto = SKSpriteNode(imageNamed: "gota.png")
+                objeto.setScale(0.3)
+                objeto.position = CGPoint(x: 16.0, y: -3.0)
+                movimento = SKAction.sequence([SKAction.waitForDuration(0.5), SKAction.moveToY(-33.0, duration: 0.5), SKAction.moveToY(-3.0, duration: 0.1)])
+                objeto.runAction(SKAction.repeatActionForever(movimento))
+                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(50, 85))
             } else {
-                tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(50, 85))
+                tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(50, 85))
             }
             
         }  else if type == "microondas" {
             
             if isError {
-                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(167, 100))
+                objeto = SKSpriteNode(imageNamed: "portamicroondas.png")
+                objeto.setScale(0.5)
+                objeto.position = CGPoint(x: -26.5, y: 0.0)
+                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(167, 100))
             } else {
-                tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(167, 100))
+                tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(167, 100))
             }
             
         }
@@ -87,7 +97,10 @@ class CozinhaItem : SKNode {
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         
-        if isError {
+        let touch = touches.first as! UITouch
+        let touchLocation = touch.locationInNode(self)
+        
+        if (isError && tile.containsPoint(touchLocation)) {
             gameStateDelegate.gameStateDelegateIncrement()
             tile.color = SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0)
             objeto.removeFromParent()

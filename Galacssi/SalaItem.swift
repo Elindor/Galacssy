@@ -12,6 +12,8 @@ class SalaItem : SKNode {
     
     let type : String
     var tile : SKSpriteNode
+    var objeto : SKSpriteNode
+    var objetoAuxiliar : SKSpriteNode
     var isError : Bool
     var msg : String
     
@@ -24,6 +26,8 @@ class SalaItem : SKNode {
         self.gameStateDelegate = gameStateDelegate
         type = salaItemData["type"] as AnyObject? as! String
         msg = salaItemConfiguration["msg"] as AnyObject? as! String
+        objeto = SKSpriteNode()
+        objetoAuxiliar = SKSpriteNode()
         
         //if type == "luz" {
         if (isError) {
@@ -35,25 +39,37 @@ class SalaItem : SKNode {
         if type == "abajur" {
             
             if isError {
-                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(80, 100))
+                objeto = SKSpriteNode(imageNamed: "luzAbajur.png")
+                objeto.setScale(0.5)
+                objeto.position = CGPoint (x: -0.0, y: -10.0)
+                objetoAuxiliar = SKSpriteNode(imageNamed: "abajurSala.png")
+                objetoAuxiliar.setScale(0.5)
+                objetoAuxiliar.position = CGPoint (x: -0.0, y: 25.0)
+                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(80, 100))
             } else {
-                tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(80, 100))
+                tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(80, 100))
             }
             
         } else if type == "televisão" {
             
             if isError {
-                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(285, 170))
+                objeto = SKSpriteNode(imageNamed: "telaDaTv.png")
+                objeto.setScale(0.495)
+                objeto.position = CGPoint (x: -3.5, y: 2.5)
+                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(285, 170))
             } else {
-                tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(285, 170))
+                tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(285, 170))
             }
             
         }  else if type == "video_game" {
             
             if isError {
-                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(60, 100))
+                objeto = SKSpriteNode(imageNamed: "bolinhaPS4.png")
+                objeto.setScale(0.5)
+                objeto.position = CGPoint (x: -13.0, y: 32.0)
+                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(60, 100))
             } else {
-                tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(60, 100))
+                tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(60, 100))
             }
             
         }
@@ -63,6 +79,8 @@ class SalaItem : SKNode {
         userInteractionEnabled = true
         
         addChild(tile)
+        addChild(objeto)
+        addChild(objetoAuxiliar)
         
         if isError {
             gameStateDelegate.gameStateDelegateSetError()
@@ -76,9 +94,14 @@ class SalaItem : SKNode {
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         
-        if isError {
+        let touch = touches.first as! UITouch
+        let touchLocation = touch.locationInNode(self)
+        
+        if (isError && tile.containsPoint(touchLocation)) {
             gameStateDelegate.gameStateDelegateIncrement()
-            tile.color = SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3)
+            tile.color = SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0)
+            objeto.removeFromParent()
+            objetoAuxiliar.removeFromParent()
             NSLog("%@", type)
             isError = false
             displayAlert(msg)
