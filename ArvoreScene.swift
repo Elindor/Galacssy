@@ -13,18 +13,14 @@ import SpriteKit
 class ArvoreScene : SKScene {
     
     let transition = SKTransition()
+    let casaPersonagem = SKSpriteNode(imageNamed: "CasaPersonagem.png")
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
-        /* texto reponsável em exibir que o cenário da casa esta em construção. */
-        self.backgroundColor = SKColor.whiteColor()
-        let textoCasaDaArvore = SKLabelNode(fontNamed:"Arial")
-        textoCasaDaArvore.text = "A casa da árvore está em construção!"
-        textoCasaDaArvore.fontColor = SKColor.blackColor()
-        textoCasaDaArvore.fontSize = 55
-        textoCasaDaArvore.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
-        self.addChild(textoCasaDaArvore)
+        /* cenário casa da árvore */
+        casaPersonagem.position = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/2)
+        addChild(casaPersonagem)
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent){

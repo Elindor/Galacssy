@@ -11,6 +11,7 @@
 		060C533C1B18F7C700463020 /* btnVoltar.png in Resources */ = {isa = PBXBuildFile; fileRef = 060C53391B18F7C700463020 /* btnVoltar.png */; };
 		060C533D1B18F7C700463020 /* Sala.png in Resources */ = {isa = PBXBuildFile; fileRef = 060C533A1B18F7C700463020 /* Sala.png */; };
 		060C53411B19054800463020 /* predios.png in Resources */ = {isa = PBXBuildFile; fileRef = 060C53401B19054800463020 /* predios.png */; };
+		06624E421B1CC64B003C0C03 /* CasaPersonagem.png in Resources */ = {isa = PBXBuildFile; fileRef = 06624E411B1CC64B003C0C03 /* CasaPersonagem.png */; };
 		066A2CD01B17918000A40DEC /* salaTeste.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 066A2CCF1B17918000A40DEC /* salaTeste.jpg */; };
 		066A2CD21B179D3200A40DEC /* quartoTeste.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 066A2CD11B179D3200A40DEC /* quartoTeste.jpg */; };
 		066A2CD41B179EB700A40DEC /* cozinhaTeste.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 066A2CD31B179EB700A40DEC /* cozinhaTeste.jpg */; };
@@ -74,6 +75,7 @@
 		060C53391B18F7C700463020 /* btnVoltar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnVoltar.png; sourceTree = "<group>"; };
 		060C533A1B18F7C700463020 /* Sala.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sala.png; sourceTree = "<group>"; };
 		060C53401B19054800463020 /* predios.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = predios.png; sourceTree = "<group>"; };
+		06624E411B1CC64B003C0C03 /* CasaPersonagem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CasaPersonagem.png; sourceTree = "<group>"; };
 		066A2CCF1B17918000A40DEC /* salaTeste.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = salaTeste.jpg; sourceTree = "<group>"; };
 		066A2CD11B179D3200A40DEC /* quartoTeste.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = quartoTeste.jpg; sourceTree = "<group>"; };
 		066A2CD31B179EB700A40DEC /* cozinhaTeste.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cozinhaTeste.jpg; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				44F68DA01B1395020032B700 /* btnIndustria.png */,
 				44F68DA61B139EBB0032B700 /* btnPredio.png */,
 				4404C8391B19164300B4872B /* menuCasa.png */,
+				06624E411B1CC64B003C0C03 /* CasaPersonagem.png */,
 				44F68DA21B13975F0032B700 /* btnSitio.png */,
 				060C53391B18F7C700463020 /* btnVoltar.png */,
 				0677F3A41B150D2800A9C10A /* casa_placeholder.png */,
@@ -350,6 +353,7 @@
 				066A2CD41B179EB700A40DEC /* cozinhaTeste.jpg in Resources */,
 				0677F3A31B150CD800A9C10A /* banheiro.jpg in Resources */,
 				44F68DAC1B13CA6B0032B700 /* barraDeVidaMapa.png in Resources */,
+				06624E421B1CC64B003C0C03 /* CasaPersonagem.png in Resources */,
 				C08773C31B0E522800B4F5BF /* Images.xcassets in Resources */,
 				060C533B1B18F7C700463020 /* Banheiro.png in Resources */,
 				060C533D1B18F7C700463020 /* Sala.png in Resources */,

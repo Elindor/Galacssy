@@ -25,6 +25,7 @@ class CozinhaItem : SKNode {
         type = cozinhaItemData["type"] as AnyObject? as! String
         msg = cozinhaItemConfiguration["msg"] as AnyObject? as! String
         
+        
         //if type == "luz" {
         if (isError) {
             tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(110, 70))
@@ -90,6 +91,5 @@ class CozinhaItem : SKNode {
         let alert = UIAlertView(title: "Você sabia?", message: msg, delegate: self, cancelButtonTitle: "OK")
         alert.show()
     }
-    
 }
 
