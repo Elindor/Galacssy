@@ -62,6 +62,13 @@
 		44F68DAC1B13CA6B0032B700 /* barraDeVidaMapa.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DAA1B13CA6B0032B700 /* barraDeVidaMapa.png */; };
 		44F68DAD1B13CA6B0032B700 /* mapa.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DAB1B13CA6B0032B700 /* mapa.png */; };
 		744AC5AF1B1E26F9009F6978 /* popupItem.png in Resources */ = {isa = PBXBuildFile; fileRef = 744AC5AE1B1E26F9009F6978 /* popupItem.png */; };
+		745885921B1E68F50057741B /* popupFimMenina.png in Resources */ = {isa = PBXBuildFile; fileRef = 7458858B1B1E68F50057741B /* popupFimMenina.png */; };
+		745885931B1E68F50057741B /* popupFim.png in Resources */ = {isa = PBXBuildFile; fileRef = 7458858C1B1E68F50057741B /* popupFim.png */; };
+		745885941B1E68F50057741B /* popupItemMenina.png in Resources */ = {isa = PBXBuildFile; fileRef = 7458858D1B1E68F50057741B /* popupItemMenina.png */; };
+		745885951B1E68F50057741B /* popupMissaoMenina.png in Resources */ = {isa = PBXBuildFile; fileRef = 7458858E1B1E68F50057741B /* popupMissaoMenina.png */; };
+		745885961B1E68F50057741B /* popupMissao.png in Resources */ = {isa = PBXBuildFile; fileRef = 7458858F1B1E68F50057741B /* popupMissao.png */; };
+		745885971B1E68F50057741B /* menina.png in Resources */ = {isa = PBXBuildFile; fileRef = 745885901B1E68F50057741B /* menina.png */; };
+		745885981B1E68F50057741B /* menino.png in Resources */ = {isa = PBXBuildFile; fileRef = 745885911B1E68F50057741B /* menino.png */; };
 		74A89D501B151C6B00581271 /* sala.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74A89D4D1B151C6B00581271 /* sala.plist */; };
 		74A89D511B151C6B00581271 /* quarto.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74A89D4E1B151C6B00581271 /* quarto.plist */; };
 		74A89D521B151C6B00581271 /* cozinha.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74A89D4F1B151C6B00581271 /* cozinha.plist */; };
@@ -165,6 +172,13 @@
 		44F68DAA1B13CA6B0032B700 /* barraDeVidaMapa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barraDeVidaMapa.png; sourceTree = "<group>"; };
 		44F68DAB1B13CA6B0032B700 /* mapa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapa.png; sourceTree = "<group>"; };
 		744AC5AE1B1E26F9009F6978 /* popupItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popupItem.png; sourceTree = "<group>"; };
+		7458858B1B1E68F50057741B /* popupFimMenina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popupFimMenina.png; sourceTree = "<group>"; };
+		7458858C1B1E68F50057741B /* popupFim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popupFim.png; sourceTree = "<group>"; };
+		7458858D1B1E68F50057741B /* popupItemMenina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popupItemMenina.png; sourceTree = "<group>"; };
+		7458858E1B1E68F50057741B /* popupMissaoMenina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popupMissaoMenina.png; sourceTree = "<group>"; };
+		7458858F1B1E68F50057741B /* popupMissao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popupMissao.png; sourceTree = "<group>"; };
+		745885901B1E68F50057741B /* menina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menina.png; sourceTree = "<group>"; };
+		745885911B1E68F50057741B /* menino.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menino.png; sourceTree = "<group>"; };
 		74A89D4D1B151C6B00581271 /* sala.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sala.plist; sourceTree = "<group>"; };
 		74A89D4E1B151C6B00581271 /* quarto.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quarto.plist; sourceTree = "<group>"; };
 		74A89D4F1B151C6B00581271 /* cozinha.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cozinha.plist; sourceTree = "<group>"; };
@@ -258,6 +272,13 @@
 			children = (
 				C02E0FC71B1CE2BE009F88FC /* AnimaAudio */,
 				0677F3A21B150CD800A9C10A /* banheiro.jpg */,
+				7458858B1B1E68F50057741B /* popupFimMenina.png */,
+				7458858C1B1E68F50057741B /* popupFim.png */,
+				7458858D1B1E68F50057741B /* popupItemMenina.png */,
+				7458858E1B1E68F50057741B /* popupMissaoMenina.png */,
+				7458858F1B1E68F50057741B /* popupMissao.png */,
+				745885901B1E68F50057741B /* menina.png */,
+				745885911B1E68F50057741B /* menino.png */,
 				744AC5AE1B1E26F9009F6978 /* popupItem.png */,
 				74C8B91B1B1D01000086C9D3 /* luzBanheiro.png */,
 				74C8B91C1B1D01000086C9D3 /* protecaoLuzBanheiroDireita.png */,
@@ -482,11 +503,13 @@
 				C02E0FD01B1CE2CE009F88FC /* nota4.png in Resources */,
 				C02E0FCE1B1CE2CE009F88FC /* nota2.png in Resources */,
 				744AC5AF1B1E26F9009F6978 /* popupItem.png in Resources */,
+				745885951B1E68F50057741B /* popupMissaoMenina.png in Resources */,
 				066A2CD01B17918000A40DEC /* salaTeste.jpg in Resources */,
 				06FEF6471B1636B300EA7842 /* popup.png in Resources */,
 				0677F3A71B150D8000A9C10A /* banheiro.plist in Resources */,
 				441DC3F01B1CEFFE005CA15F /* Bariol_Regular.otf in Resources */,
 				062744161B1E4A8C0047D7BC /* RadioOn.mp3 in Resources */,
+				745885941B1E68F50057741B /* popupItemMenina.png in Resources */,
 				74A89D501B151C6B00581271 /* sala.plist in Resources */,
 				C08773C61B0E522800B4F5BF /* LaunchScreen.xib in Resources */,
 				0677F3A51B150D2800A9C10A /* casa_placeholder.png in Resources */,
@@ -500,6 +523,7 @@
 				44F68DAC1B13CA6B0032B700 /* barraDeVidaMapa.png in Resources */,
 				06624E421B1CC64B003C0C03 /* CasaPersonagem.png in Resources */,
 				C08773C31B0E522800B4F5BF /* Images.xcassets in Resources */,
+				745885931B1E68F50057741B /* popupFim.png in Resources */,
 				060C533B1B18F7C700463020 /* Banheiro.png in Resources */,
 				74C8B9241B1D19450086C9D3 /* telaComputador.png in Resources */,
 				060C533D1B18F7C700463020 /* Sala.png in Resources */,
@@ -510,6 +534,7 @@
 				74C8B9221B1D126D0086C9D3 /* poca.png in Resources */,
 				44F68DAD1B13CA6B0032B700 /* mapa.png in Resources */,
 				441DC3E71B1CCD93005CA15F /* btnComSom.png in Resources */,
+				745885981B1E68F50057741B /* menino.png in Resources */,
 				062743F91B1CD5BB0047D7BC /* LuzLustre.png in Resources */,
 				062744201B1E53B50047D7BC /* waterDropLoop.mp3 in Resources */,
 				74AE2EB31B1CF8320006C332 /* abajurSala.png in Resources */,
@@ -521,6 +546,7 @@
 				060C53411B19054800463020 /* predios.png in Resources */,
 				062744011B1CF50F0047D7BC /* Cozinha.png in Resources */,
 				0627441A1B1E4D3D0047D7BC /* RadioSHUTOFF.mp3 in Resources */,
+				745885961B1E68F50057741B /* popupMissao.png in Resources */,
 				4404C83A1B19164300B4872B /* menuCasa.png in Resources */,
 				74C8B91F1B1D01000086C9D3 /* protecaoLuzBanheiroDireita.png in Resources */,
 				C08773BA1B0E522800B4F5BF /* GameScene.sks in Resources */,
@@ -539,6 +565,7 @@
 				74AE2EB51B1CF8320006C332 /* bolinhaPS4.png in Resources */,
 				C08773C11B0E522800B4F5BF /* Main.storyboard in Resources */,
 				44F68DA31B13975F0032B700 /* btnSitio.png in Resources */,
+				745885921B1E68F50057741B /* popupFimMenina.png in Resources */,
 				44F68DA91B139FC70032B700 /* fumaca.png in Resources */,
 				C02E0FCD1B1CE2CE009F88FC /* nota1.png in Resources */,
 				441DC3E61B1CCD93005CA15F /* btnCheck.png in Resources */,
@@ -550,6 +577,7 @@
 				44F68DA71B139EBB0032B700 /* btnPredio.png in Resources */,
 				06624E441B1CD2FB003C0C03 /* geladeira.png in Resources */,
 				C02E0FD11B1CE2CE009F88FC /* partitura.png in Resources */,
+				745885971B1E68F50057741B /* menina.png in Resources */,
 				441DC3F11B1CF001005CA15F /* Bariol_Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -154,6 +154,7 @@ class SaveHandler {
     func changeCharacter(newCharacter character: Int){
         var saveFile = getSave()
         saveFile.changeSoundOption()
+        //saveFile.changeCharacterTo(novoPersonagem: 1)
         save()
     }
     

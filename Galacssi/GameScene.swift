@@ -24,7 +24,7 @@ class GameScene: SKScene {
     let background = SKSpriteNode(imageNamed: "mapa.png")
     let lifeCity = SKSpriteNode(imageNamed: "barraDeVidaMapa.png")
     let predios = SKSpriteNode(imageNamed: "predios.png")
-    var lifeCityStatus = SKSpriteNode(color: UIColor.greenColor(), size: CGSizeMake(0, 0))
+    var lifeCityStatus = SKSpriteNode(color: UIColor(red: 92/255.0, green: 192/255.0, blue: 0/255.0, alpha: 1.0), size: CGSizeMake(0, 0))
     let smoke1 = SKSpriteNode(imageNamed: "fumaca")
     let smoke2 = SKSpriteNode(imageNamed: "fumaca")
     let btnHouse = SKSpriteNode(imageNamed: "btnCasa.png")
@@ -38,11 +38,11 @@ class GameScene: SKScene {
     var save: SaveHandler = SaveHandler()
     
     //POPUPS FASES
-    let popupHouse = SKSpriteNode(imageNamed: "popupItem.png")
-    let popupFarm = SKSpriteNode(imageNamed: "popup.png")
-    let popupFactory = SKSpriteNode(imageNamed: "popup.png")
-    let popupForest = SKSpriteNode(imageNamed: "popup.png")
-    let popupBuilding = SKSpriteNode(imageNamed: "popup.png")
+    let popupHouse = SKSpriteNode(imageNamed: "popupMissao.png")
+    let popupFarm = SKSpriteNode(imageNamed: "popupMissao.png")
+    let popupFactory = SKSpriteNode(imageNamed: "popupMissao.png")
+    let popupForest = SKSpriteNode(imageNamed: "popupMissao.png")
+    let popupBuilding = SKSpriteNode(imageNamed: "popupMissao.png")
     
     //LABELS E TEXTOS MISSOES
     let missionHouse = SKNode()
@@ -58,8 +58,10 @@ class GameScene: SKScene {
 //    let missionForest = (SKLabelNode (fontNamed: "Bariol-Bold"))
 //    let missionBuilding = (SKLabelNode (fontNamed: "Bariol-Bold"))
     
-    let textMissionHouse = "Me ajude a encontrar os"
-    let textMissionHouse2 = "problemas na casa."
+    //let textMissionHouse = "Me ajude a encontrar os"
+    //let textMissionHouse2 = "problemas na casa."
+    let textMissionHouse = "Me ajude a apagar as luzes"
+    let textMissionHouse2 = "e fechar as torneiras."
     let textMissionFarm = "HAKUNAMATATA"
     let textMissionFactory = "É LINDO DIZER"
     let textMissionForest = "HAKUNAMATATA"
@@ -85,6 +87,20 @@ class GameScene: SKScene {
     var changeScene = false
     
     override func didMoveToView(view: SKView) {
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let a = defaults.integerForKey("personagem")
+        if a == 1 {
+            //POPUPS FASES
+            popupHouse.texture = SKTexture(imageNamed:"popupMissaoMenina")
+            popupFarm.texture = SKTexture(imageNamed:"popupMissaoMenina")
+            popupFactory.texture = SKTexture(imageNamed:"popupMissaoMenina")
+            popupForest.texture = SKTexture(imageNamed:"popupMissaoMenina")
+            popupBuilding.texture = SKTexture(imageNamed:"popupMissaoMenina")
+            
+        } else {
+            
+        }
         
         self.updateLifeBar()
         
@@ -115,12 +131,16 @@ class GameScene: SKScene {
         missionHouse.position = centerPopUp
         labelMissionHouse.text = textMissionHouse
         labelMissionHouse.zPosition = layerHide
+        labelMissionHouse.fontColor = SKColor.blackColor()
+        labelMissionHouse.fontSize = 30
         labelMissionHouse2.text = textMissionHouse2
         labelMissionHouse2.zPosition = layerHide
+        labelMissionHouse2.fontColor = SKColor.blackColor()
+        labelMissionHouse2.fontSize = 30
         missionHouse.addChild(labelMissionHouse)
         missionHouse.addChild(labelMissionHouse2)
-        labelMissionHouse.position = CGPoint(x: 50, y: 0)
-        labelMissionHouse2.position = CGPoint(x: 45, y: -40)
+        labelMissionHouse.position = CGPoint(x: 60, y: -10)
+        labelMissionHouse2.position = CGPoint(x: 60, y: -50)
 //        missionHouse.addChild(labelMissionHouse2)
 //        labelMissionHouse.text = textMissionHouse2
 //        labelMissionHouse.position = CGPoint(x: centerPopUp.x, y: centerPopUp.y-20)

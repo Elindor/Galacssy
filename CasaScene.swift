@@ -22,6 +22,8 @@ class CasaScene: SKScene, GameStateDelegate {
         "barraProgresso4.png"
     ]
     
+    var a = 0
+    
     enum comodo : Int {
         //nothing
         case nenhum = 0
@@ -99,7 +101,7 @@ class CasaScene: SKScene, GameStateDelegate {
     var cozinhaItemConfigurations = [String: [String: String]]()
 
     //var erroLabel = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
-    let textoFinal = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
+    //let textoFinal = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
     
     var popupItem = SKSpriteNode()
     //var textoItem = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
@@ -224,14 +226,30 @@ class CasaScene: SKScene, GameStateDelegate {
         addChild(cozinha)
         
         // Create popup
-        popup = SKSpriteNode(imageNamed: "popup.png")
+        let defaults = NSUserDefaults.standardUserDefaults()
+        a = defaults.integerForKey("personagem")
+        if a == 1 {
+            popup = SKSpriteNode(imageNamed: "popupFimMenina.png")
+        } else {
+            popup = SKSpriteNode(imageNamed: "popupFim.png")
+        }
         popup.setScale(0.5)
         popup.zPosition = camadaHide
-        popup.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        if a == 1 {
+            popup.position = CGPoint(x:CGFloat(CGRectGetMidX(self.frame)+10), y:CGFloat(CGRectGetMidY(self.frame)-11))
+        } else {
+            popup.position = CGPoint(x:CGFloat(CGRectGetMidX(self.frame)), y:CGFloat(CGRectGetMidY(self.frame)-10.5))
+        }
+        
         addChild(popup)
         
         // Create popup de itens
-        popupItem = SKSpriteNode(imageNamed: "popupItem.png")
+        //var a = save.getCurrentCharacter()
+        if a == 1 {
+            popupItem = SKSpriteNode(imageNamed: "popupItemMenina.png")
+        } else {
+            popupItem = SKSpriteNode(imageNamed: "popupItem.png")
+        }
         popupItem.setScale(0.5)
         popupItem.zPosition = camadaHide
         popupItem.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
@@ -265,12 +283,12 @@ class CasaScene: SKScene, GameStateDelegate {
         banheiro.addChild(barra)
         //banheiro.addChild(mask)
         
-        textoFinal.text = "PARABÉNS"
-        textoFinal.fontColor = SKColor.blackColor()
-        textoFinal.fontSize = 20
-        popup.zPosition = camadaHide
-        textoFinal.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
-        self.addChild(textoFinal)
+        //textoFinal.text = "PARABÉNS"
+        //textoFinal.fontColor = SKColor.blackColor()
+        //textoFinal.fontSize = 20
+        //popup.zPosition = camadaHide
+        //textoFinal.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        //self.addChild(textoFinal)
         
         //textoItem.text = ""
         //textoItem.fontColor = SKColor.blackColor()
@@ -389,7 +407,7 @@ class CasaScene: SKScene, GameStateDelegate {
         barra.zPosition = camadaHide
         //mask.zPosition = camadaHide
         popup.zPosition = camadaHide;
-        textoFinal.zPosition = camadaHide
+        //textoFinal.zPosition = camadaHide
         textoItem.zPosition = camadaHide
         estaNoComodo = comodo.nenhum
         popupItem.zPosition = camadaHide
@@ -502,6 +520,13 @@ class CasaScene: SKScene, GameStateDelegate {
     func gameStateDelegateIncrement(mensagem: String, node: SKNode) -> Bool{
         
         if !isItem {
+            
+            var posX : CGFloat = 0.0
+            if a == 1 {
+                posX = 100.0
+            } else {
+                posX = 70.0
+            }
            
             switch estaNoComodo{
             case comodo.banheiro:
@@ -545,6 +570,7 @@ class CasaScene: SKScene, GameStateDelegate {
                 textoItem.zPosition = camadaItemTexto
                 isItem = true
                 
+                
                 while !isOver {
                     
                     println("Passou no while com texto: \(texto)")
@@ -553,7 +579,8 @@ class CasaScene: SKScene, GameStateDelegate {
                     label.fontColor = SKColor.blackColor()
                     label.fontSize = 25
                     label.text = texto.substringToIndex(advance(texto.startIndex, 30))
-                    label.position = CGPoint(x:50, y:0 - pos)
+                    
+                    label.position = CGPoint(x:posX, y:0 - pos)
                     pos += 30
                     //label.zPosition = camadaItemTexto + 15
                     textoItem.addChild(label)
@@ -563,7 +590,7 @@ class CasaScene: SKScene, GameStateDelegate {
                         label2.fontColor = SKColor.blackColor()
                         label2.fontSize = 25
                         label2.text = texto.substringToIndex(advance(texto.startIndex, count(texto)))
-                        label2.position = CGPoint(x:50, y:0 - pos)
+                        label2.position = CGPoint(x:posX, y:0 - pos)
                         textoItem.addChild(label2)
                         isOver = true
                     }
@@ -575,7 +602,7 @@ class CasaScene: SKScene, GameStateDelegate {
                 label.fontColor = SKColor.blackColor()
                 label.fontSize = 25
                 label.text = mensagem
-                label.position = CGPoint(x:50, y:0)
+                label.position = CGPoint(x:posX, y:0)
                 textoItem.addChild(label)
             }
             
@@ -819,28 +846,28 @@ class CasaScene: SKScene, GameStateDelegate {
             if(acertosBanheiro == errosBanheiro && checkBanheiro.zPosition == camadaHide){
                 save.audioFimFase()
                 popup.zPosition = camadaFimFase
-                textoFinal.zPosition = camadaFimTexto
+                //textoFinal.zPosition = camadaFimTexto
             }
             break
         case comodo.cozinha:
             if(acertosCozinha == errosCozinha && checkCozinha.zPosition == camadaHide){
                 save.audioFimFase()
                 popup.zPosition = camadaFimFase
-                textoFinal.zPosition = camadaFimTexto
+                //textoFinal.zPosition = camadaFimTexto
             }
             break
         case comodo.sala:
             if(acertosSala == errosSala && checkSala.zPosition == camadaHide){
                 save.audioFimFase()
                 popup.zPosition = camadaFimFase
-                textoFinal.zPosition = camadaFimTexto
+                //textoFinal.zPosition = camadaFimTexto
             }
             break
         case comodo.quarto:
             if(acertosQuarto == errosQuarto && checkQuarto.zPosition == camadaHide){
                 save.audioFimFase()
                 popup.zPosition = camadaFimFase
-                textoFinal.zPosition = camadaFimTexto
+                //textoFinal.zPosition = camadaFimTexto
             }
             break
         default:

@@ -16,6 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let a = defaults.integerForKey("personagem")
+        
+        if (a != 0) && (a != 1) {
+            println("novo personagem")
+            defaults.setInteger(0, forKey: "personagem")
+        } else {
+            println("personagem antigo: \(a)")
+        }
+        
         return true
     }
 
