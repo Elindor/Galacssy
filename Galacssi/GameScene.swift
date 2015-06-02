@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 
 class GameScene: SKScene {
@@ -15,6 +16,9 @@ class GameScene: SKScene {
     let labelNode2 = (SKLabelNode (fontNamed: "Bariol-Regular"))
     var text = "NOME DO JOGO"
     var text2 = "HAKUNAMATATA"
+    
+    var coinSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Musica", ofType: "mp3")!)
+    var audioPlayer = AVAudioPlayer()
     
     //MAPA PRINCIPAL
     let background = SKSpriteNode(imageNamed: "mapa.png")
@@ -29,7 +33,9 @@ class GameScene: SKScene {
     let btnFarm = SKSpriteNode(imageNamed: "btnSitio.png")
     let btnForest = SKSpriteNode(imageNamed: "btnFloresta.png")
     let btnBuilding = SKSpriteNode(imageNamed: "btnPredio.png")
-    var saveFileArray: SaveHandler = SaveHandler()
+    var botaoSom = SKSpriteNode(imageNamed: "btnComSom.png")
+    var botaoSemSom = SKSpriteNode(imageNamed: "btnSemSom.png")
+    var save: SaveHandler = SaveHandler()
     
     //POPUPS FASES
     let popupHouse = SKSpriteNode(imageNamed: "popup.png")
@@ -124,6 +130,12 @@ class GameScene: SKScene {
         background.yScale = 0.5
         background.zPosition = layerBackground
 //        println("\(self.frame.size.width/2, self.frame.size.height/2)")
+        
+        botaoSom.position = CGPoint(x: 950, y: 45)
+        botaoSom.setScale(0.5)
+        
+        botaoSemSom.position = CGPoint(x: 950, y: 45)
+        botaoSemSom.setScale(0.5)
         
         //PREDIOS
         predios.position = CGPoint(x: self.frame.size.width/2+20, y: self.frame.size.height/2)
@@ -238,9 +250,10 @@ class GameScene: SKScene {
         self.addChild(btnBuilding)
         self.addChild(smoke1)
         self.addChild(smoke2)
+        self.addChild(botaoSom)
         
         basicAnimations()
-        saveFileArray.save()
+        save.save()
 
     
     }
@@ -347,6 +360,19 @@ class GameScene: SKScene {
             cenarioCasaDaArvore.scaleMode = SKSceneScaleMode.AspectFill
             self.scene!.view?.presentScene(cenarioCasaDaArvore, transition: transition)
         }
+        
+        if(botaoSom.containsPoint(touchLocation) && save.musicIsOn()){
+            save.callMute()
+            botaoSom.removeFromParent()
+            save.audioPlayer.stop()
+            addChild(botaoSemSom)
+        }
+        else if(botaoSom.containsPoint(touchLocation) && !save.musicIsOn()){
+            save.callMute()
+            botaoSemSom.removeFromParent()
+            save.audioPlayer.play()
+            addChild(botaoSom)
+        }
     }
     
     func callScene(touchLocation: CGPoint){
@@ -393,13 +419,13 @@ class GameScene: SKScene {
     }
     
     func updateLifeBar(){
-        var saveFile = self.saveFileArray.getSave()
+        var saveFile = self.save.getSave()
         var factor : CGFloat = 788.0 / 100.0
         self.lifeCityStatus.size = CGSizeMake(factor * CGFloat(saveFile.cleanLevel), CGFloat(61.0))
     }
     
     func completeScene(){
-        self.saveFileArray.increaseCleanLevelByCompletedScene()
+        self.save.increaseCleanLevelByCompletedScene()
         self.updateLifeBar()
     }
     

@@ -6,9 +6,11 @@
 //  Copyright (c) 2015 gabriel. All rights reserved.
 //
 
+import SpriteKit
+
 protocol GameStateDelegate {
     
-    func gameStateDelegateIncrement()
+    func gameStateDelegateIncrement(mensagem: String, node: SKNode) -> Bool
     func gameStateDelegateSetError()
     
 }

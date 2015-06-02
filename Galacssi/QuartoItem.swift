@@ -14,6 +14,7 @@ class QuartoItem : SKNode {
     var tile : SKSpriteNode
     var objeto : SKSpriteNode
     var objetoAuxiliar : SKSpriteNode
+    var movimento : SKAction
     var isError : Bool
     var msg : String
     
@@ -23,25 +24,25 @@ class QuartoItem : SKNode {
         
         isError = error
         
+        var radioIsOn: Bool = false
+
+        
         self.gameStateDelegate = gameStateDelegate
         type = quartoItemData["type"] as AnyObject? as! String
         msg = quartoItemConfiguration["msg"] as AnyObject? as! String
         objeto = SKSpriteNode()
         objetoAuxiliar = SKSpriteNode()
-        tile = SKSpriteNode()
-        
-        if type == "luz" {
-            
-            if (isError) {
-                objeto = SKSpriteNode(imageNamed: "LuzLustre.png")
-                objeto.setScale(0.5)
-                objeto.position = CGPoint (x: 13.0, y: -283.5)
-                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(110, 70))
-            } else {
-                tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(110, 70))
-            }
+        movimento = SKAction()
+
+        //if type == "luz" {
+        if (isError) {
+            objeto = SKSpriteNode(imageNamed: "LuzLustre.png")
+            objeto.setScale(0.52)
+            objeto.position = CGPoint (x: 13.3, y: -295.0)
+            tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(115, 75))
+        } else {
+            tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(115, 75))
         }
-        
             
         if type == "abajur" {
             
@@ -71,14 +72,25 @@ class QuartoItem : SKNode {
         }  else if type == "rádio" {
             
             if isError {
-                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(140, 115))
+                
+                objeto = SKSpriteNode(imageNamed: "partitura.png")
+                objeto.setScale(0.5)
+                objeto.position = CGPoint (x: -112.0, y: -30.0)
+                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(50, 85))
+                radioIsOn = true
+                
+                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(140, 115))
             } else {
-                tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(140, 115))
+                tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(140, 115))
             }
             
         }
         
         super.init()
+        
+        if radioIsOn{
+            radioLoop(objeto: objeto)
+        }
         
         userInteractionEnabled = true
         
@@ -92,6 +104,48 @@ class QuartoItem : SKNode {
         
     }
     
+    func radioLoop(#objeto: SKSpriteNode){
+        
+        var action1 = SKAction.moveBy(CGVectorMake(-50.0, -40.0), duration: 0.5)
+        var action2 = SKAction.moveBy(CGVectorMake(-50.0, 40.0), duration: 0.5)
+        var action3 = SKAction.moveBy(CGVectorMake(-50.0, 40.0), duration: 0.5)
+        var action4 = SKAction.moveBy(CGVectorMake(-50.0, -40.0), duration: 0.5)
+        
+        var fader = SKAction.fadeOutWithDuration(1.8)
+        var timer = SKAction.waitForDuration(0.9)
+        movimento = SKAction.sequence([action1, action2, action3, action4])
+
+        var random = (arc4random() % 40) % 4  // Double Seed
+        let newNote: SKSpriteNode
+
+        switch random{
+            case 1:
+            newNote = SKSpriteNode(imageNamed: "nota2")
+            break;
+        case 2:
+            newNote = SKSpriteNode(imageNamed: "nota3")
+            break;
+        case 3:
+            newNote = SKSpriteNode(imageNamed: "nota4")
+            break;
+        default:
+            newNote = SKSpriteNode(imageNamed: "nota1")
+            break;
+        }
+        newNote.position = CGPoint(x: 106.0, y: 0.0)
+        newNote.zPosition = objeto.zPosition + 1
+        objeto.addChild(newNote)
+        
+        newNote.runAction(timer, completion:{
+            self.radioLoop(objeto: objeto)
+        })
+        newNote.runAction(fader)
+        newNote.runAction(movimento, completion:{
+            newNote.removeFromParent()
+            
+        })
+    }
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -102,13 +156,9 @@ class QuartoItem : SKNode {
         let touchLocation = touch.locationInNode(self)
         
         if (isError && tile.containsPoint(touchLocation)) {
-            gameStateDelegate.gameStateDelegateIncrement()
-            tile.color = SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0)
-            objeto.removeFromParent()
-            objetoAuxiliar.removeFromParent()
-            NSLog("%@", type)
-            isError = false
-            displayAlert(msg)
+            if gameStateDelegate.gameStateDelegateIncrement(msg, node: self) {
+                isError = false
+            }
         }
         
     }
