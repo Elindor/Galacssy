@@ -15,6 +15,7 @@ class GameScene: SKScene {
     let labelNode2 = (SKLabelNode (fontNamed: "Bariol-Regular"))
     var text = "NOME DO JOGO"
     var text2 = "HAKUNAMATATA"
+    var audioOn = true
     
     //MAPA PRINCIPAL
     let background = SKSpriteNode(imageNamed: "mapa.png")
@@ -29,6 +30,8 @@ class GameScene: SKScene {
     let btnFarm = SKSpriteNode(imageNamed: "btnSitio.png")
     let btnForest = SKSpriteNode(imageNamed: "btnFloresta.png")
     let btnBuilding = SKSpriteNode(imageNamed: "btnPredio.png")
+    var botaoSom = SKSpriteNode(imageNamed: "btnComSom.png")
+    var botaoSemSom = SKSpriteNode(imageNamed: "btnSemSom.png")
     var saveFileArray: SaveHandler = SaveHandler()
     
     //POPUPS FASES
@@ -77,6 +80,12 @@ class GameScene: SKScene {
         background.yScale = 0.5
         background.zPosition = layerBackground
 //        println("\(self.frame.size.width/2, self.frame.size.height/2)")
+        
+        botaoSom.position = CGPoint(x: 950, y: 45)
+        botaoSom.setScale(0.5)
+        
+        botaoSemSom.position = CGPoint(x: 950, y: 45)
+        botaoSemSom.setScale(0.5)
         
         //PREDIOS
         predios.position = CGPoint(x: self.frame.size.width/2+20, y: self.frame.size.height/2)
@@ -186,6 +195,7 @@ class GameScene: SKScene {
         self.addChild(btnBuilding)
         self.addChild(smoke1)
         self.addChild(smoke2)
+        self.addChild(botaoSom)
         
         basicAnimations()
         saveFileArray.save()
@@ -289,6 +299,17 @@ class GameScene: SKScene {
             let cenarioCasaDaArvore = ArvoreScene(size: self.size)
             cenarioCasaDaArvore.scaleMode = SKSceneScaleMode.AspectFill
             self.scene!.view?.presentScene(cenarioCasaDaArvore, transition: transition)
+        }
+        
+        if(botaoSom.containsPoint(touchLocation) && audioOn){
+            audioOn = false
+            botaoSom.removeFromParent()
+            addChild(botaoSemSom)
+        }
+        else if(botaoSom.containsPoint(touchLocation) && !audioOn){
+            audioOn = true
+            botaoSemSom.removeFromParent()
+            addChild(botaoSom)
         }
     }
     
