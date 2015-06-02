@@ -45,6 +45,7 @@ class CasaScene: SKScene, GameStateDelegate {
     
     var onRoom: Bool = false
     var isFinish = false
+    var isItem = false
     
     //CAMADAS
     var camadaHide:CGFloat = 0
@@ -56,6 +57,9 @@ class CasaScene: SKScene, GameStateDelegate {
     var camadaPontosMask:CGFloat = 6
     var camadaFimFase:CGFloat = 7
     var camadaFimTexto:CGFloat = 8
+    
+    var camadaItem:CGFloat = 15
+    var camadaItemTexto:CGFloat = 16
     
     //AMBIENTES
     var banheiro = SKSpriteNode()
@@ -96,6 +100,10 @@ class CasaScene: SKScene, GameStateDelegate {
 
     //var erroLabel = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
     let textoFinal = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
+    
+    var popupItem = SKSpriteNode()
+    //var textoItem = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
+    var textoItem = SKNode()
     
     var barra = SKSpriteNode()
     //var mask = SKSpriteNode()
@@ -222,6 +230,13 @@ class CasaScene: SKScene, GameStateDelegate {
         popup.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
         addChild(popup)
         
+        // Create popup de itens
+        popupItem = SKSpriteNode(imageNamed: "popupItem.png")
+        popupItem.setScale(0.5)
+        popupItem.zPosition = camadaHide
+        popupItem.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        addChild(popupItem)
+        
         // Draw background
         background = SKSpriteNode(imageNamed: "menuCasa")
         background.size.height = size.height
@@ -256,6 +271,13 @@ class CasaScene: SKScene, GameStateDelegate {
         popup.zPosition = camadaHide
         textoFinal.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
         self.addChild(textoFinal)
+        
+        //textoItem.text = ""
+        //textoItem.fontColor = SKColor.blackColor()
+        //textoItem.fontSize = 20
+        textoItem.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        //textoItem.
+        self.addChild(textoItem)
 
         // Draw Sky
         var temp = SKSpriteNode(color: UIColor(red: 62.0/255, green: 205.0/255, blue: 1, alpha: 1), size: CGSize(width: self.frame.width,height: self.frame.height))
@@ -269,12 +291,23 @@ class CasaScene: SKScene, GameStateDelegate {
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        /* Called when a touch begins */
-        let touch = touches.first as! UITouch
-        let touchLocation = touch.locationInNode(self)
         
-        callScene(touchLocation)
-        
+        if isItem {
+            
+            isItem = false
+            popupItem.zPosition = camadaHide
+            textoItem.zPosition = camadaHide
+            textoItem.removeAllChildren()
+            
+        } else {
+           
+            /* Called when a touch begins */
+            let touch = touches.first as! UITouch
+            let touchLocation = touch.locationInNode(self)
+            
+            callScene(touchLocation)
+            
+        }
     }
     
     override func update(currentTime: CFTimeInterval) {
@@ -357,7 +390,9 @@ class CasaScene: SKScene, GameStateDelegate {
         //mask.zPosition = camadaHide
         popup.zPosition = camadaHide;
         textoFinal.zPosition = camadaHide
+        textoItem.zPosition = camadaHide
         estaNoComodo = comodo.nenhum
+        popupItem.zPosition = camadaHide
         
         //REMOVE OBJETOS DOS AMBIENTES
         for itens in banheiroItems{
@@ -464,39 +499,87 @@ class CasaScene: SKScene, GameStateDelegate {
     ////////////////////////////// trocar
     
     //ADICIONA OS ACERTOS DO AMBIENTE
-    func gameStateDelegateIncrement() {
-        switch estaNoComodo{
-        case comodo.banheiro:
-            acertosBanheiro++
-            barra.texture = SKTexture(imageNamed: barrasProgresso[acertosBanheiro])
-            //mask.size.width = CGFloat(54 * acertosBanheiro + 5)
-            //mask.position = CGPoint(x: CGFloat(234 + 27 * acertosBanheiro), y: mask.position.y)
-            break
-        case comodo.cozinha:
-            acertosCozinha++
-            barra.texture = SKTexture(imageNamed: barrasProgresso[acertosCozinha])
-            //mask.size.width = CGFloat(54 * acertosCozinha + 5)
-            //mask.position = CGPoint(x: CGFloat(234 + 27 * acertosCozinha), y: mask.position.y)
-            break
-        case comodo.sala:
-            acertosSala++
-            barra.texture = SKTexture(imageNamed: barrasProgresso[acertosSala])
-            //mask.size.width = CGFloat(54 * acertosSala + 5)
-            //mask.position = CGPoint(x: CGFloat(234 + 27 * acertosSala), y: mask.position.y)
-            break
-        case comodo.quarto:
-            acertosQuarto++
-            barra.texture = SKTexture(imageNamed: barrasProgresso[acertosQuarto])
-            //mask.size.width = CGFloat(54 * acertosQuarto + 5)
-            //mask.position = CGPoint(x: CGFloat(234 + 27 * acertosQuarto), y: mask.position.y)
-            break
-        default:
-            break
+    func gameStateDelegateIncrement(mensagem: String, node: SKNode) -> Bool{
+        
+        if !isItem {
+           
+            switch estaNoComodo{
+            case comodo.banheiro:
+                acertosBanheiro++
+                barra.texture = SKTexture(imageNamed: barrasProgresso[acertosBanheiro])
+                break
+            case comodo.cozinha:
+                acertosCozinha++
+                barra.texture = SKTexture(imageNamed: barrasProgresso[acertosCozinha])
+                //mask.size.width = CGFloat(54 * acertosCozinha + 5)
+                //mask.position = CGPoint(x: CGFloat(234 + 27 * acertosCozinha), y: mask.position.y)
+                break
+            case comodo.sala:
+                acertosSala++
+                barra.texture = SKTexture(imageNamed: barrasProgresso[acertosSala])
+                //mask.size.width = CGFloat(54 * acertosSala + 5)
+                //mask.position = CGPoint(x: CGFloat(234 + 27 * acertosSala), y: mask.position.y)
+                break
+            case comodo.quarto:
+                acertosQuarto++
+                barra.texture = SKTexture(imageNamed: barrasProgresso[acertosQuarto])
+                //mask.size.width = CGFloat(54 * acertosQuarto + 5)
+                //mask.position = CGPoint(x: CGFloat(234 + 27 * acertosQuarto), y: mask.position.y)
+                break
+            default:
+                break
+            }
+            //            acertos++
+            node.removeAllChildren()
+            var tamanho = count(mensagem)
+            if tamanho > 30 {
+                
+                println("Entrou no if")
+                
+                var isOver = false
+                var pos : CGFloat =  0.0
+                var corte = 30
+                var texto = mensagem
+                
+                popupItem.zPosition = camadaItem
+                textoItem.zPosition = camadaItemTexto
+                isItem = true
+                
+                while !isOver {
+                    
+                    println("Passou no while com texto: \(texto)")
+                    
+                    var label = SKLabelNode(fontNamed: "Bariol-Regular")
+                    label.fontColor = SKColor.blackColor()
+                    label.fontSize = 25
+                    label.text = texto.substringToIndex(advance(texto.startIndex, 30))
+                    label.position = CGPoint(x:50, y:0 - pos)
+                    pos += 30
+                    //label.zPosition = camadaItemTexto + 15
+                    textoItem.addChild(label)
+                    texto = texto.substringFromIndex(advance(texto.startIndex,30))
+                    if count(texto) < 30 {
+                        var label2 = SKLabelNode(fontNamed: "Bariol-Regular")
+                        label2.fontColor = SKColor.blackColor()
+                        label2.fontSize = 25
+                        
+                        label2.text = texto.substringToIndex(advance(texto.startIndex, count(texto)))
+                        label2.position = CGPoint(x:50, y:0 - pos)
+                        textoItem.addChild(label2)
+                        isOver = true
+                    }
+                }
+                
+            } else {
+                
+            }
+            
+            callWinner()
+            
+            return true
         }
-//            acertos++
         
-        
-        callWinner()
+        return false
     }
     
     //DEFINE QUANTIDADE DE ERROS DO AMBIENTE
@@ -579,10 +662,11 @@ class CasaScene: SKScene, GameStateDelegate {
             //erroLabel.text = String(format: "%i/%i", acertos, erros)
             var banheiroItemDataSet = gameData!["banheiroItemData"] as! [[String: AnyObject]]
             var auxErrosBanheiro = 0
+            let diceRollBanheiro = Int(arc4random_uniform(2))+1
             for banheiroItemData in banheiroItemDataSet {
                 var isError : Bool
                 auxErrosBanheiro++
-                if auxErrosBanheiro == diceRoll {
+                if auxErrosBanheiro == diceRollBanheiro {
                     isError = false
                 } else {
                     isError = true

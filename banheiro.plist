@@ -9,7 +9,7 @@
 		<key>chuveiro</key>
 		<dict>
 			<key>msg</key>
-			<string>Sabia que um banho gasta 135 litros de agua? Isso é quase o que um peixe de aquario precisa pra viver!</string>
+			<string>Sabia que um banho gasta 135  litros de agua? Isso é quase o que um peixe de aquario       precisa pra viver!</string>
 		</dict>
 		<key>pia</key>
 		<dict>
@@ -19,7 +19,7 @@
 		<key>vaso</key>
 		<dict>
 			<key>msg</key>
-			<string>Uma casa gasta com energia, normalmente, 1 arvore em 10 meses.</string>
+			<string>Você precisa queimar uma arvore inteira para manter uma lampada acesa por 3 meses.</string>
 		</dict>
 		<key>luz</key>
 		<dict>
@@ -29,6 +29,22 @@
 	</dict>
 	<key>banheiroItemData</key>
 	<array>
+		<dict>
+			<key>x</key>
+			<real>0.415</real>
+			<key>y</key>
+			<real>0.8149999999999999</real>
+			<key>type</key>
+			<string>luz</string>
+		</dict>
+		<dict>
+			<key>x</key>
+			<real>0.65</real>
+			<key>y</key>
+			<real>0.8149999999999999</real>
+			<key>type</key>
+			<string>vaso</string>
+		</dict>
 		<dict>
 			<key>x</key>
 			<real>0.86</real>
@@ -44,22 +60,6 @@
 			<real>0.608</real>
 			<key>type</key>
 			<string>pia</string>
-		</dict>
-		<dict>
-			<key>x</key>
-			<real>0.65</real>
-			<key>y</key>
-			<real>0.8149999999999999</real>
-			<key>type</key>
-			<string>vaso</string>
-		</dict>
-		<dict>
-			<key>x</key>
-			<real>0.415</real>
-			<key>y</key>
-			<real>0.8149999999999999</real>
-			<key>type</key>
-			<string>luz</string>
 		</dict>
 	</array>
 </dict>
