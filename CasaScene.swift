@@ -562,7 +562,6 @@ class CasaScene: SKScene, GameStateDelegate {
                         var label2 = SKLabelNode(fontNamed: "Bariol-Regular")
                         label2.fontColor = SKColor.blackColor()
                         label2.fontSize = 25
-                        
                         label2.text = texto.substringToIndex(advance(texto.startIndex, count(texto)))
                         label2.position = CGPoint(x:50, y:0 - pos)
                         textoItem.addChild(label2)
@@ -572,6 +571,12 @@ class CasaScene: SKScene, GameStateDelegate {
                 
             } else {
                 
+                var label = SKLabelNode(fontNamed: "Bariol-Regular")
+                label.fontColor = SKColor.blackColor()
+                label.fontSize = 25
+                label.text = mensagem
+                label.position = CGPoint(x:50, y:0)
+                textoItem.addChild(label)
             }
             
             callWinner()
