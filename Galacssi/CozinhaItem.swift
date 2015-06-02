@@ -125,6 +125,8 @@ class CozinhaItem : SKNode {
         let touchLocation = touch.locationInNode(self)
         
         if (isError && tile.containsPoint(touchLocation)) {
+            save.audioObjetos(type)
+
             if gameStateDelegate.gameStateDelegateIncrement(msg, node: self) {
                 isError = false
             }
