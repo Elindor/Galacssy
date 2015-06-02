@@ -7,10 +7,13 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 /* Cenário: Casa. É o cenário em que o jogador deve combater os desperdícios que ocorrem na casa. */
 
 class CasaScene: SKScene, GameStateDelegate {
+    
+    var save: SaveHandler = SaveHandler()
     
     let barrasProgresso = [
         "barraProgresso1.png",
@@ -809,24 +812,28 @@ class CasaScene: SKScene, GameStateDelegate {
         switch estaNoComodo{
         case comodo.banheiro:
             if(acertosBanheiro == errosBanheiro && checkBanheiro.zPosition == camadaHide){
+                save.audioFimFase()
                 popup.zPosition = camadaFimFase
                 textoFinal.zPosition = camadaFimTexto
             }
             break
         case comodo.cozinha:
             if(acertosCozinha == errosCozinha && checkCozinha.zPosition == camadaHide){
+                save.audioFimFase()
                 popup.zPosition = camadaFimFase
                 textoFinal.zPosition = camadaFimTexto
             }
             break
         case comodo.sala:
             if(acertosSala == errosSala && checkSala.zPosition == camadaHide){
+                save.audioFimFase()
                 popup.zPosition = camadaFimFase
                 textoFinal.zPosition = camadaFimTexto
             }
             break
         case comodo.quarto:
             if(acertosQuarto == errosQuarto && checkQuarto.zPosition == camadaHide){
+                save.audioFimFase()
                 popup.zPosition = camadaFimFase
                 textoFinal.zPosition = camadaFimTexto
             }

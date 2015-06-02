@@ -15,6 +15,13 @@
 		062743FB1B1CD91B0047D7BC /* gota.png in Resources */ = {isa = PBXBuildFile; fileRef = 062743FA1B1CD91B0047D7BC /* gota.png */; };
 		062743FD1B1CE39D0047D7BC /* portamicroondas.png in Resources */ = {isa = PBXBuildFile; fileRef = 062743FC1B1CE39D0047D7BC /* portamicroondas.png */; };
 		062744011B1CF50F0047D7BC /* Cozinha.png in Resources */ = {isa = PBXBuildFile; fileRef = 062744001B1CF50F0047D7BC /* Cozinha.png */; };
+		062744031B1E28CA0047D7BC /* Musica.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 062744021B1E28CA0047D7BC /* Musica.mp3 */; };
+		062744061B1E2FA70047D7BC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 062744051B1E2FA70047D7BC /* AVFoundation.framework */; };
+		062744081B1E374B0047D7BC /* FridgeClose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 062744071B1E374B0047D7BC /* FridgeClose.mp3 */; };
+		0627440C1B1E39DA0047D7BC /* Microwave.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0627440B1B1E39DA0047D7BC /* Microwave.mp3 */; };
+		0627440E1B1E3B010047D7BC /* click1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0627440D1B1E3B010047D7BC /* click1.mp3 */; };
+		062744101B1E3C000047D7BC /* brilinho3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0627440F1B1E3C000047D7BC /* brilinho3.mp3 */; };
+		062744121B1E3F780047D7BC /* waterDropLoop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 062744111B1E3F780047D7BC /* waterDropLoop.mp3 */; };
 		06624E421B1CC64B003C0C03 /* CasaPersonagem.png in Resources */ = {isa = PBXBuildFile; fileRef = 06624E411B1CC64B003C0C03 /* CasaPersonagem.png */; };
 		06624E441B1CD2FB003C0C03 /* geladeira.png in Resources */ = {isa = PBXBuildFile; fileRef = 06624E431B1CD2FB003C0C03 /* geladeira.png */; };
 		066A2CD01B17918000A40DEC /* salaTeste.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 066A2CCF1B17918000A40DEC /* salaTeste.jpg */; };
@@ -109,6 +116,13 @@
 		062743FA1B1CD91B0047D7BC /* gota.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gota.png; sourceTree = "<group>"; };
 		062743FC1B1CE39D0047D7BC /* portamicroondas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = portamicroondas.png; sourceTree = "<group>"; };
 		062744001B1CF50F0047D7BC /* Cozinha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cozinha.png; sourceTree = "<group>"; };
+		062744021B1E28CA0047D7BC /* Musica.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Musica.mp3; sourceTree = "<group>"; };
+		062744051B1E2FA70047D7BC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		062744071B1E374B0047D7BC /* FridgeClose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = FridgeClose.mp3; path = ../../FridgeClose.mp3; sourceTree = "<group>"; };
+		0627440B1B1E39DA0047D7BC /* Microwave.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Microwave.mp3; sourceTree = "<group>"; };
+		0627440D1B1E3B010047D7BC /* click1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click1.mp3; sourceTree = "<group>"; };
+		0627440F1B1E3C000047D7BC /* brilinho3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = brilinho3.mp3; sourceTree = "<group>"; };
+		062744111B1E3F780047D7BC /* waterDropLoop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = waterDropLoop.mp3; sourceTree = "<group>"; };
 		06624E411B1CC64B003C0C03 /* CasaPersonagem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CasaPersonagem.png; sourceTree = "<group>"; };
 		06624E431B1CD2FB003C0C03 /* geladeira.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = geladeira.png; sourceTree = "<group>"; };
 		066A2CCF1B17918000A40DEC /* salaTeste.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = salaTeste.jpg; sourceTree = "<group>"; };
@@ -192,6 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				062744061B1E2FA70047D7BC /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +220,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		062744041B1E28D50047D7BC /* Audios */ = {
+			isa = PBXGroup;
+			children = (
+				062744071B1E374B0047D7BC /* FridgeClose.mp3 */,
+				0627440F1B1E3C000047D7BC /* brilinho3.mp3 */,
+				0627440B1B1E39DA0047D7BC /* Microwave.mp3 */,
+				0627440D1B1E3B010047D7BC /* click1.mp3 */,
+				062744111B1E3F780047D7BC /* waterDropLoop.mp3 */,
+				062744021B1E28CA0047D7BC /* Musica.mp3 */,
+			);
+			name = Audios;
+			sourceTree = "<group>";
+		};
 		0677F3971B14FB8D00A9C10A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +315,7 @@
 		C08773A91B0E522800B4F5BF = {
 			isa = PBXGroup;
 			children = (
+				062744051B1E2FA70047D7BC /* AVFoundation.framework */,
 				C08773B41B0E522800B4F5BF /* Galacssi */,
 				C08773CE1B0E522800B4F5BF /* GalacssiTests */,
 				C08773B31B0E522800B4F5BF /* Products */,
@@ -305,6 +334,7 @@
 		C08773B41B0E522800B4F5BF /* Galacssi */ = {
 			isa = PBXGroup;
 			children = (
+				062744041B1E28D50047D7BC /* Audios */,
 				44F68D971B138AD70032B700 /* Images */,
 				C08773B71B0E522800B4F5BF /* AppDelegate.swift */,
 				C08773B91B0E522800B4F5BF /* GameScene.sks */,
@@ -464,6 +494,8 @@
 				74C8B9241B1D19450086C9D3 /* telaComputador.png in Resources */,
 				060C533D1B18F7C700463020 /* Sala.png in Resources */,
 				444BE5A71B1726C800683BEA /* nuvem1.png in Resources */,
+				0627440C1B1E39DA0047D7BC /* Microwave.mp3 in Resources */,
+				062744081B1E374B0047D7BC /* FridgeClose.mp3 in Resources */,
 				060C533C1B18F7C700463020 /* btnVoltar.png in Resources */,
 				44F68DA11B1395020032B700 /* btnIndustria.png in Resources */,
 				74C8B9221B1D126D0086C9D3 /* poca.png in Resources */,
@@ -473,6 +505,7 @@
 				74AE2EB31B1CF8320006C332 /* abajurSala.png in Resources */,
 				74AE2EAC1B1CF8160006C332 /* barraProgresso2.png in Resources */,
 				062743FD1B1CE39D0047D7BC /* portamicroondas.png in Resources */,
+				0627440E1B1E3B010047D7BC /* click1.mp3 in Resources */,
 				06AE40491B1784980072EF47 /* botVoltar.png in Resources */,
 				066A2CD21B179D3200A40DEC /* quartoTeste.jpg in Resources */,
 				060C53411B19054800463020 /* predios.png in Resources */,
@@ -482,10 +515,13 @@
 				C08773BA1B0E522800B4F5BF /* GameScene.sks in Resources */,
 				44F68D9D1B1390970032B700 /* btnArvore.png in Resources */,
 				74A89D511B151C6B00581271 /* quarto.plist in Resources */,
+				062744101B1E3C000047D7BC /* brilinho3.mp3 in Resources */,
+				062744031B1E28CA0047D7BC /* Musica.mp3 in Resources */,
 				441DC3E81B1CCD93005CA15F /* btnSemSom.png in Resources */,
 				74AE2EAE1B1CF8160006C332 /* barraProgresso4.png in Resources */,
 				44F68D9B1B138D900032B700 /* btnCasa.png in Resources */,
 				74F815601B18FEEE007E0125 /* Quarto.png in Resources */,
+				062744121B1E3F780047D7BC /* waterDropLoop.mp3 in Resources */,
 				74AE2EAD1B1CF8160006C332 /* barraProgresso3.png in Resources */,
 				4405CBD01B1DDDCE009407B5 /* barraProgresso1.png in Resources */,
 				74AE2EB51B1CF8320006C332 /* bolinhaPS4.png in Resources */,

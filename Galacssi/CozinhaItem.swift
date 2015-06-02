@@ -16,6 +16,7 @@ class CozinhaItem : SKNode {
     var movimento : SKAction
     var isError : Bool
     var msg : String
+    var save: SaveHandler = SaveHandler()
     
     private var gameStateDelegate : GameStateDelegate
     
@@ -57,6 +58,7 @@ class CozinhaItem : SKNode {
         } else if type == "torneira" {
             
             if isError {
+                save.torneiraLigada()
                 objeto = SKSpriteNode(imageNamed: "gota.png")
                 objeto.setScale(0.3)
                 tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(50, 85))
