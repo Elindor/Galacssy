@@ -16,7 +16,6 @@ class GameScene: SKScene {
     let labelNode2 = (SKLabelNode (fontNamed: "Bariol-Regular"))
     var text = "NOME DO JOGO"
     var text2 = "HAKUNAMATATA"
-    var audioOn = true
     
     var coinSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Musica", ofType: "mp3")!)
     var audioPlayer = AVAudioPlayer()
@@ -36,7 +35,7 @@ class GameScene: SKScene {
     let btnBuilding = SKSpriteNode(imageNamed: "btnPredio.png")
     var botaoSom = SKSpriteNode(imageNamed: "btnComSom.png")
     var botaoSemSom = SKSpriteNode(imageNamed: "btnSemSom.png")
-    var saveFileArray: SaveHandler = SaveHandler()
+    var save: SaveHandler = SaveHandler()
     
     //POPUPS FASES
     let popupHouse = SKSpriteNode(imageNamed: "popup.png")
@@ -67,9 +66,7 @@ class GameScene: SKScene {
         
         self.updateLifeBar()
         
-        audioPlayer = AVAudioPlayer(contentsOfURL: coinSound, error: nil)
-        audioPlayer.volume = 1.0
-        audioPlayer.play()
+        save.playAudio()
 
         //TESTE DE FONTE
         labelNode.text = text
@@ -206,7 +203,7 @@ class GameScene: SKScene {
         self.addChild(botaoSom)
         
         basicAnimations()
-        saveFileArray.save()
+        save.save()
 
     
     }
@@ -309,14 +306,16 @@ class GameScene: SKScene {
             self.scene!.view?.presentScene(cenarioCasaDaArvore, transition: transition)
         }
         
-        if(botaoSom.containsPoint(touchLocation) && audioOn){
-            audioOn = false
+        if(botaoSom.containsPoint(touchLocation) && save.musicIsOn()){
+            save.callMute()
             botaoSom.removeFromParent()
+            save.audioPlayer.stop()
             addChild(botaoSemSom)
         }
-        else if(botaoSom.containsPoint(touchLocation) && !audioOn){
-            audioOn = true
+        else if(botaoSom.containsPoint(touchLocation) && !save.musicIsOn()){
+            save.callMute()
             botaoSemSom.removeFromParent()
+            save.audioPlayer.play()
             addChild(botaoSom)
         }
     }
@@ -365,13 +364,13 @@ class GameScene: SKScene {
     }
     
     func updateLifeBar(){
-        var saveFile = self.saveFileArray.getSave()
+        var saveFile = self.save.getSave()
         var factor : CGFloat = 788.0 / 100.0
         self.lifeCityStatus.size = CGSizeMake(factor * CGFloat(saveFile.cleanLevel), CGFloat(61.0))
     }
     
     func completeScene(){
-        self.saveFileArray.increaseCleanLevelByCompletedScene()
+        self.save.increaseCleanLevelByCompletedScene()
         self.updateLifeBar()
     }
     

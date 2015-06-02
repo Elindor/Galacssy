@@ -7,8 +7,12 @@
 //
 
 import Foundation
+import AVFoundation
 
 class SaveHandler {
+    
+    var coinSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Musica", ofType: "mp3")!)
+    var audioPlayer = AVAudioPlayer()
     var tempArray:Array<Save> = [];
     //var savedFile: Save
     
@@ -64,6 +68,12 @@ class SaveHandler {
         //let newHighScore = Save(score: newScore, dateOfScore: NSDate())
         //self.tempArray.append(newHighScore)
         self.save()
+    }
+    
+    func playAudio(){
+        audioPlayer = AVAudioPlayer(contentsOfURL: coinSound, error: nil)
+        audioPlayer.volume = 1.0
+        audioPlayer.play()
     }
     
     
