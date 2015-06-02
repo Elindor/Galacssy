@@ -17,6 +17,7 @@ class QuartoItem : SKNode {
     var movimento : SKAction
     var isError : Bool
     var msg : String
+    var save: SaveHandler = SaveHandler()
     
     private var gameStateDelegate : GameStateDelegate
     
@@ -72,7 +73,7 @@ class QuartoItem : SKNode {
         }  else if type == "rádio" {
             
             if isError {
-                
+                save.radioLigado()
                 objeto = SKSpriteNode(imageNamed: "partitura.png")
                 objeto.setScale(0.5)
                 objeto.position = CGPoint (x: -112.0, y: -30.0)
@@ -158,6 +159,7 @@ class QuartoItem : SKNode {
         if (isError && tile.containsPoint(touchLocation)) {
             if gameStateDelegate.gameStateDelegateIncrement(msg, node: self) {
                 isError = false
+                save.audioObjetos(type)
             }
         }
         

@@ -20,8 +20,10 @@
 		0627440C1B1E39DA0047D7BC /* Microwave.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0627440B1B1E39DA0047D7BC /* Microwave.mp3 */; };
 		0627440E1B1E3B010047D7BC /* click1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0627440D1B1E3B010047D7BC /* click1.mp3 */; };
 		062744101B1E3C000047D7BC /* brilinho3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0627440F1B1E3C000047D7BC /* brilinho3.mp3 */; };
-		062744121B1E3F780047D7BC /* waterDropLoop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 062744111B1E3F780047D7BC /* waterDropLoop.mp3 */; };
 		062744141B1E45FE0047D7BC /* FridgeClose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 062744131B1E45FE0047D7BC /* FridgeClose.mp3 */; };
+		062744161B1E4A8C0047D7BC /* RadioOn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 062744151B1E4A8C0047D7BC /* RadioOn.mp3 */; };
+		0627441A1B1E4D3D0047D7BC /* RadioSHUTOFF.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 062744191B1E4D3D0047D7BC /* RadioSHUTOFF.mp3 */; };
+		062744201B1E53B50047D7BC /* waterDropLoop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0627441F1B1E53B50047D7BC /* waterDropLoop.mp3 */; };
 		06624E421B1CC64B003C0C03 /* CasaPersonagem.png in Resources */ = {isa = PBXBuildFile; fileRef = 06624E411B1CC64B003C0C03 /* CasaPersonagem.png */; };
 		06624E441B1CD2FB003C0C03 /* geladeira.png in Resources */ = {isa = PBXBuildFile; fileRef = 06624E431B1CD2FB003C0C03 /* geladeira.png */; };
 		066A2CD01B17918000A40DEC /* salaTeste.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 066A2CCF1B17918000A40DEC /* salaTeste.jpg */; };
@@ -122,8 +124,10 @@
 		0627440B1B1E39DA0047D7BC /* Microwave.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Microwave.mp3; sourceTree = "<group>"; };
 		0627440D1B1E3B010047D7BC /* click1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click1.mp3; sourceTree = "<group>"; };
 		0627440F1B1E3C000047D7BC /* brilinho3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = brilinho3.mp3; sourceTree = "<group>"; };
-		062744111B1E3F780047D7BC /* waterDropLoop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = waterDropLoop.mp3; sourceTree = "<group>"; };
 		062744131B1E45FE0047D7BC /* FridgeClose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = FridgeClose.mp3; sourceTree = "<group>"; };
+		062744151B1E4A8C0047D7BC /* RadioOn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = RadioOn.mp3; sourceTree = "<group>"; };
+		062744191B1E4D3D0047D7BC /* RadioSHUTOFF.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = RadioSHUTOFF.mp3; sourceTree = "<group>"; };
+		0627441F1B1E53B50047D7BC /* waterDropLoop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = waterDropLoop.mp3; sourceTree = "<group>"; };
 		06624E411B1CC64B003C0C03 /* CasaPersonagem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CasaPersonagem.png; sourceTree = "<group>"; };
 		06624E431B1CD2FB003C0C03 /* geladeira.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = geladeira.png; sourceTree = "<group>"; };
 		066A2CCF1B17918000A40DEC /* salaTeste.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = salaTeste.jpg; sourceTree = "<group>"; };
@@ -226,10 +230,12 @@
 			isa = PBXGroup;
 			children = (
 				0627440F1B1E3C000047D7BC /* brilinho3.mp3 */,
+				062744191B1E4D3D0047D7BC /* RadioSHUTOFF.mp3 */,
 				0627440B1B1E39DA0047D7BC /* Microwave.mp3 */,
+				0627441F1B1E53B50047D7BC /* waterDropLoop.mp3 */,
 				062744131B1E45FE0047D7BC /* FridgeClose.mp3 */,
+				062744151B1E4A8C0047D7BC /* RadioOn.mp3 */,
 				0627440D1B1E3B010047D7BC /* click1.mp3 */,
-				062744111B1E3F780047D7BC /* waterDropLoop.mp3 */,
 				062744021B1E28CA0047D7BC /* Musica.mp3 */,
 			);
 			name = Audios;
@@ -480,6 +486,7 @@
 				06FEF6471B1636B300EA7842 /* popup.png in Resources */,
 				0677F3A71B150D8000A9C10A /* banheiro.plist in Resources */,
 				441DC3F01B1CEFFE005CA15F /* Bariol_Regular.otf in Resources */,
+				062744161B1E4A8C0047D7BC /* RadioOn.mp3 in Resources */,
 				74A89D501B151C6B00581271 /* sala.plist in Resources */,
 				C08773C61B0E522800B4F5BF /* LaunchScreen.xib in Resources */,
 				0677F3A51B150D2800A9C10A /* casa_placeholder.png in Resources */,
@@ -504,6 +511,7 @@
 				44F68DAD1B13CA6B0032B700 /* mapa.png in Resources */,
 				441DC3E71B1CCD93005CA15F /* btnComSom.png in Resources */,
 				062743F91B1CD5BB0047D7BC /* LuzLustre.png in Resources */,
+				062744201B1E53B50047D7BC /* waterDropLoop.mp3 in Resources */,
 				74AE2EB31B1CF8320006C332 /* abajurSala.png in Resources */,
 				74AE2EAC1B1CF8160006C332 /* barraProgresso2.png in Resources */,
 				062743FD1B1CE39D0047D7BC /* portamicroondas.png in Resources */,
@@ -512,6 +520,7 @@
 				066A2CD21B179D3200A40DEC /* quartoTeste.jpg in Resources */,
 				060C53411B19054800463020 /* predios.png in Resources */,
 				062744011B1CF50F0047D7BC /* Cozinha.png in Resources */,
+				0627441A1B1E4D3D0047D7BC /* RadioSHUTOFF.mp3 in Resources */,
 				4404C83A1B19164300B4872B /* menuCasa.png in Resources */,
 				74C8B91F1B1D01000086C9D3 /* protecaoLuzBanheiroDireita.png in Resources */,
 				C08773BA1B0E522800B4F5BF /* GameScene.sks in Resources */,
@@ -524,7 +533,6 @@
 				74AE2EAE1B1CF8160006C332 /* barraProgresso4.png in Resources */,
 				44F68D9B1B138D900032B700 /* btnCasa.png in Resources */,
 				74F815601B18FEEE007E0125 /* Quarto.png in Resources */,
-				062744121B1E3F780047D7BC /* waterDropLoop.mp3 in Resources */,
 				74AE2EAD1B1CF8160006C332 /* barraProgresso3.png in Resources */,
 				4405CBD01B1DDDCE009407B5 /* barraProgresso1.png in Resources */,
 				062744141B1E45FE0047D7BC /* FridgeClose.mp3 in Resources */,

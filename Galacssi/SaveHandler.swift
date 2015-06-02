@@ -85,13 +85,19 @@ class SaveHandler {
         audioPlayer.volume = 1.0
             audioPlayer.play()
         }
-        if (tipo == "microondas"){
+        else if (tipo == "microondas"){
             var microondasSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Microwave", ofType: "mp3")!)
             audioPlayer = AVAudioPlayer(contentsOfURL: microondasSound, error: nil)
             audioPlayer.volume = 1.0
             audioPlayer.play()
         }
-        if(tipo == "luz" || tipo == "torneira"){
+        else if (tipo == "rádio"){
+            var radioSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("RadioSHUTOFF", ofType: "mp3")!)
+            audioPlayer = AVAudioPlayer(contentsOfURL: radioSound, error: nil)
+            audioPlayer.volume = 1.0
+            audioPlayer.play()
+        }
+        else{
             var luzSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("click1", ofType: "mp3")!)
             audioPlayer = AVAudioPlayer(contentsOfURL: luzSound, error: nil)
             audioPlayer.volume = 1.0
@@ -107,8 +113,22 @@ class SaveHandler {
     }
     
     func torneiraLigada(){
-        var torneiraLigadaSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("waterDropLoop", ofType: "mp3")!)
-        audioPlayer = AVAudioPlayer(contentsOfURL: torneiraLigadaSound, error: nil)
+        var fimFaseSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("waterDropLoop", ofType: "mp3")!)
+        audioPlayer = AVAudioPlayer(contentsOfURL: fimFaseSound, error: nil)
+        audioPlayer.volume = 1.0
+        audioPlayer.play()
+    }
+    
+    func chuveiroLigado(){
+        var fimFaseSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("waterDropLoop", ofType: "mp3")!)
+        audioPlayer = AVAudioPlayer(contentsOfURL: fimFaseSound, error: nil)
+        audioPlayer.volume = 1.0
+        audioPlayer.play()
+    }
+    
+    func radioLigado(){
+        var radioLigadoSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("RadioOn", ofType: "mp3")!)
+        audioPlayer = AVAudioPlayer(contentsOfURL: radioLigadoSound, error: nil)
         audioPlayer.numberOfLoops = -1
         audioPlayer.volume = 1.0
         audioPlayer.play()
