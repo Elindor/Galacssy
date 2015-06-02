@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 
 class GameScene: SKScene {
@@ -16,6 +17,9 @@ class GameScene: SKScene {
     var text = "NOME DO JOGO"
     var text2 = "HAKUNAMATATA"
     var audioOn = true
+    
+    var coinSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Musica", ofType: "mp3")!)
+    var audioPlayer = AVAudioPlayer()
     
     //MAPA PRINCIPAL
     let background = SKSpriteNode(imageNamed: "mapa.png")
@@ -62,6 +66,10 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         
         self.updateLifeBar()
+        
+        audioPlayer = AVAudioPlayer(contentsOfURL: coinSound, error: nil)
+        audioPlayer.volume = 1.0
+        audioPlayer.play()
 
         //TESTE DE FONTE
         labelNode.text = text

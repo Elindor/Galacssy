@@ -7,10 +7,13 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 /* Cenário: Casa. É o cenário em que o jogador deve combater os desperdícios que ocorrem na casa. */
 
 class CasaScene: SKScene, GameStateDelegate {
+    
+    let audioPlayer = AVAudioPlayer()
     
     let barrasProgresso = [
         "barraProgresso1.png",
