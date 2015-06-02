@@ -576,10 +576,11 @@ class CasaScene: SKScene, GameStateDelegate {
             //erroLabel.text = String(format: "%i/%i", acertos, erros)
             var banheiroItemDataSet = gameData!["banheiroItemData"] as! [[String: AnyObject]]
             var auxErrosBanheiro = 0
+            let diceRollBanheiro = Int(arc4random_uniform(2))+1
             for banheiroItemData in banheiroItemDataSet {
                 var isError : Bool
                 auxErrosBanheiro++
-                if auxErrosBanheiro == diceRoll {
+                if auxErrosBanheiro == diceRollBanheiro {
                     isError = false
                 } else {
                     isError = true
