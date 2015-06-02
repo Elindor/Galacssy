@@ -51,6 +51,7 @@
 		441DC3F11B1CF001005CA15F /* Bariol_Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 441DC3E91B1CE3AA005CA15F /* Bariol_Bold.otf */; };
 		444BE5A71B1726C800683BEA /* nuvem1.png in Resources */ = {isa = PBXBuildFile; fileRef = 444BE5A51B1726C800683BEA /* nuvem1.png */; };
 		444BE5A81B1726C800683BEA /* nuvem2.png in Resources */ = {isa = PBXBuildFile; fileRef = 444BE5A61B1726C800683BEA /* nuvem2.png */; };
+		44553D3F1B1E268E000F78B8 /* missoes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44553D3E1B1E268E000F78B8 /* missoes.plist */; };
 		44F68D9B1B138D900032B700 /* btnCasa.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68D9A1B138D900032B700 /* btnCasa.png */; };
 		44F68D9D1B1390970032B700 /* btnArvore.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68D9C1B1390970032B700 /* btnArvore.png */; };
 		44F68DA11B1395020032B700 /* btnIndustria.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DA01B1395020032B700 /* btnIndustria.png */; };
@@ -153,6 +154,7 @@
 		441DC3EA1B1CE3AA005CA15F /* Bariol_Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Regular.otf; sourceTree = "<group>"; };
 		444BE5A51B1726C800683BEA /* nuvem1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nuvem1.png; sourceTree = "<group>"; };
 		444BE5A61B1726C800683BEA /* nuvem2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nuvem2.png; sourceTree = "<group>"; };
+		44553D3E1B1E268E000F78B8 /* missoes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = missoes.plist; sourceTree = "<group>"; };
 		44F68D9A1B138D900032B700 /* btnCasa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnCasa.png; sourceTree = "<group>"; };
 		44F68D9C1B1390970032B700 /* btnArvore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnArvore.png; sourceTree = "<group>"; };
 		44F68DA01B1395020032B700 /* btnIndustria.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnIndustria.png; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				74A89D4E1B151C6B00581271 /* quarto.plist */,
 				74A89D4F1B151C6B00581271 /* cozinha.plist */,
 				0677F3A61B150D8000A9C10A /* banheiro.plist */,
+				44553D3E1B1E268E000F78B8 /* missoes.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				C08773BA1B0E522800B4F5BF /* GameScene.sks in Resources */,
 				44F68D9D1B1390970032B700 /* btnArvore.png in Resources */,
 				74A89D511B151C6B00581271 /* quarto.plist in Resources */,
+				44553D3F1B1E268E000F78B8 /* missoes.plist in Resources */,
 				062744101B1E3C000047D7BC /* brilinho3.mp3 in Resources */,
 				062744031B1E28CA0047D7BC /* Musica.mp3 in Resources */,
 				441DC3E81B1CCD93005CA15F /* btnSemSom.png in Resources */,
