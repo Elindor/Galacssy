@@ -51,6 +51,7 @@
 		44F68DA91B139FC70032B700 /* fumaca.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DA81B139FC70032B700 /* fumaca.png */; };
 		44F68DAC1B13CA6B0032B700 /* barraDeVidaMapa.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DAA1B13CA6B0032B700 /* barraDeVidaMapa.png */; };
 		44F68DAD1B13CA6B0032B700 /* mapa.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68DAB1B13CA6B0032B700 /* mapa.png */; };
+		744AC5AF1B1E26F9009F6978 /* popupItem.png in Resources */ = {isa = PBXBuildFile; fileRef = 744AC5AE1B1E26F9009F6978 /* popupItem.png */; };
 		74A89D501B151C6B00581271 /* sala.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74A89D4D1B151C6B00581271 /* sala.plist */; };
 		74A89D511B151C6B00581271 /* quarto.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74A89D4E1B151C6B00581271 /* quarto.plist */; };
 		74A89D521B151C6B00581271 /* cozinha.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74A89D4F1B151C6B00581271 /* cozinha.plist */; };
@@ -143,6 +144,7 @@
 		44F68DA81B139FC70032B700 /* fumaca.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fumaca.png; sourceTree = "<group>"; };
 		44F68DAA1B13CA6B0032B700 /* barraDeVidaMapa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barraDeVidaMapa.png; sourceTree = "<group>"; };
 		44F68DAB1B13CA6B0032B700 /* mapa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapa.png; sourceTree = "<group>"; };
+		744AC5AE1B1E26F9009F6978 /* popupItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popupItem.png; sourceTree = "<group>"; };
 		74A89D4D1B151C6B00581271 /* sala.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sala.plist; sourceTree = "<group>"; };
 		74A89D4E1B151C6B00581271 /* quarto.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quarto.plist; sourceTree = "<group>"; };
 		74A89D4F1B151C6B00581271 /* cozinha.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cozinha.plist; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			children = (
 				C02E0FC71B1CE2BE009F88FC /* AnimaAudio */,
 				0677F3A21B150CD800A9C10A /* banheiro.jpg */,
+				744AC5AE1B1E26F9009F6978 /* popupItem.png */,
 				74C8B91B1B1D01000086C9D3 /* luzBanheiro.png */,
 				74C8B91C1B1D01000086C9D3 /* protecaoLuzBanheiroDireita.png */,
 				74C8B91D1B1D01000086C9D3 /* ProtecaoLuzBanheiroEsquerda.png */,
@@ -439,6 +442,7 @@
 				74AE2EB71B1CF96A0006C332 /* (null) in Resources */,
 				C02E0FD01B1CE2CE009F88FC /* nota4.png in Resources */,
 				C02E0FCE1B1CE2CE009F88FC /* nota2.png in Resources */,
+				744AC5AF1B1E26F9009F6978 /* popupItem.png in Resources */,
 				066A2CD01B17918000A40DEC /* salaTeste.jpg in Resources */,
 				06FEF6471B1636B300EA7842 /* popup.png in Resources */,
 				0677F3A71B150D8000A9C10A /* banheiro.plist in Resources */,
