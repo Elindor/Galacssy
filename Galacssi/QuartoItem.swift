@@ -21,14 +21,6 @@ class QuartoItem : SKNode {
     
     init(quartoItemData: [String: AnyObject], quartoItemConfiguration: [String: String], gameStateDelegate: GameStateDelegate, error: Bool) {
         
-        /*let diceRoll = Int(arc4random_uniform(2))
-        
-        if diceRoll == 0 {
-            isError = true
-        } else {
-            isError = false
-        }*/
-        
         isError = error
         
         var radioIsOn: Bool = false
@@ -46,21 +38,31 @@ class QuartoItem : SKNode {
         } else {
             tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(110, 70))
         }
+        
             
         if type == "abajur" {
             
             if isError {
-                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(80, 100))
+                objeto = SKSpriteNode(imageNamed: "luzAbajur.png")
+                objeto.setScale(0.5)
+                objeto.position = CGPoint (x: -0.0, y: -10.0)
+                objetoAuxiliar = SKSpriteNode(imageNamed: "abajurQuarto.png")
+                objetoAuxiliar.setScale(0.5)
+                objetoAuxiliar.position = CGPoint (x: -0.0, y: 25.0)
+                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(80, 100))
             } else {
-                tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(80, 100))
+                tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(80, 100))
             }
             
         } else if type == "computador" {
             
             if isError {
-                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(165, 100))
+                objeto = SKSpriteNode(imageNamed: "telaComputador.png")
+                objeto.setScale(0.49)
+                objeto.position = CGPoint (x: -1.0, y: -1.0)
+                tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(165, 100))
             } else {
-                tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(165, 100))
+                tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(165, 100))
             }
             
         }  else if type == "rádio" {
@@ -89,6 +91,8 @@ class QuartoItem : SKNode {
         userInteractionEnabled = true
         
         addChild(tile)
+        addChild(objeto)
+        addChild(objetoAuxiliar)
         
         if isError {
             gameStateDelegate.gameStateDelegateSetError()
@@ -149,9 +153,14 @@ class QuartoItem : SKNode {
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         
-        if isError {
+        let touch = touches.first as! UITouch
+        let touchLocation = touch.locationInNode(self)
+        
+        if (isError && tile.containsPoint(touchLocation)) {
             gameStateDelegate.gameStateDelegateIncrement()
-            tile.color = SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3)
+            tile.color = SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0)
+            objeto.removeFromParent()
+            objetoAuxiliar.removeFromParent()
             NSLog("%@", type)
             isError = false
             displayAlert(msg)
