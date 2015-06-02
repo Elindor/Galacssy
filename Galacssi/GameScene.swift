@@ -20,6 +20,7 @@ class GameScene: SKScene {
     let background = SKSpriteNode(imageNamed: "mapa.png")
     let lifeCity = SKSpriteNode(imageNamed: "barraDeVidaMapa.png")
     let predios = SKSpriteNode(imageNamed: "predios.png")
+    var lifeCityStatus = SKSpriteNode(color: UIColor.greenColor(), size: CGSizeMake(0, 0))
     let smoke1 = SKSpriteNode(imageNamed: "fumaca")
     let smoke2 = SKSpriteNode(imageNamed: "fumaca")
     let btnHouse = SKSpriteNode(imageNamed: "btnCasa.png")
@@ -156,6 +157,9 @@ class GameScene: SKScene {
         lifeCity.xScale = 0.5
         lifeCity.yScale = 0.5
         lifeCity.zPosition = layerHud
+        lifeCityStatus.position = CGPoint(x:-323, y: -36.5)
+        lifeCityStatus.anchorPoint = CGPointZero
+        lifeCityStatus.zPosition = layerHud
         
         btnSafeHouse.position = CGPoint(x: 100, y: 120)
         btnSafeHouse.xScale = 0.5
@@ -170,6 +174,7 @@ class GameScene: SKScene {
         self.addChild(background)
         self.addChild(predios)
         self.addChild(lifeCity)
+        lifeCity.addChild(lifeCityStatus)
         self.addChild(btnHouse)
         self.addChild(btnSafeHouse)
         self.addChild(btnFactory)
@@ -180,6 +185,7 @@ class GameScene: SKScene {
         self.addChild(smoke2)
         
         basicAnimations()
+        saveFileArray.save()
 
     
     }

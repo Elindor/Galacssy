@@ -11,6 +11,14 @@ import SpriteKit
 /* Cenário: Casa. É o cenário em que o jogador deve combater os desperdícios que ocorrem na casa. */
 
 class CasaScene: SKScene, GameStateDelegate {
+    
+    let barrasProgresso = [
+        "barraProgresso1.png",
+        "barraProgresso2.png",
+        "barraProgresso3.png",
+        "barraProgresso4.png"
+    ]
+    
     enum comodo : Int {
         //nothing
         case nenhum = 0
@@ -87,7 +95,7 @@ class CasaScene: SKScene, GameStateDelegate {
     let textoFinal = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
     
     var barra = SKSpriteNode()
-    var mask = SKSpriteNode()
+    //var mask = SKSpriteNode()
     
     
     override func didMoveToView(view: SKView) {
@@ -227,16 +235,17 @@ class CasaScene: SKScene, GameStateDelegate {
         erroLabel.fontSize = 50
 //        banheiro.addChild(erroLabel)*/
         
-        //BARRA DE PROGRESSÃO DO BANHERO
-        barra = SKSpriteNode(imageNamed: "barraDeVidaMapa")
-        barra.size.height = 42
+        //BARRA DE PROGRESSÃO DO BANHEROa
+        barra = SKSpriteNode()
+        barra.size.height = 40
         barra.size.width = 200
-        barra.position = CGPoint(x: 300, y: size.height - 49)
-        mask = SKSpriteNode(color: UIColor.blueColor(), size: CGSizeMake(5, 17))
-        mask.position = CGPoint(x: 234, y: size.height - 51)
+        barra.texture = SKTexture(imageNamed: barrasProgresso[0])
+        barra.position = CGPoint(x: 250, y: size.height - 35)
+        //mask = SKSpriteNode(color: UIColor.blueColor(), size: CGSizeMake(5, 17))
+        //mask.position = CGPoint(x: 234, y: size.height - 51)
         //mask.zPosition = cama
         banheiro.addChild(barra)
-        banheiro.addChild(mask)
+        //banheiro.addChild(mask)
         
         textoFinal.text = "PARABÉNS"
         textoFinal.fontColor = SKColor.blackColor()
@@ -278,9 +287,11 @@ class CasaScene: SKScene, GameStateDelegate {
             loadGameData("banheiro")
             banheiro.zPosition = camadaAmbiente
             barra.zPosition = camadaPontos
-            mask.zPosition = camadaPontosMask
-            mask.size.width = CGFloat(54 * acertosBanheiro + 5)
-            mask.position = CGPoint(x: CGFloat(234 + 27 * acertosBanheiro), y: mask.position.y)
+            barra.texture = SKTexture(imageNamed: barrasProgresso[acertosBanheiro])
+            //mask.zPosition = camadaPontosMask
+            //mask.size.width = CGFloat(54 * acertosBanheiro + 5)
+            //mask.position = CGPoint(x: CGFloat(234 + 27 * acertosBanheiro), y: mask.position.y)
+            
         }
         else if(salaButton.containsPoint(touchLocation) && !self.onRoom){
             self.onRoom = true
@@ -288,9 +299,10 @@ class CasaScene: SKScene, GameStateDelegate {
             loadGameData("sala")
             sala.zPosition = camadaAmbiente
             barra.zPosition = camadaPontos
-            mask.zPosition = camadaPontosMask
-            mask.size.width = CGFloat(54 * acertosSala + 5)
-            mask.position = CGPoint(x: CGFloat(234 + 27 * acertosSala), y: mask.position.y)
+            barra.texture = SKTexture(imageNamed: barrasProgresso[acertosSala])
+            //mask.zPosition = camadaPontosMask
+            //mask.size.width = CGFloat(54 * acertosSala + 5)
+            //mask.position = CGPoint(x: CGFloat(234 + 27 * acertosSala), y: mask.position.y)
         }
         else if(quartoButton.containsPoint(touchLocation) && !self.onRoom){
             self.onRoom = true
@@ -298,9 +310,10 @@ class CasaScene: SKScene, GameStateDelegate {
             loadGameData("quarto")
             quarto.zPosition = camadaAmbiente
             barra.zPosition = camadaPontos
-            mask.zPosition = camadaPontosMask
-            mask.size.width = CGFloat(54 * acertosQuarto + 5)
-            mask.position = CGPoint(x: CGFloat(234 + 27 * acertosQuarto), y: mask.position.y)
+            barra.texture = SKTexture(imageNamed: barrasProgresso[acertosQuarto])
+            //mask.zPosition = camadaPontosMask
+            //mask.size.width = CGFloat(54 * acertosQuarto + 5)
+            //mask.position = CGPoint(x: CGFloat(234 + 27 * acertosQuarto), y: mask.position.y)
         }
         else if(cozinhaButton.containsPoint(touchLocation) && !self.onRoom){
             self.onRoom = true
@@ -308,9 +321,10 @@ class CasaScene: SKScene, GameStateDelegate {
             loadGameData("cozinha")
             cozinha.zPosition = camadaAmbiente
             barra.zPosition = camadaPontos
-            mask.zPosition = camadaPontosMask
-            mask.size.width = CGFloat(54 * acertosCozinha + 5)
-            mask.position = CGPoint(x: CGFloat(234 + 27 * acertosCozinha), y: mask.position.y)
+            barra.texture = SKTexture(imageNamed: barrasProgresso[acertosCozinha])
+            //mask.zPosition = camadaPontosMask
+            //mask.size.width = CGFloat(54 * acertosCozinha + 5)
+            //mask.position = CGPoint(x: CGFloat(234 + 27 * acertosCozinha), y: mask.position.y)
         }
             
         //ATIVA A VOLTA PARA A CASA ATRAVES DO BOTAO DE VOLTAR
@@ -337,7 +351,7 @@ class CasaScene: SKScene, GameStateDelegate {
         quarto.zPosition = camadaHide
         cozinha.zPosition = camadaHide
         barra.zPosition = camadaHide
-        mask.zPosition = camadaHide
+        //mask.zPosition = camadaHide
         popup.zPosition = camadaHide;
         textoFinal.zPosition = camadaHide
         estaNoComodo = comodo.nenhum
@@ -370,7 +384,7 @@ class CasaScene: SKScene, GameStateDelegate {
         if(ambiente == "quarto"){
             if barra.parent == nil{
                 quarto.addChild(barra)
-                quarto.addChild(mask)
+                //quarto.addChild(mask)
             }
             plist = "quarto.plist"
             estaNoComodo = comodo.quarto
@@ -379,7 +393,7 @@ class CasaScene: SKScene, GameStateDelegate {
         if(ambiente == "banheiro"){
             if barra.parent == nil{
                 banheiro.addChild(barra)
-                banheiro.addChild(mask)
+                //banheiro.addChild(mask)
             }
             plist = "banheiro.plist"
             estaNoComodo = comodo.banheiro
@@ -389,7 +403,7 @@ class CasaScene: SKScene, GameStateDelegate {
         if(ambiente == "sala"){
             if barra.parent == nil {
                 sala.addChild(barra)
-                sala.addChild(mask)
+                //sala.addChild(mask)
             }
             plist = "sala.plist"
             estaNoComodo = comodo.sala
@@ -398,7 +412,7 @@ class CasaScene: SKScene, GameStateDelegate {
        if(ambiente == "cozinha"){
            if barra.parent == nil{
             cozinha.addChild(barra)
-            cozinha.addChild(mask)
+            //cozinha.addChild(mask)
             }
             plist = "cozinha.plist"
             estaNoComodo = comodo.cozinha
@@ -451,23 +465,27 @@ class CasaScene: SKScene, GameStateDelegate {
         switch estaNoComodo{
         case comodo.banheiro:
             acertosBanheiro++
-            mask.size.width = CGFloat(54 * acertosBanheiro + 5)
-            mask.position = CGPoint(x: CGFloat(234 + 27 * acertosBanheiro), y: mask.position.y)
+            barra.texture = SKTexture(imageNamed: barrasProgresso[acertosBanheiro])
+            //mask.size.width = CGFloat(54 * acertosBanheiro + 5)
+            //mask.position = CGPoint(x: CGFloat(234 + 27 * acertosBanheiro), y: mask.position.y)
             break
         case comodo.cozinha:
             acertosCozinha++
-            mask.size.width = CGFloat(54 * acertosCozinha + 5)
-            mask.position = CGPoint(x: CGFloat(234 + 27 * acertosCozinha), y: mask.position.y)
+            barra.texture = SKTexture(imageNamed: barrasProgresso[acertosCozinha])
+            //mask.size.width = CGFloat(54 * acertosCozinha + 5)
+            //mask.position = CGPoint(x: CGFloat(234 + 27 * acertosCozinha), y: mask.position.y)
             break
         case comodo.sala:
             acertosSala++
-            mask.size.width = CGFloat(54 * acertosSala + 5)
-            mask.position = CGPoint(x: CGFloat(234 + 27 * acertosSala), y: mask.position.y)
+            barra.texture = SKTexture(imageNamed: barrasProgresso[acertosSala])
+            //mask.size.width = CGFloat(54 * acertosSala + 5)
+            //mask.position = CGPoint(x: CGFloat(234 + 27 * acertosSala), y: mask.position.y)
             break
         case comodo.quarto:
             acertosQuarto++
-            mask.size.width = CGFloat(54 * acertosQuarto + 5)
-            mask.position = CGPoint(x: CGFloat(234 + 27 * acertosQuarto), y: mask.position.y)
+            barra.texture = SKTexture(imageNamed: barrasProgresso[acertosQuarto])
+            //mask.size.width = CGFloat(54 * acertosQuarto + 5)
+            //mask.position = CGPoint(x: CGFloat(234 + 27 * acertosQuarto), y: mask.position.y)
             break
         default:
             break
