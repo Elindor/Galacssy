@@ -16,6 +16,7 @@ class SalaItem : SKNode {
     var objetoAuxiliar : SKSpriteNode
     var isError : Bool
     var msg : String
+    var save: SaveHandler = SaveHandler()
     
     private var gameStateDelegate : GameStateDelegate
     
@@ -102,6 +103,7 @@ class SalaItem : SKNode {
         
         if (isError && tile.containsPoint(touchLocation)) {
             gameStateDelegate.gameStateDelegateIncrement()
+            save.audioObjetos(type)
             tile.color = SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0)
             objeto.removeFromParent()
             objetoAuxiliar.removeFromParent()
