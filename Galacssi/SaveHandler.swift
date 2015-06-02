@@ -11,7 +11,7 @@ import AVFoundation
 
 class SaveHandler {
     
-    var coinSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Musica", ofType: "mp3")!)
+    var gameSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Musica", ofType: "mp3")!)
     var audioPlayer = AVAudioPlayer()
     var tempArray:Array<Save> = [];
     //var savedFile: Save
@@ -71,11 +71,48 @@ class SaveHandler {
     }
     
     func playAudio(){
-        audioPlayer = AVAudioPlayer(contentsOfURL: coinSound, error: nil)
+        audioPlayer = AVAudioPlayer(contentsOfURL: gameSound, error: nil)
+        audioPlayer.volume = 1.0
+        audioPlayer.numberOfLoops = -1
+        audioPlayer.play()
+    }
+    
+    func audioObjetos(tipo : String){
+        
+        if (tipo == "geladeira"){
+        var geladeiraSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("FridgeClose", ofType: "mp3")!)
+        audioPlayer = AVAudioPlayer(contentsOfURL: geladeiraSound, error: nil)
+        audioPlayer.volume = 1.0
+            audioPlayer.play()
+        }
+        if (tipo == "microondas"){
+            var microondasSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Microwave", ofType: "mp3")!)
+            audioPlayer = AVAudioPlayer(contentsOfURL: microondasSound, error: nil)
+            audioPlayer.volume = 1.0
+            audioPlayer.play()
+        }
+        if(tipo == "luz" || tipo == "torneira"){
+            var luzSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("click1", ofType: "mp3")!)
+            audioPlayer = AVAudioPlayer(contentsOfURL: luzSound, error: nil)
+            audioPlayer.volume = 1.0
+            audioPlayer.play()
+        }
+    }
+    
+    func audioFimFase(){
+        var fimFaseSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("brilinho3", ofType: "mp3")!)
+        audioPlayer = AVAudioPlayer(contentsOfURL: fimFaseSound, error: nil)
         audioPlayer.volume = 1.0
         audioPlayer.play()
     }
     
+    func torneiraLigada(){
+        var torneiraLigadaSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("waterDropLoop", ofType: "mp3")!)
+        audioPlayer = AVAudioPlayer(contentsOfURL: torneiraLigadaSound, error: nil)
+        audioPlayer.numberOfLoops = -1
+        audioPlayer.volume = 1.0
+        audioPlayer.play()
+    }
     
     func getSave() -> Save{
         var new: Save = self.tempArray.first!
