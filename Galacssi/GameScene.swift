@@ -38,7 +38,7 @@ class GameScene: SKScene {
     var save: SaveHandler = SaveHandler()
     
     //POPUPS FASES
-    let popupHouse = SKSpriteNode(imageNamed: "popup.png")
+    let popupHouse = SKSpriteNode(imageNamed: "popupItem.png")
     let popupFarm = SKSpriteNode(imageNamed: "popup.png")
     let popupFactory = SKSpriteNode(imageNamed: "popup.png")
     let popupForest = SKSpriteNode(imageNamed: "popup.png")
@@ -46,24 +46,27 @@ class GameScene: SKScene {
     
     //LABELS E TEXTOS MISSOES
     let missionHouse = SKNode()
-    let missionFarm = SKNode()
-    let missionFactory = SKNode()
-    let missionForest = SKNode()
-    let missionBuilding = SKNode()
+//    let missionFarm = SKNode()
+//    let missionFactory = SKNode()
+//    let missionForest = SKNode()
+//    let missionBuilding = SKNode()
     
-//    let missionHouse = (SKLabelNode (fontNamed: "Bariol-Bold"))
+    var labelMissionHouse = (SKLabelNode (fontNamed: "Bariol-Regular"))
+    var labelMissionHouse2 = (SKLabelNode (fontNamed: "Bariol-Regular"))
 //    let missionFarm = (SKLabelNode (fontNamed: "Bariol-Bold"))
 //    let missionFactory = (SKLabelNode (fontNamed: "Bariol-Bold"))
 //    let missionForest = (SKLabelNode (fontNamed: "Bariol-Bold"))
 //    let missionBuilding = (SKLabelNode (fontNamed: "Bariol-Bold"))
     
-    let textMissionHouse = "NOME DO JOGO"
+    let textMissionHouse = "Me ajude a encontrar os"
+    let textMissionHouse2 = "problemas na casa."
     let textMissionFarm = "HAKUNAMATATA"
     let textMissionFactory = "É LINDO DIZER"
     let textMissionForest = "HAKUNAMATATA"
     let textMissionBuilding = "HUAHUAHUAHUAHUA"
 
     //CAMADAS
+    let layerHide:CGFloat = -1
     let layerBackground:CGFloat = 0
     let layerHud:CGFloat = 99
     let layerObject1:CGFloat = 1
@@ -85,6 +88,7 @@ class GameScene: SKScene {
         
         self.updateLifeBar()
         
+        save.playAudio()
         var path = documentFilePath(fileName: "missoes.plist")
         var gameData : NSDictionary? = NSDictionary(contentsOfFile: path)
         // Load gamedata template from mainBundle if no saveFile exists
@@ -93,7 +97,6 @@ class GameScene: SKScene {
             path = mainBundle.pathForResource("missoes", ofType: "plist")!
             gameData = NSDictionary(contentsOfFile: path)
         }
-        
 
 
         //TESTE DE FONTE
@@ -109,6 +112,20 @@ class GameScene: SKScene {
         
         //TEXTOS DAS MISSOES
 //        missionHouse.zPosition = layerBackground
+        missionHouse.position = centerPopUp
+        labelMissionHouse.text = textMissionHouse
+        labelMissionHouse.zPosition = layerHide
+        labelMissionHouse2.text = textMissionHouse2
+        labelMissionHouse2.zPosition = layerHide
+        missionHouse.addChild(labelMissionHouse)
+        missionHouse.addChild(labelMissionHouse2)
+        labelMissionHouse.position = CGPoint(x: 50, y: 0)
+        labelMissionHouse2.position = CGPoint(x: 45, y: -40)
+//        missionHouse.addChild(labelMissionHouse2)
+//        labelMissionHouse.text = textMissionHouse2
+//        labelMissionHouse.position = CGPoint(x: centerPopUp.x, y: centerPopUp.y-20)
+//        missionHouse.zPosition = layerBackground
+//        missionHouse.addChild(labelMissionHouse)
 //        missionHouse.position = centerPopUp
 ////        missionHouse.text = textMissionHouse
 //        missionFarm.zPosition = layerBackground
@@ -228,7 +245,7 @@ class GameScene: SKScene {
         btnSafeHouse.yScale = 0.5
         btnSafeHouse.zPosition = layerHud
         
-//        self.addChild(missionHouse)
+        self.addChild(missionHouse)
 //        self.addChild(missionFactory)
 //        self.addChild(missionFarm)
 //        self.addChild(missionForest)
@@ -322,7 +339,9 @@ class GameScene: SKScene {
         
         if (btnHouse.containsPoint(touchLocation)){
             popupHouse.zPosition = layerObject3
-//            missionHouse.zPosition = layerObject3
+            missionHouse.zPosition = layerObject3
+            labelMissionHouse.zPosition = layerObject3
+            labelMissionHouse2.zPosition = layerObject3
             changeScene = true
             house = true
         }
