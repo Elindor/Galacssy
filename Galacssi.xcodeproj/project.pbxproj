@@ -34,6 +34,7 @@
 		06C1BD001B150F290012E0A9 /* GameStateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0677F39C1B14FDCC00A9C10A /* GameStateDelegate.swift */; };
 		06FEF6471B1636B300EA7842 /* popup.png in Resources */ = {isa = PBXBuildFile; fileRef = 06FEF6461B1636B300EA7842 /* popup.png */; };
 		4404C83A1B19164300B4872B /* menuCasa.png in Resources */ = {isa = PBXBuildFile; fileRef = 4404C8391B19164300B4872B /* menuCasa.png */; };
+		4405CBD01B1DDDCE009407B5 /* barraProgresso1.png in Resources */ = {isa = PBXBuildFile; fileRef = 74AE2EA71B1CF8160006C332 /* barraProgresso1.png */; };
 		441DC3E61B1CCD93005CA15F /* btnCheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 441DC3E31B1CCD93005CA15F /* btnCheck.png */; };
 		441DC3E71B1CCD93005CA15F /* btnComSom.png in Resources */ = {isa = PBXBuildFile; fileRef = 441DC3E41B1CCD93005CA15F /* btnComSom.png */; };
 		441DC3E81B1CCD93005CA15F /* btnSemSom.png in Resources */ = {isa = PBXBuildFile; fileRef = 441DC3E51B1CCD93005CA15F /* btnSemSom.png */; };
@@ -482,6 +483,7 @@
 				44F68D9B1B138D900032B700 /* btnCasa.png in Resources */,
 				74F815601B18FEEE007E0125 /* Quarto.png in Resources */,
 				74AE2EAD1B1CF8160006C332 /* barraProgresso3.png in Resources */,
+				4405CBD01B1DDDCE009407B5 /* barraProgresso1.png in Resources */,
 				74AE2EB51B1CF8320006C332 /* bolinhaPS4.png in Resources */,
 				C08773C11B0E522800B4F5BF /* Main.storyboard in Resources */,
 				44F68DA31B13975F0032B700 /* btnSitio.png in Resources */,
@@ -494,6 +496,8 @@
 				444BE5A81B1726C800683BEA /* nuvem2.png in Resources */,
 				74C8B9261B1D1A390086C9D3 /* abajurQuarto.png in Resources */,
 				44F68DA71B139EBB0032B700 /* btnPredio.png in Resources */,
+				06624E441B1CD2FB003C0C03 /* geladeira.png in Resources */,
+				C02E0FD11B1CE2CE009F88FC /* partitura.png in Resources */,
 				441DC3F11B1CF001005CA15F /* Bariol_Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

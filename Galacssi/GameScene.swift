@@ -29,6 +29,7 @@ class GameScene: SKScene {
     let btnFarm = SKSpriteNode(imageNamed: "btnSitio.png")
     let btnForest = SKSpriteNode(imageNamed: "btnFloresta.png")
     let btnBuilding = SKSpriteNode(imageNamed: "btnPredio.png")
+    var saveFileArray: SaveHandler = SaveHandler()
     
     //POPUPS FASES
     let popupHouse = SKSpriteNode(imageNamed: "popup.png")
@@ -57,6 +58,8 @@ class GameScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         
+        self.updateLifeBar()
+
         //TESTE DE FONTE
         labelNode.text = text
         labelNode.position = CGPoint(x: 512, y: 700)
@@ -332,5 +335,15 @@ class GameScene: SKScene {
         }
     }
     
+    func updateLifeBar(){
+        var saveFile = self.saveFileArray.getSave()
+        var factor : CGFloat = 788.0 / 100.0
+        self.lifeCityStatus.size = CGSizeMake(factor * CGFloat(saveFile.cleanLevel), CGFloat(61.0))
+    }
+    
+    func completeScene(){
+        self.saveFileArray.increaseCleanLevelByCompletedScene()
+        self.updateLifeBar()
+    }
     
 }
