@@ -13,6 +13,7 @@ class QuartoItem : SKNode {
     let type : String
     var tile : SKSpriteNode
     var objeto : SKSpriteNode
+    var objetoAuxiliar : SKSpriteNode
     var movimento : SKAction
     var isError : Bool
     var msg : String
@@ -30,6 +31,7 @@ class QuartoItem : SKNode {
         type = quartoItemData["type"] as AnyObject? as! String
         msg = quartoItemConfiguration["msg"] as AnyObject? as! String
         objeto = SKSpriteNode()
+        objetoAuxiliar = SKSpriteNode()
         movimento = SKAction()
 
         //if type == "luz" {
@@ -38,6 +40,7 @@ class QuartoItem : SKNode {
         } else {
             tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.3), size: CGSizeMake(110, 70))
         }
+        
         
             
         if type == "abajur" {
@@ -70,8 +73,8 @@ class QuartoItem : SKNode {
             if isError {
                 
                 objeto = SKSpriteNode(imageNamed: "partitura.png")
-                objeto.setScale(0.3)
-                objeto.position = CGPoint (x: -52.0, y: 0.0)
+                objeto.setScale(0.5)
+                objeto.position = CGPoint (x: -112.0, y: -30.0)
                 tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(50, 85))
                 radioIsOn = true
                 
@@ -102,14 +105,10 @@ class QuartoItem : SKNode {
     
     func radioLoop(#objeto: SKSpriteNode){
         
-        var action1 = SKAction.moveBy(CGVectorMake(-40.0, -40.0), duration: 0.5)
-        var action2 = SKAction.moveBy(CGVectorMake(-40.0, 40.0), duration: 0.5)
-        var action3 = SKAction.moveBy(CGVectorMake(-40.0, 40.0), duration: 0.5)
-        var action4 = SKAction.moveBy(CGVectorMake(-40.0, -40.0), duration: 0.5)
-        action1.timingMode = SKActionTimingMode.EaseInEaseOut
-        action2.timingMode = SKActionTimingMode.EaseInEaseOut
-        action3.timingMode = SKActionTimingMode.EaseInEaseOut
-        action4.timingMode = SKActionTimingMode.EaseInEaseOut
+        var action1 = SKAction.moveBy(CGVectorMake(-50.0, -40.0), duration: 0.5)
+        var action2 = SKAction.moveBy(CGVectorMake(-50.0, 40.0), duration: 0.5)
+        var action3 = SKAction.moveBy(CGVectorMake(-50.0, 40.0), duration: 0.5)
+        var action4 = SKAction.moveBy(CGVectorMake(-50.0, -40.0), duration: 0.5)
         
         var fader = SKAction.fadeOutWithDuration(1.8)
         var timer = SKAction.waitForDuration(0.9)
@@ -132,17 +131,16 @@ class QuartoItem : SKNode {
             newNote = SKSpriteNode(imageNamed: "nota1")
             break;
         }
-        // Nopper constrruindo isso agora
-        newNote.position = CGPoint(x: 16.0, y: -3.0)
+        newNote.position = CGPoint(x: 106.0, y: 0.0)
+        newNote.zPosition = objeto.zPosition + 1
         objeto.addChild(newNote)
-        movimento = SKAction.moveToY(-33.0, duration: 0.5)
-        var fade = SKAction.fadeOutWithDuration(0.7)
-        fade.timingMode = SKActionTimingMode.EaseIn
-        objeto.runAction(fade)
-        objeto.runAction(movimento, completion:{
-            objeto.runAction(SKAction.waitForDuration(0.5), completion:{
-                self.radioLoop(objeto: objeto)
-            })
+        
+        newNote.runAction(timer, completion:{
+            self.radioLoop(objeto: objeto)
+        })
+        newNote.runAction(fader)
+        newNote.runAction(movimento, completion:{
+            newNote.removeFromParent()
             
         })
     }
