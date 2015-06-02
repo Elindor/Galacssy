@@ -138,15 +138,11 @@ class BanheiroItem : SKNode, UIAlertViewDelegate {
         let touchLocation = touch.locationInNode(self)
         
         if (isError && tile.containsPoint(touchLocation)) {
-            gameStateDelegate.gameStateDelegateIncrement()
-            save.audioObjetos(type)
-            tile.color = SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0)
-            NSLog("%@", type)
-            objeto.removeFromParent()
-            objetoAuxiliar.removeFromParent()
-            objetoAuxiliar2.removeFromParent()
-            isError = false
-            displayAlert(msg)
+            if gameStateDelegate.gameStateDelegateIncrement(msg, node: self) {
+                isError = false
+                save.audioObjetos(type)
+            }
+            
         }
     }
     
