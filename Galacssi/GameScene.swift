@@ -37,6 +37,25 @@ class GameScene: SKScene {
     let popupFactory = SKSpriteNode(imageNamed: "popup.png")
     let popupForest = SKSpriteNode(imageNamed: "popup.png")
     let popupBuilding = SKSpriteNode(imageNamed: "popup.png")
+    
+    //LABELS E TEXTOS MISSOES
+    let missionHouse = SKNode()
+    let missionFarm = SKNode()
+    let missionFactory = SKNode()
+    let missionForest = SKNode()
+    let missionBuilding = SKNode()
+    
+//    let missionHouse = (SKLabelNode (fontNamed: "Bariol-Bold"))
+//    let missionFarm = (SKLabelNode (fontNamed: "Bariol-Bold"))
+//    let missionFactory = (SKLabelNode (fontNamed: "Bariol-Bold"))
+//    let missionForest = (SKLabelNode (fontNamed: "Bariol-Bold"))
+//    let missionBuilding = (SKLabelNode (fontNamed: "Bariol-Bold"))
+    
+    let textMissionHouse = "NOME DO JOGO"
+    let textMissionFarm = "HAKUNAMATATA"
+    let textMissionFactory = "É LINDO DIZER"
+    let textMissionForest = "HAKUNAMATATA"
+    let textMissionBuilding = "HUAHUAHUAHUAHUA"
 
     //CAMADAS
     let layerBackground:CGFloat = 0
@@ -59,6 +78,17 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         
         self.updateLifeBar()
+        
+        var path = documentFilePath(fileName: "missoes.plist")
+        var gameData : NSDictionary? = NSDictionary(contentsOfFile: path)
+        // Load gamedata template from mainBundle if no saveFile exists
+        if gameData == nil {
+            var mainBundle = NSBundle.mainBundle()
+            path = mainBundle.pathForResource("missoes", ofType: "plist")!
+            gameData = NSDictionary(contentsOfFile: path)
+        }
+        
+
 
         //TESTE DE FONTE
         labelNode.text = text
@@ -70,6 +100,23 @@ class GameScene: SKScene {
         labelNode2.position = CGPoint(x: 512, y: 600)
         labelNode2.zPosition = layerHud
 //        addChild(labelNode2)
+        
+        //TEXTOS DAS MISSOES
+//        missionHouse.zPosition = layerBackground
+//        missionHouse.position = centerPopUp
+////        missionHouse.text = textMissionHouse
+//        missionFarm.zPosition = layerBackground
+//        missionFarm.position = centerPopUp
+////        missionFarm.text = textMissionFarm
+//        missionFactory.zPosition = layerBackground
+//        missionFactory.position = centerPopUp
+////        missionFactory.text = textMissionFactory
+//        missionForest.zPosition = layerBackground
+//        missionForest.position = centerPopUp
+////        missionForest.text = textMissionForest
+//        missionBuilding.zPosition = layerBackground
+//        missionBuilding.position = centerPopUp
+////        missionBuilding.text = textMissionBuilding
         
         //MAPA
         background.position = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/2)
@@ -169,6 +216,11 @@ class GameScene: SKScene {
         btnSafeHouse.yScale = 0.5
         btnSafeHouse.zPosition = layerHud
         
+//        self.addChild(missionHouse)
+//        self.addChild(missionFactory)
+//        self.addChild(missionFarm)
+//        self.addChild(missionForest)
+//        self.addChild(missionBuilding)
         self.addChild(popupHouse)
         self.addChild(popupFactory)
         self.addChild(popupFarm)
@@ -257,30 +309,35 @@ class GameScene: SKScene {
         
         if (btnHouse.containsPoint(touchLocation)){
             popupHouse.zPosition = layerObject3
+//            missionHouse.zPosition = layerObject3
             changeScene = true
             house = true
         }
         
         if (btnFarm.containsPoint(touchLocation)){
             popupFarm.zPosition = layerObject3
+//            missionFarm.zPosition = layerObject3
             changeScene = true
             farm = true
         }
         
         if (btnFactory.containsPoint(touchLocation)){
             popupFactory.zPosition = layerObject3
+//            missionFactory.zPosition = layerObject3
             changeScene = true
             factory = true
         }
         
         if (btnBuilding.containsPoint(touchLocation)){
             popupBuilding.zPosition = layerObject3
+//            missionBuilding.zPosition = layerObject3
             changeScene = true
             building = true
         }
         
         if (btnForest.containsPoint(touchLocation)){
             popupForest.zPosition = layerObject3
+//            missionForest.zPosition = layerObject3
             changeScene = true
             forest = true
         }
@@ -344,6 +401,13 @@ class GameScene: SKScene {
     func completeScene(){
         self.saveFileArray.increaseCleanLevelByCompletedScene()
         self.updateLifeBar()
+    }
+    
+    func documentFilePath(#fileName: String) -> String {
+        var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        var documentsDirectory = paths[0] as! String
+        var path = documentsDirectory.stringByAppendingPathComponent(fileName)
+        return path
     }
     
 }
