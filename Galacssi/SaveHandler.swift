@@ -94,6 +94,11 @@ class SaveHandler {
         var saveFile = getSave()
         return saveFile.selectedCharacter
     }
+    
+    func musicIsOn() -> Bool{
+        var saveFile = getSave()
+        return saveFile.musicOn
+    }
 
     
 };
