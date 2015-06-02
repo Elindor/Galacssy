@@ -19,6 +19,7 @@ class BanheiroItem : SKNode, UIAlertViewDelegate {
     var movimentoChuveiro: SKAction
     var isError : Bool
     var msg : String
+    var save: SaveHandler = SaveHandler()
     
     private var gameStateDelegate : GameStateDelegate
     
@@ -57,6 +58,7 @@ class BanheiroItem : SKNode, UIAlertViewDelegate {
         if type == "pia" {
             
             if isError {
+                save.torneiraLigada()
                 objeto = SKSpriteNode(imageNamed: "gota.png")
                 objeto.setScale(0.3)
                 tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(50, 90))
@@ -68,6 +70,7 @@ class BanheiroItem : SKNode, UIAlertViewDelegate {
         } else if type == "chuveiro" {
             
             if isError {
+                save.chuveiroLigado()
                 objeto = SKSpriteNode(imageNamed: "gota.png")
                 objeto.setScale(0.3)
                 objetoAuxiliar = SKSpriteNode(imageNamed: "gota.png")
@@ -137,7 +140,9 @@ class BanheiroItem : SKNode, UIAlertViewDelegate {
         if (isError && tile.containsPoint(touchLocation)) {
             if gameStateDelegate.gameStateDelegateIncrement(msg, node: self) {
                 isError = false
+                save.audioObjetos(type)
             }
+            
         }
     }
     

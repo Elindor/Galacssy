@@ -16,6 +16,7 @@ class SalaItem : SKNode {
     var objetoAuxiliar : SKSpriteNode
     var isError : Bool
     var msg : String
+    var save: SaveHandler = SaveHandler()
     
     private var gameStateDelegate : GameStateDelegate
     
@@ -103,6 +104,7 @@ class SalaItem : SKNode {
         if (isError && tile.containsPoint(touchLocation)) {
             if gameStateDelegate.gameStateDelegateIncrement(msg, node: self) {
                 isError = false
+                save.audioObjetos(type)
             }
         }
         
