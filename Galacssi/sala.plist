@@ -7,7 +7,7 @@
 		<key>televisão</key>
 		<dict>
 			<key>msg</key>
-			<string>Para manter uma televisão ligada por 1 hora por dia, precisamos queimar 8 quilos de carvão por mes.</string>
+			<string>Para manter uma televisão     ligada por 1 hora por dia,    precisamos queimar 8 quilos de carvão por mes.</string>
 		</dict>
 		<key>luz</key>
 		<dict>
@@ -17,12 +17,12 @@
 		<key>video_game</key>
 		<dict>
 			<key>msg</key>
-			<string>1 ano de video game gasta a energia de metade de uma arvore queimada.</string>
+			<string> 1 ano de video game gasta a    energia de metade de uma    arvore queimada.</string>
 		</dict>
 		<key>abajur</key>
 		<dict>
 			<key>msg</key>
-			<string>3 horas de lâmpada acesa custam cerca de 1 real</string>
+			<string>3 horas de lâmpada acesa      custam cerca de 1 real.</string>
 		</dict>
 	</dict>
 	<key>salaItemData</key>

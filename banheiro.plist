@@ -14,17 +14,17 @@
 		<key>pia</key>
 		<dict>
 			<key>msg</key>
-			<string>Você sabia que em um dia, uma goteira perde 46 litros de água? Isso é o que você bebe em 23 dias!!</string>
+			<string>Você sabia que em um dia, uma  goteira perde 46 litros de   água? Isso é o que você bebe  em 23 dias!!</string>
 		</dict>
 		<key>vaso</key>
 		<dict>
 			<key>msg</key>
-			<string>Você precisa queimar uma arvore inteira para manter uma lampada acesa por 3 meses.</string>
+			<string>   Você precisa queimar uma   arvore inteira para manter uma lampada acesa por 3 meses.</string>
 		</dict>
 		<key>luz</key>
 		<dict>
 			<key>msg</key>
-			<string>Você precisa queimar uma arvore inteira para manter uma lampada acesa por 3 meses.</string>
+			<string>   Você precisa queimar uma   arvore inteira para manter uma lampada acesa por 3 meses.</string>
 		</dict>
 	</dict>
 	<key>banheiroItemData</key>

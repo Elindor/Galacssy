@@ -7,22 +7,22 @@
 		<key>microondas</key>
 		<dict>
 			<key>msg</key>
-			<string>Um microondas não gasta só quando ligado, mas a porta aberta cende sua luz!</string>
+			<string> Um microondas não gasta só   quando ligado, mas a porta    aberta cende sua luz!</string>
 		</dict>
 		<key>luz</key>
 		<dict>
 			<key>msg</key>
-			<string>Uma casa gasta com energia, normalmente, 1 arvore em 10 meses.</string>
+			<string>Uma casa gasta com energia,   normalmente, 1 arvore em 10    meses.</string>
 		</dict>
 		<key>geladeira</key>
 		<dict>
 			<key>msg</key>
-			<string>Uma geladeira fechada queima uma arvore cada 2 meses. Uma aberta gasta 5 arvores.</string>
+			<string>Uma geladeira fechada queima  uma arvore cada 2 meses. Uma  aberta gasta 5 arvores.</string>
 		</dict>
 		<key>torneira</key>
 		<dict>
 			<key>msg</key>
-			<string>Uma goteira gasta em um dia o que você come e bebe em 2 semanas.</string>
+			<string>Uma goteira gasta em um dia o que você come e bebe em 2     semanas.</string>
 		</dict>
 	</dict>
 	<key>cozinhaItemData</key>
