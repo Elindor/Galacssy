@@ -10,6 +10,11 @@ import SpriteKit
 
 
 class GameScene: SKScene {
+   
+    let labelNode = (SKLabelNode (fontNamed: "Bariol-Bold"))
+    let labelNode2 = (SKLabelNode (fontNamed: "Bariol-Regular"))
+    var text = "NOME DO JOGO"
+    var text2 = "HAKUNAMATATA"
     
     //MAPA PRINCIPAL
     let background = SKSpriteNode(imageNamed: "mapa.png")
@@ -23,16 +28,44 @@ class GameScene: SKScene {
     let btnFarm = SKSpriteNode(imageNamed: "btnSitio.png")
     let btnForest = SKSpriteNode(imageNamed: "btnFloresta.png")
     let btnBuilding = SKSpriteNode(imageNamed: "btnPredio.png")
+    
+    //POPUPS FASES
+    let popupHouse = SKSpriteNode(imageNamed: "popup.png")
+    let popupFarm = SKSpriteNode(imageNamed: "popup.png")
+    let popupFactory = SKSpriteNode(imageNamed: "popup.png")
+    let popupForest = SKSpriteNode(imageNamed: "popup.png")
+    let popupBuilding = SKSpriteNode(imageNamed: "popup.png")
 
     //CAMADAS
     let layerBackground:CGFloat = 0
     let layerHud:CGFloat = 99
     let layerObject1:CGFloat = 1
-//    let layerObject2:CGFloat = 2
+    let layerObject2:CGFloat = 2
+    let layerObject3:CGFloat = 3
     
+    //AMBIENTE ATIVO
+    var house = false
+    var factory = false
+    var farm = false
+    var forest = false
+    var building = false
+    var safeHouse = false
     
+    var centerPopUp: CGPoint = CGPoint(x: 512, y: 384)
+    var changeScene = false
     
     override func didMoveToView(view: SKView) {
+        
+        //TESTE DE FONTE
+        labelNode.text = text
+        labelNode.position = CGPoint(x: 512, y: 700)
+        labelNode.zPosition = layerHud
+//        addChild(labelNode)
+        
+        labelNode2.text = text2
+        labelNode2.position = CGPoint(x: 512, y: 600)
+        labelNode2.zPosition = layerHud
+//        addChild(labelNode2)
         
         //MAPA
         background.position = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/2)
@@ -41,42 +74,71 @@ class GameScene: SKScene {
         background.zPosition = layerBackground
 //        println("\(self.frame.size.width/2, self.frame.size.height/2)")
         
-        //Predios
+        //PREDIOS
         predios.position = CGPoint(x: self.frame.size.width/2+20, y: self.frame.size.height/2)
         predios.setScale(0.5)
-        predios.zPosition = CGFloat(3)
+        predios.zPosition = layerObject2
         predios.name = "predios"
         
-        //LOCAIS
+        //LOCAL CASA
         btnHouse.position = CGPoint(x: self.frame.size.width/2+15, y: self.frame.size.height/3.2)
         btnHouse.xScale = 0.5
         btnHouse.yScale = 0.5
         btnHouse.zPosition = layerObject1
         btnHouse.name = "botaoCasa"
         
+        popupHouse.position = centerPopUp
+        popupHouse.xScale = 0.5
+        popupHouse.yScale = 0.5
+        popupHouse.zPosition = layerBackground
+        
+        //LOCAL FABRICA
         btnFactory.position = CGPoint(x: 780, y: 180)
         btnFactory.xScale = 0.5
         btnFactory.yScale = 0.5
         btnFactory.zPosition = layerObject1
         btnFactory.name = "botaoIndustria"
+       
+        popupFactory.position = centerPopUp
+        popupFactory.xScale = 0.5
+        popupFactory.yScale = 0.5
+        popupFactory.zPosition = layerBackground
         
+        //LOCAL FAZENDA
         btnFarm.position = CGPoint(x: 863, y: 664)
         btnFarm.xScale = 0.5
         btnFarm.yScale = 0.5
         btnFarm.zPosition = layerObject1
         btnFarm.name = "botaoFazenda"
         
+        popupFarm.position = centerPopUp
+        popupFarm.xScale = 0.5
+        popupFarm.yScale = 0.5
+        popupFarm.zPosition = layerBackground
+        
+        //LOCAL FLORESTA
         btnForest.position = CGPoint(x: 120, y: 690)
         btnForest.xScale = 0.5
         btnForest.yScale = 0.5
         btnForest.zPosition = layerObject1
         btnForest.name = "botaoFloresta"
         
+        popupForest.position = centerPopUp
+        popupForest.xScale = 0.5
+        popupForest.yScale = 0.5
+        popupForest.zPosition = layerBackground
+        
+        //LOCAL PREDIOS
         btnBuilding.position = CGPoint(x: self.frame.size.width/2+15, y: 470)
         btnBuilding.xScale = 0.5
         btnBuilding.yScale = 0.5
         btnBuilding.zPosition = layerObject1
         btnBuilding.name = "botaoPredio"
+        
+        popupBuilding.position = centerPopUp
+        popupBuilding.xScale = 0.5
+        popupBuilding.yScale = 0.5
+        popupBuilding.zPosition = layerBackground
         
         //OBJETOS ANIMADOS
         smoke1.position = CGPoint(x: 767, y: 230)
@@ -99,8 +161,12 @@ class GameScene: SKScene {
         btnSafeHouse.xScale = 0.5
         btnSafeHouse.yScale = 0.5
         btnSafeHouse.zPosition = layerHud
-    
         
+        self.addChild(popupHouse)
+        self.addChild(popupFactory)
+        self.addChild(popupFarm)
+        self.addChild(popupForest)
+        self.addChild(popupBuilding)
         self.addChild(background)
         self.addChild(predios)
         self.addChild(lifeCity)
@@ -125,6 +191,8 @@ class GameScene: SKScene {
         let touchLocation = touch.locationInNode(self)
         
         callScene(touchLocation)
+        callInfo(touchLocation)
+        
 
     }
    
@@ -174,50 +242,89 @@ class GameScene: SKScene {
     }
     
     //CHAMA CENARIO
-    func callScene(touchLocation: CGPoint){
+    func callInfo(touchLocation: CGPoint){
         
         let transition = SKTransition()
         
         if (btnHouse.containsPoint(touchLocation)){
-            println("Chama Cena Casa")
-            let cenarioCasa = CasaScene(size: self.size)
-            cenarioCasa.scaleMode = SKSceneScaleMode.AspectFill
-            self.scene!.view?.presentScene(cenarioCasa, transition: transition)
+            popupHouse.zPosition = layerObject3
+            changeScene = true
+            house = true
         }
         
         if (btnFarm.containsPoint(touchLocation)){
-            println("Chama Cena Fazenda")
-            let cenarioFazenda = FazendinhaScene(size: self.size)
-            cenarioFazenda.scaleMode = SKSceneScaleMode.AspectFill
-            self.scene!.view?.presentScene(cenarioFazenda, transition: transition)
+            popupFarm.zPosition = layerObject3
+            changeScene = true
+            farm = true
         }
         
         if (btnFactory.containsPoint(touchLocation)){
-            println("Chama Cena Fabrica")
-            let cenarioFabrica = IndustriaScene(size: self.size)
-            cenarioFabrica.scaleMode = SKSceneScaleMode.AspectFill
-            self.scene!.view?.presentScene(cenarioFabrica, transition: transition)
+            popupFactory.zPosition = layerObject3
+            changeScene = true
+            factory = true
         }
         
         if (btnBuilding.containsPoint(touchLocation)){
-            println("Chama Cena Predio")
-            let cenarioPredio = CidadeScene(size: self.size)
-            cenarioPredio.scaleMode = SKSceneScaleMode.AspectFill
-            self.scene!.view?.presentScene(cenarioPredio, transition: transition)
+            popupBuilding.zPosition = layerObject3
+            changeScene = true
+            building = true
+        }
+        
+        if (btnForest.containsPoint(touchLocation)){
+            popupForest.zPosition = layerObject3
+            changeScene = true
+            forest = true
         }
         
         if (btnSafeHouse.containsPoint(touchLocation)){
-            println("Chama Cena Casa da Arvore")
             let cenarioCasaDaArvore = ArvoreScene(size: self.size)
             cenarioCasaDaArvore.scaleMode = SKSceneScaleMode.AspectFill
             self.scene!.view?.presentScene(cenarioCasaDaArvore, transition: transition)
         }
+    }
+    
+    func callScene(touchLocation: CGPoint){
         
-        if (btnForest.containsPoint(touchLocation)){
-            println("Chama Cena Floresta")
-            let cenarioFloresta = FlorestaScene(size: self.size)
-            cenarioFloresta.scaleMode = SKSceneScaleMode.AspectFill
-            self.scene!.view?.presentScene(cenarioFloresta, transition: transition)
+        let transition = SKTransition()
+
+        if(changeScene){
+            
+            if (popupHouse.containsPoint(touchLocation) && house){
+                changeScene = false
+                let cenarioCasa = CasaScene(size: self.size)
+                cenarioCasa.scaleMode = SKSceneScaleMode.AspectFill
+                self.scene!.view?.presentScene(cenarioCasa, transition: transition)
+            }
+            
+            if (popupFarm.containsPoint(touchLocation) && farm){
+                changeScene = false
+                let cenarioFazenda = FazendinhaScene(size: self.size)
+                cenarioFazenda.scaleMode = SKSceneScaleMode.AspectFill
+                self.scene!.view?.presentScene(cenarioFazenda, transition: transition)
+            }
+            
+            if (popupFactory.containsPoint(touchLocation) && factory){
+                changeScene = false
+                let cenarioFabrica = IndustriaScene(size: self.size)
+                cenarioFabrica.scaleMode = SKSceneScaleMode.AspectFill
+                self.scene!.view?.presentScene(cenarioFabrica, transition: transition)
+            }
+            
+            if (popupBuilding.containsPoint(touchLocation) && building){
+                changeScene = false
+                let cenarioPredio = CidadeScene(size: self.size)
+                cenarioPredio.scaleMode = SKSceneScaleMode.AspectFill
+                self.scene!.view?.presentScene(cenarioPredio, transition: transition)
+            }
+            
+            if (popupForest.containsPoint(touchLocation) && forest){
+                changeScene = false
+                let cenarioFloresta = FlorestaScene(size: self.size)
+                cenarioFloresta.scaleMode = SKSceneScaleMode.AspectFill
+                self.scene!.view?.presentScene(cenarioFloresta, transition: transition)
+            }
         }
     }
+    
+    
 }

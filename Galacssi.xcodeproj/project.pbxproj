@@ -32,6 +32,8 @@
 		441DC3E61B1CCD93005CA15F /* btnCheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 441DC3E31B1CCD93005CA15F /* btnCheck.png */; };
 		441DC3E71B1CCD93005CA15F /* btnComSom.png in Resources */ = {isa = PBXBuildFile; fileRef = 441DC3E41B1CCD93005CA15F /* btnComSom.png */; };
 		441DC3E81B1CCD93005CA15F /* btnSemSom.png in Resources */ = {isa = PBXBuildFile; fileRef = 441DC3E51B1CCD93005CA15F /* btnSemSom.png */; };
+		441DC3F01B1CEFFE005CA15F /* Bariol_Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 441DC3EA1B1CE3AA005CA15F /* Bariol_Regular.otf */; };
+		441DC3F11B1CF001005CA15F /* Bariol_Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 441DC3E91B1CE3AA005CA15F /* Bariol_Bold.otf */; };
 		444BE5A71B1726C800683BEA /* nuvem1.png in Resources */ = {isa = PBXBuildFile; fileRef = 444BE5A51B1726C800683BEA /* nuvem1.png */; };
 		444BE5A81B1726C800683BEA /* nuvem2.png in Resources */ = {isa = PBXBuildFile; fileRef = 444BE5A61B1726C800683BEA /* nuvem2.png */; };
 		44F68D9B1B138D900032B700 /* btnCasa.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68D9A1B138D900032B700 /* btnCasa.png */; };
@@ -99,6 +101,8 @@
 		441DC3E31B1CCD93005CA15F /* btnCheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnCheck.png; sourceTree = "<group>"; };
 		441DC3E41B1CCD93005CA15F /* btnComSom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnComSom.png; sourceTree = "<group>"; };
 		441DC3E51B1CCD93005CA15F /* btnSemSom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnSemSom.png; sourceTree = "<group>"; };
+		441DC3E91B1CE3AA005CA15F /* Bariol_Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Bold.otf; sourceTree = "<group>"; };
+		441DC3EA1B1CE3AA005CA15F /* Bariol_Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Regular.otf; sourceTree = "<group>"; };
 		444BE5A51B1726C800683BEA /* nuvem1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nuvem1.png; sourceTree = "<group>"; };
 		444BE5A61B1726C800683BEA /* nuvem2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nuvem2.png; sourceTree = "<group>"; };
 		44F68D9A1B138D900032B700 /* btnCasa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnCasa.png; sourceTree = "<group>"; };
@@ -250,6 +254,8 @@
 		C08773B51B0E522800B4F5BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				441DC3E91B1CE3AA005CA15F /* Bariol_Bold.otf */,
+				441DC3EA1B1CE3AA005CA15F /* Bariol_Regular.otf */,
 				C08773B61B0E522800B4F5BF /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -355,6 +361,7 @@
 				066A2CD01B17918000A40DEC /* salaTeste.jpg in Resources */,
 				06FEF6471B1636B300EA7842 /* popup.png in Resources */,
 				0677F3A71B150D8000A9C10A /* banheiro.plist in Resources */,
+				441DC3F01B1CEFFE005CA15F /* Bariol_Regular.otf in Resources */,
 				74A89D501B151C6B00581271 /* sala.plist in Resources */,
 				C08773C61B0E522800B4F5BF /* LaunchScreen.xib in Resources */,
 				0677F3A51B150D2800A9C10A /* casa_placeholder.png in Resources */,
@@ -389,6 +396,7 @@
 				74A89D521B151C6B00581271 /* cozinha.plist in Resources */,
 				444BE5A81B1726C800683BEA /* nuvem2.png in Resources */,
 				44F68DA71B139EBB0032B700 /* btnPredio.png in Resources */,
+				441DC3F11B1CF001005CA15F /* Bariol_Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
