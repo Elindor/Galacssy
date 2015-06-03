@@ -116,6 +116,9 @@ class CozinhaItem : SKNode {
         objeto.runAction(fade)
         objeto.runAction(movimento, completion:{
             objeto.runAction(SKAction.waitForDuration(0.5), completion:{
+                if self.save.musicIsOn(){
+                    self.runAction(SKAction.playSoundFileNamed("waterDropLoop.mp3", waitForCompletion: false))
+                }
                 self.waterLoop(objeto: objeto)
             })
             
