@@ -108,10 +108,11 @@ class CozinhaItem : SKNode {
         fade.timingMode = SKActionTimingMode.EaseIn
         objeto.runAction(fade)
         objeto.runAction(movimento, completion:{
-            objeto.runAction(SKAction.waitForDuration(0.5), completion:{
-                if self.save.musicIsOn(){
-                    self.runAction(SKAction.playSoundFileNamed("waterDropLoop.mp3", waitForCompletion: false))
-                }
+            if self.save.musicIsOn(){
+                var audio = SKAction.playSoundFileNamed("Droplet.wav", waitForCompletion: false)
+                self.runAction(audio)
+            }
+            objeto.runAction(SKAction.waitForDuration(0.5), completion:{                
                 self.waterLoop(objeto: objeto)
             })
             
@@ -133,6 +134,7 @@ class CozinhaItem : SKNode {
 
             if gameStateDelegate.gameStateDelegateIncrement(msg, node: self) {
                 isError = false
+                
                 save.audioObjetos(type)
             }
         }

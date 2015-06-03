@@ -18,6 +18,7 @@ class QuartoItem : SKNode {
     var isError : Bool
     var msg : String
     var save: SaveHandler = SaveHandler()
+    var radioRef : SKSpriteNode
     
     private var gameStateDelegate : GameStateDelegate
     
@@ -34,7 +35,8 @@ class QuartoItem : SKNode {
         objeto = SKSpriteNode()
         objetoAuxiliar = SKSpriteNode()
         movimento = SKAction()
-
+        radioRef = SKSpriteNode()
+        
         //if type == "luz" {
         if (isError) {
             objeto = SKSpriteNode(imageNamed: "LuzLustre.png")
@@ -79,7 +81,11 @@ class QuartoItem : SKNode {
                 objeto.position = CGPoint (x: -112.0, y: -30.0)
                 tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(50, 85))
                 radioIsOn = true
-                
+                radioRef = objeto
+                if self.save.musicIsOn(){
+                    var audio = SKAction.playSoundFileNamed("RadioNew.mp3", waitForCompletion: true)
+                    objeto.runAction(SKAction.repeatActionForever(audio))
+                }
                 tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(140, 115))
             } else {
                 tile = SKSpriteNode(color: SKColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(140, 115))
@@ -159,6 +165,10 @@ class QuartoItem : SKNode {
         if (isError && tile.containsPoint(touchLocation)) {
             if gameStateDelegate.gameStateDelegateIncrement(msg, node: self) {
                 isError = false
+                
+                if(radioRef == objeto){
+                    radioRef.removeAllActions()
+                }
                 save.audioObjetos(type)
             }
         }

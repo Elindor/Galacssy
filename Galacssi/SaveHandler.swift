@@ -113,25 +113,25 @@ class SaveHandler {
     }
     
     func torneiraLigada(){
-//        var fimFaseSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("waterDropLoop", ofType: "mp3")!)
+//        var fimFaseSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("WaterDrop", ofType: "mp3")!)
 //        audioPlayer = AVAudioPlayer(contentsOfURL: fimFaseSound, error: nil)
 //        audioPlayer.volume = 1.0
 //        audioPlayer.play()
     }
     
     func chuveiroLigado(){
-        var fimFaseSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("waterDropLoop", ofType: "mp3")!)
-        audioPlayer = AVAudioPlayer(contentsOfURL: fimFaseSound, error: nil)
-        audioPlayer.volume = 1.0
-        audioPlayer.play()
+//        var fimFaseSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("WaterDrop", ofType: "mp3")!)
+//        audioPlayer = AVAudioPlayer(contentsOfURL: fimFaseSound, error: nil)
+//        audioPlayer.volume = 1.0
+//        audioPlayer.play()
     }
     
     func radioLigado(){
-        var radioLigadoSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("RadioOn", ofType: "mp3")!)
-        audioPlayer = AVAudioPlayer(contentsOfURL: radioLigadoSound, error: nil)
-        audioPlayer.numberOfLoops = -1
-        audioPlayer.volume = 1.0
-        audioPlayer.play()
+//        var radioLigadoSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("RadioOn", ofType: "mp3")!)
+//        audioPlayer = AVAudioPlayer(contentsOfURL: radioLigadoSound, error: nil)
+//        audioPlayer.numberOfLoops = -1
+//        audioPlayer.volume = 1.0
+//        audioPlayer.play()
     }
     
     func getSave() -> Save{
