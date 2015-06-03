@@ -27,7 +27,7 @@ class IndustriaScene : SKScene {
         textoIndustria.text = "A indústria está em construção"
         textoIndustria.fontColor = SKColor.whiteColor()
         textoIndustria.fontSize = 55
-        textoIndustria.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame)+200)
+        textoIndustria.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame)-300)
         self.addChild(textoIndustria)
     }
     

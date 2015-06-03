@@ -27,7 +27,7 @@ class FazendinhaScene : SKScene {
         textoFazendinha.text = "A fazendinha está em construção!"
         textoFazendinha.fontColor = SKColor.whiteColor()
         textoFazendinha.fontSize = 55
-        textoFazendinha.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame)+200)
+        textoFazendinha.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame)-300)
         addChild(textoFazendinha)
         
     }
