@@ -50,6 +50,7 @@
 		441DC3F11B1CF001005CA15F /* Bariol_Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 441DC3E91B1CE3AA005CA15F /* Bariol_Bold.otf */; };
 		444BE5A71B1726C800683BEA /* nuvem1.png in Resources */ = {isa = PBXBuildFile; fileRef = 444BE5A51B1726C800683BEA /* nuvem1.png */; };
 		444BE5A81B1726C800683BEA /* nuvem2.png in Resources */ = {isa = PBXBuildFile; fileRef = 444BE5A61B1726C800683BEA /* nuvem2.png */; };
+		444D55D31B1F664A00CD4515 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 444D55D21B1F664A00CD4515 /* splash.png */; };
 		44553D3F1B1E268E000F78B8 /* missoes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44553D3E1B1E268E000F78B8 /* missoes.plist */; };
 		44F68D9B1B138D900032B700 /* btnCasa.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68D9A1B138D900032B700 /* btnCasa.png */; };
 		44F68D9D1B1390970032B700 /* btnArvore.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F68D9C1B1390970032B700 /* btnArvore.png */; };
@@ -163,6 +164,7 @@
 		441DC3EA1B1CE3AA005CA15F /* Bariol_Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Regular.otf; sourceTree = "<group>"; };
 		444BE5A51B1726C800683BEA /* nuvem1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nuvem1.png; sourceTree = "<group>"; };
 		444BE5A61B1726C800683BEA /* nuvem2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nuvem2.png; sourceTree = "<group>"; };
+		444D55D21B1F664A00CD4515 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		44553D3E1B1E268E000F78B8 /* missoes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = missoes.plist; sourceTree = "<group>"; };
 		44F68D9A1B138D900032B700 /* btnCasa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnCasa.png; sourceTree = "<group>"; };
 		44F68D9C1B1390970032B700 /* btnArvore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnArvore.png; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				C02E0FC71B1CE2BE009F88FC /* AnimaAudio */,
 				0677F3A21B150CD800A9C10A /* banheiro.jpg */,
 				7458858B1B1E68F50057741B /* popupFimMenina.png */,
+				444D55D21B1F664A00CD4515 /* splash.png */,
 				7458858C1B1E68F50057741B /* popupFim.png */,
 				7458858D1B1E68F50057741B /* popupItemMenina.png */,
 				7458858E1B1E68F50057741B /* popupMissaoMenina.png */,
@@ -536,6 +539,7 @@
 				06624E421B1CC64B003C0C03 /* CasaPersonagem.png in Resources */,
 				C08773C31B0E522800B4F5BF /* Images.xcassets in Resources */,
 				745885931B1E68F50057741B /* popupFim.png in Resources */,
+				444D55D31B1F664A00CD4515 /* splash.png in Resources */,
 				060C533B1B18F7C700463020 /* Banheiro.png in Resources */,
 				74C8B9241B1D19450086C9D3 /* telaComputador.png in Resources */,
 				060C533D1B18F7C700463020 /* Sala.png in Resources */,

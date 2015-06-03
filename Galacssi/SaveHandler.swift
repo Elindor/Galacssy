@@ -11,8 +11,10 @@ import AVFoundation
 
 class SaveHandler {
     
+    var fimFaseSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("waterDropLoop", ofType: "mp3")!)
     var gameSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Musica", ofType: "mp3")!)
     var audioPlayer = AVAudioPlayer()
+    var torneira = AVAudioPlayer()
     var tempArray:Array<Save> = [];
     //var savedFile: Save
     
