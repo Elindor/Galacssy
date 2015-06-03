@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 class CozinhaItem : SKNode {
     
@@ -18,6 +19,7 @@ class CozinhaItem : SKNode {
     var msg : String
     var save: SaveHandler = SaveHandler()
     var camada: CasaScene = CasaScene ()
+    var torneira: AVAudioPlayer
     
     private var gameStateDelegate : GameStateDelegate
     
@@ -25,6 +27,11 @@ class CozinhaItem : SKNode {
 
         
         isError = error
+        
+        var fimFaseSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("waterDropLoop", ofType: "mp3")!)
+        torneira = AVAudioPlayer(contentsOfURL: fimFaseSound, error: nil)
+        torneira.volume = 1.0
+        
         
         var waterIsOn: Bool = false
         
@@ -108,10 +115,11 @@ class CozinhaItem : SKNode {
         fade.timingMode = SKActionTimingMode.EaseIn
         objeto.runAction(fade)
         objeto.runAction(movimento, completion:{
-            objeto.runAction(SKAction.waitForDuration(0.5), completion:{
-                if self.save.musicIsOn(){
-                    self.runAction(SKAction.playSoundFileNamed("waterDropLoop.mp3", waitForCompletion: false))
-                }
+            if self.save.musicIsOn(){
+                var audio = SKAction.playSoundFileNamed("Droplet.wav", waitForCompletion: false)
+                self.runAction(audio)
+            }
+            objeto.runAction(SKAction.waitForDuration(0.5), completion:{                
                 self.waterLoop(objeto: objeto)
             })
             
@@ -133,6 +141,7 @@ class CozinhaItem : SKNode {
 
             if gameStateDelegate.gameStateDelegateIncrement(msg, node: self) {
                 isError = false
+                
                 save.audioObjetos(type)
             }
         }

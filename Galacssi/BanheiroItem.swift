@@ -159,6 +159,9 @@ class BanheiroItem : SKNode, UIAlertViewDelegate {
         fade.timingMode = SKActionTimingMode.EaseIn
         objeto.runAction(fade)
         objeto.runAction(movimento, completion:{
+            if self.save.musicIsOn(){
+                self.runAction(SKAction.playSoundFileNamed("Droplet.wav", waitForCompletion: false))
+            }
             objeto.runAction(SKAction.waitForDuration(0.5), completion:{
                 self.waterLoop(objeto: objeto)
             })
@@ -175,6 +178,9 @@ class BanheiroItem : SKNode, UIAlertViewDelegate {
         fade.timingMode = SKActionTimingMode.EaseIn
         objeto.runAction(fade)
         objeto.runAction(movimentoChuveiro, completion:{
+            if self.save.musicIsOn(){
+                self.runAction(SKAction.playSoundFileNamed("Droplet.wav", waitForCompletion: false))
+            }
             objeto.runAction(SKAction.waitForDuration(0.5), completion:{
                 self.waterLoopChuveiro1(objeto: objeto)
             })
@@ -189,6 +195,9 @@ class BanheiroItem : SKNode, UIAlertViewDelegate {
         fade.timingMode = SKActionTimingMode.EaseIn
         objeto.runAction(fade)
         objeto.runAction(movimentoChuveiro, completion:{
+            if self.save.musicIsOn(){
+                self.runAction(SKAction.playSoundFileNamed("Droplet.wav", waitForCompletion: false))
+            }
             objeto.runAction(SKAction.waitForDuration(1.5), completion:{
                 self.waterLoopChuveiro2(objeto: objeto)
             })

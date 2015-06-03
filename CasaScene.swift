@@ -114,6 +114,9 @@ class CasaScene: SKScene, GameStateDelegate {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
+        var musicaDeFundo = SKAction.playSoundFileNamed("Musica.mp3", waitForCompletion: true)
+        self.runAction(SKAction.repeatActionForever(musicaDeFundo))
+        
         //Create House's buttons
         quartoButton = SKSpriteNode(imageNamed: "banheiro.jpg")
         quartoButton.size.height = 260
@@ -386,6 +389,9 @@ class CasaScene: SKScene, GameStateDelegate {
             callChecks()
             hideAll()
             background.zPosition = camadaMenu
+            if (cozinha == camadaAmbiente){
+                save.torneira.stop()
+            }
         }
             
         //ATIVA A VOLTA PARA A CIDADE ATRAVES DO BOTAO DE VOLTAR
@@ -410,7 +416,7 @@ class CasaScene: SKScene, GameStateDelegate {
         //textoFinal.zPosition = camadaHide
         textoItem.zPosition = camadaHide
         estaNoComodo = comodo.nenhum
-        popupItem.zPosition = camadaHide
+        
         
         //REMOVE OBJETOS DOS AMBIENTES
         for itens in banheiroItems{
