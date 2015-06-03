@@ -16,13 +16,18 @@ class FlorestaScene : SKScene {
     
     override func didMoveToView(view: SKView) {
         
+        let construcao = SKSpriteNode(imageNamed: "splash.png")
+        construcao.xScale = 0.5
+        construcao.yScale = 0.5
+        construcao.position = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/2)
+        addChild(construcao)
         /* texto reponsável em exibir que o cenário da floresta esta em construção. */
         self.backgroundColor = SKColor.whiteColor()
         let textoFloresta = SKLabelNode(fontNamed:"Arial")
         textoFloresta.text = "A floresta está em construção!"
-        textoFloresta.fontColor = SKColor.blackColor()
+        textoFloresta.fontColor = SKColor.whiteColor()
         textoFloresta.fontSize = 55
-        textoFloresta.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        textoFloresta.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame)+200)
         self.addChild(textoFloresta)
     }
     
