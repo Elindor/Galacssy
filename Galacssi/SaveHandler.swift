@@ -113,10 +113,10 @@ class SaveHandler {
     }
     
     func torneiraLigada(){
-        var fimFaseSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("waterDropLoop", ofType: "mp3")!)
-        audioPlayer = AVAudioPlayer(contentsOfURL: fimFaseSound, error: nil)
-        audioPlayer.volume = 1.0
-        audioPlayer.play()
+//        var fimFaseSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("waterDropLoop", ofType: "mp3")!)
+//        audioPlayer = AVAudioPlayer(contentsOfURL: fimFaseSound, error: nil)
+//        audioPlayer.volume = 1.0
+//        audioPlayer.play()
     }
     
     func chuveiroLigado(){
