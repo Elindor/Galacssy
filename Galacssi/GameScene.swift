@@ -16,9 +16,9 @@ class GameScene: SKScene {
     let labelNode2 = (SKLabelNode (fontNamed: "Bariol-Regular"))
     var text = "NOME DO JOGO"
     var text2 = "HAKUNAMATATA"
-    
     var coinSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Musica", ofType: "mp3")!)
     var audioPlayer = AVAudioPlayer()
+    
     
     //MAPA PRINCIPAL
     let background = SKSpriteNode(imageNamed: "mapa.png")
@@ -86,7 +86,10 @@ class GameScene: SKScene {
     var centerPopUp: CGPoint = CGPoint(x: 512, y: 384)
     var changeScene = false
     
+    
     override func didMoveToView(view: SKView) {
+        
+        
         
         let defaults = NSUserDefaults.standardUserDefaults()
         let a = defaults.integerForKey("personagem")

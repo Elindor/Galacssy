@@ -114,9 +114,12 @@ class CasaScene: SKScene, GameStateDelegate {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
-        var musicaDeFundo = SKAction.playSoundFileNamed("Musica.mp3", waitForCompletion: true)
-        self.runAction(SKAction.repeatActionForever(musicaDeFundo))
-        
+//        var musicaDeFundo = SKAction.playSoundFileNamed("Musica.mp3", waitForCompletion: true)
+//        self.runAction(SKAction.repeatActionForever(musicaDeFundo))
+        if(!save.musicIsOn()){
+            save.playAudio()
+        }
+
         //Create House's buttons
         quartoButton = SKSpriteNode(imageNamed: "banheiro.jpg")
         quartoButton.size.height = 260
@@ -850,28 +853,36 @@ class CasaScene: SKScene, GameStateDelegate {
         switch estaNoComodo{
         case comodo.banheiro:
             if(acertosBanheiro == errosBanheiro && checkBanheiro.zPosition == camadaHide){
-                save.audioFimFase()
+                var audiFimFase = SKAction.playSoundFileNamed("brilinho3.mp3", waitForCompletion: false)
+                self.runAction(audiFimFase)
+                //save.audioFimFase()
                 popup.zPosition = camadaFimFase
                 //textoFinal.zPosition = camadaFimTexto
             }
             break
         case comodo.cozinha:
             if(acertosCozinha == errosCozinha && checkCozinha.zPosition == camadaHide){
-                save.audioFimFase()
+                var audiFimFase = SKAction.playSoundFileNamed("brilinho3.mp3", waitForCompletion: false)
+                self.runAction(audiFimFase)
+                //save.audioFimFase()
                 popup.zPosition = camadaFimFase
                 //textoFinal.zPosition = camadaFimTexto
             }
             break
         case comodo.sala:
             if(acertosSala == errosSala && checkSala.zPosition == camadaHide){
-                save.audioFimFase()
+                var audiFimFase = SKAction.playSoundFileNamed("brilinho3.mp3", waitForCompletion: false)
+                self.runAction(audiFimFase)
+                //save.audioFimFase()
                 popup.zPosition = camadaFimFase
                 //textoFinal.zPosition = camadaFimTexto
             }
             break
         case comodo.quarto:
             if(acertosQuarto == errosQuarto && checkQuarto.zPosition == camadaHide){
-                save.audioFimFase()
+                var audiFimFase = SKAction.playSoundFileNamed("brilinho3.mp3", waitForCompletion: false)
+                self.runAction(audiFimFase)
+                //save.audioFimFase()
                 popup.zPosition = camadaFimFase
                 //textoFinal.zPosition = camadaFimTexto
             }

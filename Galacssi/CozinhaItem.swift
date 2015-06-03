@@ -19,7 +19,7 @@ class CozinhaItem : SKNode {
     var msg : String
     var save: SaveHandler = SaveHandler()
     var camada: CasaScene = CasaScene ()
-    var torneira: AVAudioPlayer
+    //var torneira: AVAudioPlayer
     
     private var gameStateDelegate : GameStateDelegate
     
@@ -29,8 +29,8 @@ class CozinhaItem : SKNode {
         isError = error
         
         var fimFaseSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("waterDropLoop", ofType: "mp3")!)
-        torneira = AVAudioPlayer(contentsOfURL: fimFaseSound, error: nil)
-        torneira.volume = 1.0
+//        torneira = AVAudioPlayer(contentsOfURL: fimFaseSound, error: nil)
+//        torneira.volume = 1.0
         
         
         var waterIsOn: Bool = false

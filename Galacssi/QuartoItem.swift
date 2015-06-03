@@ -83,7 +83,7 @@ class QuartoItem : SKNode {
                 radioIsOn = true
                 radioRef = objeto
                 if self.save.musicIsOn(){
-                    var audio = SKAction.playSoundFileNamed("RadioNew.mp3", waitForCompletion: true)
+                    var audio = SKAction.playSoundFileNamed("RadioOn.mp3", waitForCompletion: true)
                     objeto.runAction(SKAction.repeatActionForever(audio))
                 }
                 tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(140, 115))
@@ -172,7 +172,6 @@ class QuartoItem : SKNode {
                 save.audioObjetos(type)
             }
         }
-        
     }
     
     func displayAlert (msg:String) {
