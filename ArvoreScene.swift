@@ -14,6 +14,7 @@ class ArvoreScene : SKScene {
     
     let transition = SKTransition()
     let casaPersonagem = SKSpriteNode(imageNamed: "CasaPersonagem.png")
+    var voltarButton = SKSpriteNode()
     var save: SaveHandler = SaveHandler()
     //var menino = SKSpriteNode(color: SKColor(red: 0/255.0, green: 0/255.0, blue: 255/255.0, alpha: 1.0), size: CGSizeMake(225, 575))
     //var menina = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0), size: CGSizeMake(225, 575))
@@ -42,6 +43,12 @@ class ArvoreScene : SKScene {
             menino.alpha = 1.0
             isMenino = true
         }
+        
+        voltarButton = SKSpriteNode(imageNamed: "btnVoltar.png")
+        voltarButton.setScale(0.5)
+        voltarButton.position = CGPointMake(40,730);
+        voltarButton.zPosition = CGFloat(10)
+        addChild(voltarButton)
         
         /* cenário casa da árvore */
         casaPersonagem.position = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/2)
@@ -80,7 +87,7 @@ class ArvoreScene : SKScene {
                     defaults.setInteger(1, forKey: "personagem")
                 }
                 
-            } else {
+            } else if(voltarButton.containsPoint(touchLocation)){
                 
                 println("sai da casa")
                 
