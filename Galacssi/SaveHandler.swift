@@ -11,8 +11,10 @@ import AVFoundation
 
 class SaveHandler {
     
+    var fimFaseSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("waterDropLoop", ofType: "mp3")!)
     var gameSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Musica", ofType: "mp3")!)
     var audioPlayer = AVAudioPlayer()
+    var torneira = AVAudioPlayer()
     var tempArray:Array<Save> = [];
     //var savedFile: Save
     
@@ -113,10 +115,10 @@ class SaveHandler {
     }
     
     func torneiraLigada(){
-        var fimFaseSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("waterDropLoop", ofType: "mp3")!)
-        audioPlayer = AVAudioPlayer(contentsOfURL: fimFaseSound, error: nil)
-        audioPlayer.volume = 1.0
-        audioPlayer.play()
+        torneira = AVAudioPlayer(contentsOfURL: fimFaseSound, error: nil)
+        torneira.volume = 1.0
+        torneira.numberOfLoops = -1
+        torneira.play()
     }
     
     func chuveiroLigado(){
