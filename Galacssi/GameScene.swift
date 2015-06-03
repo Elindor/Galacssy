@@ -404,6 +404,7 @@ class GameScene: SKScene {
             save.callMute()
             botaoSom.removeFromParent()
             save.audioPlayer.stop()
+            botaoSemSom.zPosition = 10
             addChild(botaoSemSom)
         }
         else if(botaoSom.containsPoint(touchLocation) && !save.musicIsOn()){

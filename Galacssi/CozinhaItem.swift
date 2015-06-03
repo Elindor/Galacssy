@@ -17,6 +17,7 @@ class CozinhaItem : SKNode {
     var isError : Bool
     var msg : String
     var save: SaveHandler = SaveHandler()
+    var camada: CasaScene = CasaScene ()
     
     private var gameStateDelegate : GameStateDelegate
     
