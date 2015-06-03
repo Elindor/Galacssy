@@ -27,7 +27,7 @@ class CidadeScene : SKScene {
         textoCidade.text = "A cidade está em construção!"
         textoCidade.fontColor = SKColor.whiteColor()
         textoCidade.fontSize = 55
-        textoCidade.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame)+200)
+        textoCidade.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame)-300)
         self.addChild(textoCidade)
     }
     

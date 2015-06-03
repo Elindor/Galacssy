@@ -27,7 +27,7 @@ class FlorestaScene : SKScene {
         textoFloresta.text = "A floresta está em construção!"
         textoFloresta.fontColor = SKColor.whiteColor()
         textoFloresta.fontSize = 55
-        textoFloresta.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame)+200)
+        textoFloresta.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame)-300)
         self.addChild(textoFloresta)
     }
     
