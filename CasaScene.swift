@@ -116,9 +116,9 @@ class CasaScene: SKScene, GameStateDelegate {
         
 //        var musicaDeFundo = SKAction.playSoundFileNamed("Musica.mp3", waitForCompletion: true)
 //        self.runAction(SKAction.repeatActionForever(musicaDeFundo))
-        if(!save.musicIsOn()){
+        
             save.playAudio()
-        }
+       
 
         //Create House's buttons
         quartoButton = SKSpriteNode(imageNamed: "banheiro.jpg")
