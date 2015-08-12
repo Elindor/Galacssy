@@ -370,31 +370,45 @@ class GameScene: SKScene {
         }
         
         if (btnFarm.containsPoint(touchLocation)){
-            popupFarm.zPosition = layerObject3
-//            missionFarm.zPosition = layerObject3
-            changeScene = true
-            farm = true
+//            popupFarm.zPosition = layerObject3
+////            missionFarm.zPosition = layerObject3
+//            changeScene = true
+//            farm = true
+            let cenarioFazenda = FazendinhaScene(size: self.size)
+            cenarioFazenda.scaleMode = SKSceneScaleMode.AspectFill
+            self.scene!.view?.presentScene(cenarioFazenda, transition: transition)
         }
         
         if (btnFactory.containsPoint(touchLocation)){
-            popupFactory.zPosition = layerObject3
-//            missionFactory.zPosition = layerObject3
-            changeScene = true
-            factory = true
+//            popupFactory.zPosition = layerObject3
+////            missionFactory.zPosition = layerObject3
+//            changeScene = true
+//            factory = true
+            let cenarioFabrica = IndustriaScene(size: self.size)
+            cenarioFabrica.scaleMode = SKSceneScaleMode.AspectFill
+            self.scene!.view?.presentScene(cenarioFabrica, transition: transition)
+
         }
         
         if (btnBuilding.containsPoint(touchLocation)){
-            popupBuilding.zPosition = layerObject3
-//            missionBuilding.zPosition = layerObject3
-            changeScene = true
-            building = true
+//            popupBuilding.zPosition = layerObject3
+////            missionBuilding.zPosition = layerObject3
+//            changeScene = true
+//            building = true
+            let cenarioPredio = CidadeScene(size: self.size)
+            cenarioPredio.scaleMode = SKSceneScaleMode.AspectFill
+            self.scene!.view?.presentScene(cenarioPredio, transition: transition)
+
         }
         
         if (btnForest.containsPoint(touchLocation)){
-            popupForest.zPosition = layerObject3
-//            missionForest.zPosition = layerObject3
-            changeScene = true
-            forest = true
+//            popupForest.zPosition = layerObject3
+////            missionForest.zPosition = layerObject3
+//            changeScene = true
+//            forest = true
+            let cenarioFloresta = FlorestaScene(size: self.size)
+            cenarioFloresta.scaleMode = SKSceneScaleMode.AspectFill
+            self.scene!.view?.presentScene(cenarioFloresta, transition: transition)
         }
         
         if (btnSafeHouse.containsPoint(touchLocation)){
@@ -431,33 +445,33 @@ class GameScene: SKScene {
                 self.scene!.view?.presentScene(cenarioCasa, transition: transition)
             }
             
-            if (popupFarm.containsPoint(touchLocation) && farm){
-                changeScene = false
-                let cenarioFazenda = FazendinhaScene(size: self.size)
-                cenarioFazenda.scaleMode = SKSceneScaleMode.AspectFill
-                self.scene!.view?.presentScene(cenarioFazenda, transition: transition)
-            }
-            
-            if (popupFactory.containsPoint(touchLocation) && factory){
-                changeScene = false
-                let cenarioFabrica = IndustriaScene(size: self.size)
-                cenarioFabrica.scaleMode = SKSceneScaleMode.AspectFill
-                self.scene!.view?.presentScene(cenarioFabrica, transition: transition)
-            }
-            
-            if (popupBuilding.containsPoint(touchLocation) && building){
-                changeScene = false
-                let cenarioPredio = CidadeScene(size: self.size)
-                cenarioPredio.scaleMode = SKSceneScaleMode.AspectFill
-                self.scene!.view?.presentScene(cenarioPredio, transition: transition)
-            }
-            
-            if (popupForest.containsPoint(touchLocation) && forest){
-                changeScene = false
-                let cenarioFloresta = FlorestaScene(size: self.size)
-                cenarioFloresta.scaleMode = SKSceneScaleMode.AspectFill
-                self.scene!.view?.presentScene(cenarioFloresta, transition: transition)
-            }
+//            if (popupFarm.containsPoint(touchLocation) && farm){
+//                changeScene = false
+//                let cenarioFazenda = FazendinhaScene(size: self.size)
+//                cenarioFazenda.scaleMode = SKSceneScaleMode.AspectFill
+//                self.scene!.view?.presentScene(cenarioFazenda, transition: transition)
+//            }
+//            
+//            if (popupFactory.containsPoint(touchLocation) && factory){
+//                changeScene = false
+//                let cenarioFabrica = IndustriaScene(size: self.size)
+//                cenarioFabrica.scaleMode = SKSceneScaleMode.AspectFill
+//                self.scene!.view?.presentScene(cenarioFabrica, transition: transition)
+//            }
+//            
+//            if (popupBuilding.containsPoint(touchLocation) && building){
+//                changeScene = false
+//                let cenarioPredio = CidadeScene(size: self.size)
+//                cenarioPredio.scaleMode = SKSceneScaleMode.AspectFill
+//                self.scene!.view?.presentScene(cenarioPredio, transition: transition)
+//            }
+//            
+//            if (popupForest.containsPoint(touchLocation) && forest){
+//                changeScene = false
+//                let cenarioFloresta = FlorestaScene(size: self.size)
+//                cenarioFloresta.scaleMode = SKSceneScaleMode.AspectFill
+//                self.scene!.view?.presentScene(cenarioFloresta, transition: transition)
+//            }
         }
     }
     
