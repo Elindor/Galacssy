@@ -132,10 +132,10 @@ class BanheiroItem : SKNode, UIAlertViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        let touch = touches.first as! UITouch
-        let touchLocation = touch.locationInNode(self)
+        let touch = touches.first
+        let touchLocation = touch!.locationInNode(self)
         
         if (isError && tile.containsPoint(touchLocation)) {
             if gameStateDelegate.gameStateDelegateIncrement(msg, node: self) {
@@ -146,16 +146,20 @@ class BanheiroItem : SKNode, UIAlertViewDelegate {
         }
     }
     
-    func displayAlert (msg:String) {
-        let alert = UIAlertView(title: "Você sabia?", message: msg, delegate: self, cancelButtonTitle: "OK")
-        alert.show()
+    func displayAlert (msg:String, viewController : UIViewController) {
+//        let alert = UIAlertView(title: "Você sabia?", message: msg, delegate: self, cancelButtonTitle: "OK")
+//        alert.show()
+        let alert = UIAlertController(title: "Você sabia?", message: msg, preferredStyle: .Alert)
+        let cancelAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel) { UIAlertAction in }
+        alert.addAction(cancelAction)
+        viewController.presentViewController(alert, animated: true, completion: {})
     }
     
-    func waterLoop(#objeto: SKSpriteNode){
+    func waterLoop(objeto objeto: SKSpriteNode){
         objeto.alpha = 1
         objeto.position = CGPoint(x: -11.0, y: -0.0)
         movimento = SKAction.moveToY(-33.0, duration: 0.5)
-        var fade = SKAction.fadeOutWithDuration(0.7)
+        let fade = SKAction.fadeOutWithDuration(0.7)
         fade.timingMode = SKActionTimingMode.EaseIn
         objeto.runAction(fade)
         objeto.runAction(movimento, completion:{
@@ -170,11 +174,11 @@ class BanheiroItem : SKNode, UIAlertViewDelegate {
         
     }
     
-    func waterLoopChuveiro1(#objeto: SKSpriteNode){
+    func waterLoopChuveiro1(objeto objeto: SKSpriteNode){
         objeto.alpha = 1
         objeto.position = CGPoint(x: -11.0, y: -0.0)
         movimentoChuveiro = SKAction.moveToY(-500.0, duration: 2.5)
-        var fade = SKAction.fadeOutWithDuration(6)
+        let fade = SKAction.fadeOutWithDuration(6)
         fade.timingMode = SKActionTimingMode.EaseIn
         objeto.runAction(fade)
         objeto.runAction(movimentoChuveiro, completion:{
@@ -187,11 +191,11 @@ class BanheiroItem : SKNode, UIAlertViewDelegate {
         })
     }
     
-    func waterLoopChuveiro2(#objeto: SKSpriteNode){
+    func waterLoopChuveiro2(objeto objeto: SKSpriteNode){
         objeto.alpha = 1
         objeto.position = CGPoint(x: 15.0, y: -0.0)
         movimentoChuveiro = SKAction.moveToY(-500.0, duration: 2.5)
-        var fade = SKAction.fadeOutWithDuration(6)
+        let fade = SKAction.fadeOutWithDuration(6)
         fade.timingMode = SKActionTimingMode.EaseIn
         objeto.runAction(fade)
         objeto.runAction(movimentoChuveiro, completion:{

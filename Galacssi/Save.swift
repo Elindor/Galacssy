@@ -34,7 +34,7 @@ public class Save: NSObject, NSCoding {
         self.musicOn = true
     }
     
-    public required init(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         selectedCharacter = aDecoder.decodeIntegerForKey(charString)
         lastLogin = aDecoder.decodeObjectForKey(loginString) as! NSDate
         cleanLevel = aDecoder.decodeIntegerForKey(cleanString)
@@ -77,7 +77,7 @@ public class Save: NSObject, NSCoding {
         }
     }
     
-    func increaseCleanLevelBy(#ammount: Int){
+    func increaseCleanLevelBy(ammount ammount: Int){
         cleanLevel += ammount
         if cleanLevel > 100{
             cleanLevel = 100

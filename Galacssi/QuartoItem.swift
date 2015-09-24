@@ -83,7 +83,7 @@ class QuartoItem : SKNode {
                 radioIsOn = true
                 radioRef = objeto
                 if self.save.musicIsOn(){
-                    var audio = SKAction.playSoundFileNamed("RadioOn.mp3", waitForCompletion: true)
+                    let audio = SKAction.playSoundFileNamed("RadioOn.mp3", waitForCompletion: true)
                     objeto.runAction(SKAction.repeatActionForever(audio))
                 }
                 tile = SKSpriteNode(color: SKColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0), size: CGSizeMake(140, 115))
@@ -111,18 +111,18 @@ class QuartoItem : SKNode {
         
     }
     
-    func radioLoop(#objeto: SKSpriteNode){
+    func radioLoop(objeto objeto: SKSpriteNode){
         
-        var action1 = SKAction.moveBy(CGVectorMake(-50.0, -40.0), duration: 0.5)
-        var action2 = SKAction.moveBy(CGVectorMake(-50.0, 40.0), duration: 0.5)
-        var action3 = SKAction.moveBy(CGVectorMake(-50.0, 40.0), duration: 0.5)
-        var action4 = SKAction.moveBy(CGVectorMake(-50.0, -40.0), duration: 0.5)
+        let action1 = SKAction.moveBy(CGVectorMake(-50.0, -40.0), duration: 0.5)
+        let action2 = SKAction.moveBy(CGVectorMake(-50.0, 40.0), duration: 0.5)
+        let action3 = SKAction.moveBy(CGVectorMake(-50.0, 40.0), duration: 0.5)
+        let action4 = SKAction.moveBy(CGVectorMake(-50.0, -40.0), duration: 0.5)
         
-        var fader = SKAction.fadeOutWithDuration(1.8)
-        var timer = SKAction.waitForDuration(0.9)
+        let fader = SKAction.fadeOutWithDuration(1.8)
+        let timer = SKAction.waitForDuration(0.9)
         movimento = SKAction.sequence([action1, action2, action3, action4])
 
-        var random = (arc4random() % 40) % 4  // Double Seed
+        let random = (arc4random() % 40) % 4  // Double Seed
         let newNote: SKSpriteNode
 
         switch random{
@@ -157,10 +157,10 @@ class QuartoItem : SKNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        let touch = touches.first as! UITouch
-        let touchLocation = touch.locationInNode(self)
+        let touch = touches.first
+        let touchLocation = touch!.locationInNode(self)
         
         if (isError && tile.containsPoint(touchLocation)) {
             if gameStateDelegate.gameStateDelegateIncrement(msg, node: self) {
@@ -174,9 +174,13 @@ class QuartoItem : SKNode {
         }
     }
     
-    func displayAlert (msg:String) {
-        let alert = UIAlertView(title: "Você sabia?", message: msg, delegate: self, cancelButtonTitle: "OK")
-        alert.show()
+    func displayAlert (msg:String, viewController : UIViewController) {
+//        let alert = UIAlertView(title: "Você sabia?", message: msg, delegate: self, cancelButtonTitle: "OK")
+//        alert.show()
+        let alert = UIAlertController(title: "Você sabia?", message: msg, preferredStyle: .Alert)
+        let cancelAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel) { UIAlertAction in }
+        alert.addAction(cancelAction)
+        viewController.presentViewController(alert, animated: true, completion: {})
     }
 
 }

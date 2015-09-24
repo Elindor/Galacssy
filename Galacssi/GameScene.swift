@@ -112,25 +112,25 @@ class GameScene: SKScene {
         var gameData : NSDictionary? = NSDictionary(contentsOfFile: path)
         // Load gamedata template from mainBundle if no saveFile exists
         if gameData == nil {
-            var mainBundle = NSBundle.mainBundle()
+            let mainBundle = NSBundle.mainBundle()
             path = mainBundle.pathForResource("missoes", ofType: "plist")!
             gameData = NSDictionary(contentsOfFile: path)
         }
 
 
         //TESTE DE FONTE
-        labelNode.text = text
-        labelNode.position = CGPoint(x: 512, y: 700)
-        labelNode.zPosition = layerHud
+//        labelNode.text = text
+//        labelNode.position = CGPoint(x: 512, y: 700)
+//        labelNode.zPosition = layerHud
 //        addChild(labelNode)
         
-        labelNode2.text = text2
-        labelNode2.position = CGPoint(x: 512, y: 600)
-        labelNode2.zPosition = layerHud
+//        labelNode2.text = text2
+//        labelNode2.position = CGPoint(x: 512, y: 600)
+//        labelNode2.zPosition = layerHud
 //        addChild(labelNode2)
         
         //TEXTOS DAS MISSOES
-//        missionHouse.zPosition = layerBackground
+        missionHouse.zPosition = layerHide
         missionHouse.position = centerPopUp
         labelMissionHouse.text = textMissionHouse
         labelMissionHouse.zPosition = layerHide
@@ -193,7 +193,7 @@ class GameScene: SKScene {
         popupHouse.position = centerPopUp
         popupHouse.xScale = 0.5
         popupHouse.yScale = 0.5
-        popupHouse.zPosition = layerBackground
+        popupHouse.zPosition = layerHide
         
         //LOCAL FABRICA
         btnFactory.position = CGPoint(x: 780, y: 180)
@@ -205,7 +205,7 @@ class GameScene: SKScene {
         popupFactory.position = centerPopUp
         popupFactory.xScale = 0.5
         popupFactory.yScale = 0.5
-        popupFactory.zPosition = layerBackground
+        popupFactory.zPosition = layerHide
         
         //LOCAL FAZENDA
         btnFarm.position = CGPoint(x: 863, y: 664)
@@ -217,7 +217,7 @@ class GameScene: SKScene {
         popupFarm.position = centerPopUp
         popupFarm.xScale = 0.5
         popupFarm.yScale = 0.5
-        popupFarm.zPosition = layerBackground
+        popupFarm.zPosition = layerHide
         
         //LOCAL FLORESTA
         btnForest.position = CGPoint(x: 120, y: 690)
@@ -229,7 +229,7 @@ class GameScene: SKScene {
         popupForest.position = centerPopUp
         popupForest.xScale = 0.5
         popupForest.yScale = 0.5
-        popupForest.zPosition = layerBackground
+        popupForest.zPosition = layerHide
         
         //LOCAL PREDIOS
         btnBuilding.position = CGPoint(x: self.frame.size.width/2+15, y: 470)
@@ -241,7 +241,7 @@ class GameScene: SKScene {
         popupBuilding.position = centerPopUp
         popupBuilding.xScale = 0.5
         popupBuilding.yScale = 0.5
-        popupBuilding.zPosition = layerBackground
+        popupBuilding.zPosition = layerHide
         
         //OBJETOS ANIMADOS
         smoke1.position = CGPoint(x: 767, y: 230)
@@ -292,17 +292,19 @@ class GameScene: SKScene {
         self.addChild(smoke2)
         self.addChild(botaoSom)
         
+//        print(missionHouse.zPosition)
+        
         basicAnimations()
         save.save()
 
     
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         /* Called when a touch begins */
         
-        let touch = touches.first as! UITouch
-        let touchLocation = touch.locationInNode(self)
+        let touch = touches.first
+        let touchLocation = touch!.locationInNode(self)
         
         callScene(touchLocation)
         callInfo(touchLocation)
@@ -476,8 +478,8 @@ class GameScene: SKScene {
     }
     
     func updateLifeBar(){
-        var saveFile = self.save.getSave()
-        var factor : CGFloat = 788.0 / 100.0
+        let saveFile = self.save.getSave()
+        let factor : CGFloat = 788.0 / 100.0
         self.lifeCityStatus.size = CGSizeMake(factor * CGFloat(saveFile.cleanLevel), CGFloat(61.0))
     }
     
@@ -486,10 +488,14 @@ class GameScene: SKScene {
         self.updateLifeBar()
     }
     
-    func documentFilePath(#fileName: String) -> String {
-        var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        var documentsDirectory = paths[0] as! String
-        var path = documentsDirectory.stringByAppendingPathComponent(fileName)
+    func documentFilePath(fileName fileName: String) -> String {
+//        var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+//        var documentsDirectory = paths[0] as! String
+//        var path = documentsDirectory.stringByAppendingPathComponent(fileName)
+        let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+        let fileURL = documentsURL.URLByAppendingPathComponent(fileName)
+        let path = fileURL.path!
+
         return path
     }
     

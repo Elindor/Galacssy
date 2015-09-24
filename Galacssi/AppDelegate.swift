@@ -24,10 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let a = defaults.integerForKey("personagem")
         
         if (a != 0) && (a != 1) {
-            println("novo personagem")
+            print("novo personagem")
             defaults.setInteger(0, forKey: "personagem")
         } else {
-            println("personagem antigo: \(a)")
+            print("personagem antigo: \(a)")
         }
         
         return true

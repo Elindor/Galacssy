@@ -23,35 +23,40 @@ class SaveHandler {
         init(){
     
             // encontra endereços de save.
-            let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-            let documentsDirectory = paths[0] as! String
-            let path = documentsDirectory.stringByAppendingPathComponent("Saves.plist")
+//            let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+//            let documentsDirectory = paths[0] as! String
+//            let path = documentsDirectory.stringByAppendingPathComponent("Saves.plist")
+            let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+            let fileURL = documentsURL.URLByAppendingPathComponent("Saves.plist")
+            let path = fileURL.path!
             let fileManager = NSFileManager.defaultManager()
-    
     
             // Verifica a existencia de um arquivo anterior
             if !fileManager.fileExistsAtPath(path) {
                 // Cria o arquivo no caso da não existencia
                 if let bundle = NSBundle.mainBundle().pathForResource("DefaultFile", ofType: "plist") {
-                    fileManager.copyItemAtPath(bundle, toPath: path, error:nil)
+                    do {
+                        try fileManager.copyItemAtPath(bundle, toPath: path)
+                    } catch _ {
+                    }
                 }
             }
     
             // Verifica se há algum conteudo no arquivo de saves.
-            if let rawData = NSData(contentsOfFile: path) {
+//            if let rawData = NSData(contentsOfFile: path) {
                 // Em caso positivo, le conteudo
-                var scoreArray: AnyObject? = NSKeyedUnarchiver.unarchiveObjectWithData(rawData);
+//                var scoreArray: AnyObject? = NSKeyedUnarchiver.unarchiveObjectWithData(rawData); //(Comentado, pois nao estava sendo utilizado 24-09-15)
                 //self.tempArray = scoreArray as? [Save] ?? []
                 //self.savedFile = self.tempArray[0]
-            }
-            
+//            }
+    
             if tempArray.isEmpty{
                 let newHighScore = Save(playerNum: 0, name: "Nome")
                 self.tempArray.append(newHighScore)
 
             }
             
-            var new: Save = self.tempArray.first!
+            let new: Save = self.tempArray.first!
             new.updateTimeFactor()
             
         }
@@ -75,7 +80,7 @@ class SaveHandler {
     }
     
     func playAudio(){
-        audioPlayer = AVAudioPlayer(contentsOfURL: gameSound, error: nil)
+        audioPlayer = try! AVAudioPlayer(contentsOfURL: gameSound)
         audioPlayer.volume = 1.0
         audioPlayer.numberOfLoops = -1
         audioPlayer.play()
@@ -84,34 +89,34 @@ class SaveHandler {
     func audioObjetos(tipo : String){
         
         if (tipo == "geladeira"){
-        var geladeiraSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("FridgeClose", ofType: "mp3")!)
-        audioPlayer = AVAudioPlayer(contentsOfURL: geladeiraSound, error: nil)
+        let geladeiraSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("FridgeClose", ofType: "mp3")!)
+        audioPlayer = try! AVAudioPlayer(contentsOfURL: geladeiraSound)
         audioPlayer.volume = 1.0
             audioPlayer.play()
         }
         else if (tipo == "microondas"){
-            var microondasSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Microwave", ofType: "mp3")!)
-            audioPlayer = AVAudioPlayer(contentsOfURL: microondasSound, error: nil)
+            let microondasSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Microwave", ofType: "mp3")!)
+            audioPlayer = try! AVAudioPlayer(contentsOfURL: microondasSound)
             audioPlayer.volume = 1.0
             audioPlayer.play()
         }
         else if (tipo == "rádio"){
-            var radioSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("RadioSHUTOFF", ofType: "mp3")!)
-            audioPlayer = AVAudioPlayer(contentsOfURL: radioSound, error: nil)
+            let radioSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("RadioSHUTOFF", ofType: "mp3")!)
+            audioPlayer = try! AVAudioPlayer(contentsOfURL: radioSound)
             audioPlayer.volume = 1.0
             audioPlayer.play()
         }
         else{
-            var luzSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("click1", ofType: "mp3")!)
-            audioPlayer = AVAudioPlayer(contentsOfURL: luzSound, error: nil)
+            let luzSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("click1", ofType: "mp3")!)
+            audioPlayer = try! AVAudioPlayer(contentsOfURL: luzSound)
             audioPlayer.volume = 1.0
             audioPlayer.play()
         }
     }
     
     func audioFimFase(){
-        var fimFaseSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("brilinho3", ofType: "mp3")!)
-        audioPlayer = AVAudioPlayer(contentsOfURL: fimFaseSound, error: nil)
+        let fimFaseSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("brilinho3", ofType: "mp3")!)
+        audioPlayer = try! AVAudioPlayer(contentsOfURL: fimFaseSound)
         audioPlayer.volume = 1.0
         audioPlayer.play()
     }
@@ -139,36 +144,36 @@ class SaveHandler {
     }
     
     func getSave() -> Save{
-        var new: Save = self.tempArray.first!
+        let new: Save = self.tempArray.first!
         return new
     }
     
     func increaseCleanLevelByCompletedScene(){
-        var saveFile = getSave()
+        let saveFile = getSave()
         saveFile.increaseCleanLevelBy(ammount: 20)
         save()
     }
     
     func callMute(){
-        var saveFile = getSave()
+        let saveFile = getSave()
         saveFile.changeSoundOption()
         save()
     }
     
     func changeCharacter(newCharacter character: Int){
-        var saveFile = getSave()
+        let saveFile = getSave()
         saveFile.changeSoundOption()
         //saveFile.changeCharacterTo(novoPersonagem: 1)
         save()
     }
     
     func getCurrentCharacter() -> Int{
-        var saveFile = getSave()
+        let saveFile = getSave()
         return saveFile.selectedCharacter
     }
     
     func musicIsOn() -> Bool{
-        var saveFile = getSave()
+        let saveFile = getSave()
         return saveFile.musicOn
     }
 

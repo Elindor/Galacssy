@@ -32,10 +32,10 @@ class FazendinhaScene : SKScene {
         
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent){
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
         /* Called when a touch begins */
-        let touch = touches.first as! UITouch
-        let touchLocation = touch.locationInNode(self)
+//        let touch = touches.first
+//        let touchLocation = touch!.locationInNode(self)
         let cenarioMapa = GameScene(size: self.size)
         cenarioMapa.scaleMode = SKSceneScaleMode.AspectFill
         self.scene!.view?.presentScene(cenarioMapa, transition: transition)

@@ -96,10 +96,10 @@ class SalaItem : SKNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        let touch = touches.first as! UITouch
-        let touchLocation = touch.locationInNode(self)
+        let touch = touches.first
+        let touchLocation = touch!.locationInNode(self)
         
         if (isError && tile.containsPoint(touchLocation)) {
             if gameStateDelegate.gameStateDelegateIncrement(msg, node: self) {
@@ -110,9 +110,13 @@ class SalaItem : SKNode {
         
     }
     
-    func displayAlert (msg:String) {
-        let alert = UIAlertView(title: "Você sabia?", message: msg, delegate: self, cancelButtonTitle: "OK")
-        alert.show()
+    func displayAlert (msg:String, viewController : UIViewController) {
+//        let alert = UIAlertView(title: "Você sabia?", message: msg, delegate: self, cancelButtonTitle: "OK")
+//        alert.show()
+        let alert = UIAlertController(title: "Você sabia?", message: msg, preferredStyle: .Alert)
+        let cancelAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel) { UIAlertAction in }
+        alert.addAction(cancelAction)
+        viewController.presentViewController(alert, animated: true, completion: {})
     }
     
 }

@@ -28,7 +28,7 @@ class CozinhaItem : SKNode {
         
         isError = error
         
-        var fimFaseSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("waterDropLoop", ofType: "mp3")!)
+//        var fimFaseSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("waterDropLoop", ofType: "mp3")!) (Comentado, pois nao estava sedo utilizado 24-09-15)
 //        torneira = AVAudioPlayer(contentsOfURL: fimFaseSound, error: nil)
 //        torneira.volume = 1.0
         
@@ -107,16 +107,16 @@ class CozinhaItem : SKNode {
         
     }
     
-    func waterLoop(#objeto: SKSpriteNode){
+    func waterLoop(objeto objeto: SKSpriteNode){
         objeto.alpha = 1
         objeto.position = CGPoint(x: 16.0, y: -3.0)
         movimento = SKAction.moveToY(-33.0, duration: 0.5)
-        var fade = SKAction.fadeOutWithDuration(0.7)
+        let fade = SKAction.fadeOutWithDuration(0.7)
         fade.timingMode = SKActionTimingMode.EaseIn
         objeto.runAction(fade)
         objeto.runAction(movimento, completion:{
             if self.save.musicIsOn(){
-                var audio = SKAction.playSoundFileNamed("Droplet.wav", waitForCompletion: false)
+                let audio = SKAction.playSoundFileNamed("Droplet.wav", waitForCompletion: false)
                 self.runAction(audio)
             }
             objeto.runAction(SKAction.waitForDuration(0.5), completion:{                
@@ -131,10 +131,10 @@ class CozinhaItem : SKNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        let touch = touches.first as! UITouch
-        let touchLocation = touch.locationInNode(self)
+        let touch = touches.first
+        let touchLocation = touch!.locationInNode(self)
         
         if (isError && tile.containsPoint(touchLocation)) {
             
@@ -148,9 +148,13 @@ class CozinhaItem : SKNode {
         
     }
     
-    func displayAlert (msg:String) {
-        let alert = UIAlertView(title: "Você sabia?", message: msg, delegate: self, cancelButtonTitle: "OK")
-        alert.show()
+    func displayAlert (msg:String, viewController : UIViewController) {
+//        let alert = UIAlertView(title: "Você sabia?", message: msg, delegate: self, cancelButtonTitle: "OK")
+//        alert.show()
+        let alert = UIAlertController(title: "Você sabia?", message: msg, preferredStyle: .Alert)
+        let cancelAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel) { UIAlertAction in }
+        alert.addAction(cancelAction)
+        viewController.presentViewController(alert, animated: true, completion: {})
     }
     
     
