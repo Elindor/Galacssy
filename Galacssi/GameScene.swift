@@ -172,9 +172,11 @@ class GameScene: SKScene {
 //        println("\(self.frame.size.width/2, self.frame.size.height/2)")
         
         botaoSom.position = CGPoint(x: 950, y: 45)
+        botaoSom.zPosition = layerObject1
         botaoSom.setScale(0.5)
         
         botaoSemSom.position = CGPoint(x: 950, y: 45)
+        botaoSemSom.zPosition = layerObject1
         botaoSemSom.setScale(0.5)
         
         //PREDIOS
