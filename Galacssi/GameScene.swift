@@ -486,8 +486,8 @@ class GameScene: SKScene {
     }
     
     func completeScene(){
-        self.save.increaseCleanLevelByCompletedScene()
-        self.updateLifeBar()
+        //self.save.increaseCleanLevelByCompletedScene()
+        //self.updateLifeBar()
     }
     
     func documentFilePath(fileName fileName: String) -> String {

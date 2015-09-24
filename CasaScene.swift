@@ -51,6 +51,8 @@ class CasaScene: SKScene, GameStateDelegate {
     
     //CAMADAS
     var camadaHide:CGFloat = 0
+    var camadaFundo:CGFloat = 0.25
+    var camadaNuvem:CGFloat = 0.5
     var camadaMenu:CGFloat = 1
     var camadaButtons:CGFloat = 2
     var camadaAmbiente:CGFloat = 3
@@ -187,19 +189,19 @@ class CasaScene: SKScene, GameStateDelegate {
         
         //OBJETOS ANIMADOS
         nuvemG1.position = CGPoint(x: -nuvemG1.size.width, y: 600)
-        nuvemG1.zPosition = camadaMenu
+        nuvemG1.zPosition = camadaNuvem
         addChild(nuvemG1)
         
         nuvem1.position = CGPoint(x: -nuvem1.size.width, y: 530)
         nuvem1.xScale = 0.5
         nuvem1.yScale = 0.5
-        nuvem1.zPosition = camadaMenu
+        nuvem1.zPosition = camadaNuvem
         addChild(nuvem1)
         
         nuvem2.position = CGPoint(x: -nuvem2.size.width, y: 700)
         nuvem2.xScale = 0.5
         nuvem2.yScale = 0.5
-        nuvem2.zPosition = camadaMenu
+        nuvem2.zPosition = camadaNuvem
         addChild(nuvem2)
         
         // Create banheiro
@@ -307,7 +309,7 @@ class CasaScene: SKScene, GameStateDelegate {
         let temp = SKSpriteNode(color: UIColor(red: 62.0/255, green: 205.0/255, blue: 1, alpha: 1), size: CGSize(width: self.frame.width,height: self.frame.height))
         sky = temp
         sky.anchorPoint = CGPointZero
-        sky.zPosition = camadaMenu
+        sky.zPosition = camadaFundo
         addChild(sky)
         
         basicAnimations()
